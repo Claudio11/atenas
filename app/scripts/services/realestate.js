@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('atenasApp')
-  .factory('RealEstate', function RealEstate($http, $filter, Util) {
+  .factory('RealEstate', function RealEstate($http, $filter, $q, Util) {
   	
     function RealEstate(data){
         this.type = data.type; // See if its worthy to create subclasses (house, apartment, etc).
@@ -33,27 +33,22 @@ angular.module('atenasApp')
     };
 
     RealEstate.getList = function() {
-        // TODO: retrieve it from DB.
-        var rs1 = new RealEstate({type: 'house', sale: true, rent: false, salePrice:50000, description: 'Linda casa con vista al mar', currency: 'us'});
-        var rs2 = new RealEstate({type: 'apartment', sale: false, rent: true, rentPrice:9000, description: 'Apartamento en ciudad vieja', currency: 's'});
-        var rs3 = new RealEstate({type: 'house', sale: false, rent: true, rentPrice:19000, description: 'Casa en venta en prado', currency: 's'});
-        var rs4 = new RealEstate({type: 'apartment', sale: true, rent: false, salePrice:109000, description: 'Apartamento contra la rambla', currency: 'us'});
-        return [rs1, rs2, rs3, rs4];
-        // $http({
-        //     method: 'GET',
-        //     url: 'tempApi/properties.php',
-        //     data: { 'message' : 'message' }
-        // })
-        //     .then(function(response) {
-        //         // success
-        //         console.info('succ', response);
-        //     }, 
-        //     function(response) { // optional
-        //         // failed
-        //         console.info('failed');
-        //     }
-        // );
+        var deferred = $q.defer();
+        var realEstatesList = [];
 
+        // TODO add web security checks.
+        $http({
+            method: 'GET',
+            url: 'api/properties'
+        })
+        .then(function(response) {
+            angular.forEach(response.data, function(value, key) {
+                realEstatesList.push( new RealEstate(value) );
+            });
+            deferred.resolve(realEstatesList);
+        });
+
+        return deferred.promise;
     };
 
     return RealEstate;

@@ -21,7 +21,12 @@ angular
     $routeProvider
       .when('/', {
         templateUrl: 'views/realEstates.html',
-        controller: 'RealEstatesCtrl'
+        controller: 'RealEstatesCtrl',
+        resolve: {
+          realEstatesList: function (RealEstate) {
+            return RealEstate.getList();
+          }
+        }
       })
       .when('/about', {
         templateUrl: 'views/about.html',

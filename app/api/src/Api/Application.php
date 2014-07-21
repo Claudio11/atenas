@@ -61,6 +61,8 @@ class Application extends Slim
         $this->get('/api/properties', function () {
             // $features = new Features($this->config['features']);
 
+            // TODO: create util connect class, call it from there.
+            // TODO: create php RealEstate class, get queries from there.
             $server = 'localhost';
             $user = 'root';
             $pass = '22octubre';
@@ -71,7 +73,8 @@ class Application extends Slim
                 die('Could not connect: ' . mysql_error());
             }
 
-            $result = $db->query( 'SELECT description FROM properties;' );
+            // Todo add web security.
+            $result = $db->query( 'SELECT type, sale, rent, rentPrice, salePrice, currency, description FROM properties;' );
             $data = array();
             while ( $row = $result->fetch_array(MYSQLI_ASSOC) ) {
                 $data[] = $row;

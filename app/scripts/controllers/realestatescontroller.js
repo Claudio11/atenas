@@ -1,23 +1,22 @@
 'use strict';
 
 angular.module('atenasApp')
-  .controller('RealEstatesCtrl', function ($scope, $filter, RealEstate) {
-    $scope.filterData = {};
-    $scope.realEstates = RealEstate.getList();
+  .controller('RealEstatesCtrl', function ($scope, $filter, realEstatesList) {
 
-    // this logic belongs to Filter controller TODO: change it.
-    $scope.filteredList = $scope.realEstates;
+    $scope.filterData = {};
+    $scope.filteredList = $scope.realEstates = realEstatesList;
 
     // Fields that can be filtered.
     var filterableFields = ['filterData.generalSearch', 'filterData.sale'];
 
     angular.forEach(filterableFields, function(field) {
-        $scope.$watch(field, function(newValue, oldValue) {
-            if (newValue !== oldValue){
-                $scope.filteredList = $filter('mainRealEstateFilter')($scope.realEstates, 
-                                                                 {generalSearch: $scope.filterData.generalSearch,
-                                                                  sale: $scope.filterData.sale});
-            }
-        });
+      // Watch every change of a filterable field and filter the list.
+      $scope.$watch(field, function(newValue, oldValue) {
+          if (newValue !== oldValue){
+              $scope.filteredList = $filter('mainRealEstateFilter')($scope.realEstates, 
+                                                               {generalSearch: $scope.filterData.generalSearch,
+                                                                sale: $scope.filterData.sale});
+          }
+      });
     });
   });
