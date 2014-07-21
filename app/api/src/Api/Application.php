@@ -3,6 +3,7 @@
 namespace Api;
 
 use Api\Model\Features;
+use Api\Model\Property;
 use \Slim\Slim;
 use \Exception;
 
@@ -59,30 +60,9 @@ class Application extends Slim
 
         // Properties
         $this->get('/api/properties', function () {
-            // $features = new Features($this->config['features']);
-
-            // TODO: create util connect class, call it from there.
-            // TODO: create php RealEstate class, get queries from there.
-            $server = 'localhost';
-            $user = 'root';
-            $pass = '22octubre';
-            $database = 'atenas';
-            $db = new \mysqli($server, $user, $pass, $database);
-
-            if (!$db) {
-                die('Could not connect: ' . mysql_error());
-            }
-
-            // Todo add web security.
-            $result = $db->query( 'SELECT type, sale, rent, rentPrice, salePrice, currency, description FROM properties;' );
-            $data = array();
-            while ( $row = $result->fetch_array(MYSQLI_ASSOC) ) {
-                $data[] = $row;
-            }
-
-            //$db_select = mysql_select_db("databasename",$db);
+            $properties = new Property();
             $this->response->headers->set('Content-Type', 'application/json');
-            $this->response->setBody(json_encode($data));
+            $this->response->setBody(json_encode($properties->getProperties()));
         });
     }
 
