@@ -1,0 +1,23 @@
+<div>
+    Filtros:
+    Busqueda: <input type="text" ng-model="filterData.generalSearch"/>
+    Venta: <input type="checkbox" ng-model="filterData.sale"/>
+  </div>
+
+  <ul>
+    <!-- List of properties -->
+    <li ng-repeat="estate in filteredList">
+      <ul>
+        <li>
+          {{estate.description}}
+        </li>
+        <li ng-show="estate.salePrice">
+          {{estate.currency.label}} {{estate.salePrice}}
+        </li>
+        <li ng-show="estate.rentPrice">
+          {{estate.currency.label}} {{estate.rentPrice}}
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
