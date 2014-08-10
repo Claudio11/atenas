@@ -24,6 +24,11 @@ body {
   padding-bottom: 19px;
 }
 
+.list-container {
+  max-height: 80px;
+  overflow-y: auto;
+}
+
 /* Custom page footer */
 .footer {
   padding-top: 19px;

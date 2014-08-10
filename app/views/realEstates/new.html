@@ -1,0 +1,11 @@
+<h3>Nueva propiedad</h3>
+
+<form novalidate class="css-form">
+	Description:
+	  <input type="text" ng-model="realEstate.description" required /><br />
+	E-mail: <input type="email" ng-model="user.email" required /><br />
+	Tipo: <input type="radio" ng-model="user.type" value="house" />Casa
+	<input type="radio" ng-model="user.type" value="apartment" />Apartamento<br />
+	<!-- <button ng-click="reset()">RESET</button> -->
+	<button ng-click="update(user)">Salvar</button>
+</form>

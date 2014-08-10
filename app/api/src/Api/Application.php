@@ -64,6 +64,13 @@ class Application extends Slim
             $this->response->headers->set('Content-Type', 'application/json');
             $this->response->setBody(json_encode($properties->getProperties()));
         });
+
+        // Properties
+        $this->get('/api/propertiesAfterId', function () {
+            $properties = new Property();
+            $this->response->headers->set('Content-Type', 'application/json');
+            $this->response->setBody(json_encode($properties->getPropertiesAfterId()));
+        });
     }
 
     public function handleNotFound()

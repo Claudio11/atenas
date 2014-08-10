@@ -20,7 +20,7 @@ angular
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/realEstates.html',
+        templateUrl: 'views/realEstates/list.html',
         controller: 'RealEstatesCtrl',
         resolve: {
           realEstatesList: function (RealEstate) {
@@ -31,6 +31,10 @@ angular
       .when('/about', {
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
+      })
+      .when('/realEstates/new', {
+        templateUrl: 'views/realEstates/new.html',
+        controller: 'CreateRealEstatesCtrl'
       })
       .otherwise({
         redirectTo: '/'

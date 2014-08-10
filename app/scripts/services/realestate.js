@@ -4,6 +4,7 @@ angular.module('atenasApp')
   .factory('RealEstate', function RealEstate($http, $filter, $q, Util) {
   	
     function RealEstate(data){
+        this.id = data.id;
         this.type = data.type; // See if its worthy to create subclasses (house, apartment, etc).
         this.sale = data.sale; // boolean (it can be both sale and rent)
         this.rent = data.rent; // boolean
@@ -40,6 +41,25 @@ angular.module('atenasApp')
         $http({
             method: 'GET',
             url: 'api/properties'
+        })
+        .then(function(response) {
+            angular.forEach(response.data, function(value, key) {
+                realEstatesList.push( new RealEstate(value) );
+            });
+            deferred.resolve(realEstatesList);
+        });
+
+        return deferred.promise;
+    };
+
+    RealEstate.getListAfterId = function(realEstateId) {
+        var deferred = $q.defer();
+        var realEstatesList = [];
+
+        // TODO add web security checks.
+        $http({
+            method: 'GET',
+            url: 'api/propertiesAfterId'
         })
         .then(function(response) {
             angular.forEach(response.data, function(value, key) {
