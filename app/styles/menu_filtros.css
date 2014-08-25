@@ -1,0 +1,112 @@
+* { outline: none !important; }
+a, a:visited, a:hover, a:active { text-decoration: none; color: inherit; }
+
+/*
+ * ================= Freebie Styles =================
+ */
+
+ul.accordion *
+{
+	box-sizing: border-box !important;
+	-webkit-box-sizing: border-box !important;
+	-moz-box-sizing: border-box !important;
+	-ms-box-sizing: border-box !important;
+}
+
+ul.accordion
+{
+	list-style: none !important;
+	width: 300px;
+}
+	ul.accordion li
+	{
+		position: relative;
+	}
+
+	ul.accordion > li
+	{
+		margin-bottom: 2px;
+	}
+
+	ul.accordion > li:last-child
+	{
+		margin-bottom: 0;
+	}
+
+		ul.accordion > li span.name
+		{
+			background: #1bbc9b url(../images/more.png) no-repeat 6px;
+			display: inline-block;
+			width: 100%;
+			padding: 15px 20px 15px 40px;
+			color: #ffffff;
+		}
+
+			ul.accordion > li span.name:hover
+			{
+				background-color: #23c8a6;
+				cursor: pointer;
+			}
+
+		ul.accordion > li span.notifications
+		{
+			position: absolute;
+			top: 12px;
+			right: 10px;
+			display: inline-block;
+			float: right;
+			padding: 3px 0;
+			width: 24px;
+			height: 24px;
+			border: 2px solid #ffffff;
+			color: #ffffff;
+			font-size: 12px;
+			text-align: center;
+			-webkit-border-radius: 12px;
+			-moz-border-radius: 12px;
+			border-radius: 12px;
+		}
+
+		ul.accordion > li.open span.name
+		{
+			background: #ffffff url(../images/less.png) no-repeat 6px;
+			color: #6f6f71;
+		}
+
+			ul.accordion > li.open span.name:hover
+			{
+				background-color: #ebebeb;
+				cursor: pointer;
+			}
+
+			ul.accordion > li.open span.notifications
+			{
+				border-color: #cdcdcd;
+				color: #cdcdcd;
+			}
+
+			ul.accordion > li.open > ul
+			{
+				list-style: none !important;
+				padding: 0;
+				margin: 0;
+				background-color: #ffffff;
+				color: #6f6f71;
+			}
+
+			ul.accordion > li.open > ul > li
+			{
+				border-top: 1px solid #d5d6d8;
+			}
+
+				ul.accordion > li.open > ul > li span.name
+				{
+					background: none;
+					padding: 17px 20px 17px 40px;
+					font-size: 12px;
+				}
+
+			ul.accordion > li.open > ul > li:hover
+			{
+				background-color: #ebebeb;
+			}

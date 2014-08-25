@@ -13,30 +13,140 @@
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
+
+    <link href="styles/style.css" rel="stylesheet" type="text/css"  media="all" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link href="styles/slider.css" rel="stylesheet" type="text/css"  media="all" />
+    <link rel="stylesheet" type="text/css" href="vendor/3DGridEffect/css/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="vendor/3DGridEffect/css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="vendor/3DGridEffect/css/component.css" />
+    <link rel="stylesheet" type="text/css" href="styles/menu_filtros.css" />
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript">
+      jQuery(document).ready(function($) {
+        $(".scroll").click(function(event){   
+          event.preventDefault();
+          $('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
+        });
+
+        $("ul.accordion span.name").click(function()
+        {
+          var $li = $( this ).parent("li").has("ul");
+
+          if( $li.hasClass("open") )
+          {
+            $li.find("ul").slideUp('slow', function( ){
+              $li.removeClass("open");
+            });
+          }
+          else
+          {
+            $li.addClass("open");
+            $li.find("ul").slideDown('slow');
+          }
+        });
+      });
+    </script>
   </head>
   <body ng-app="atenasApp">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
+    <!-- start-wrap -->
+    <div class="wrap">
+      <!-- start-header -->
+      <div class="header"  id="top">
+        <!-- top-header -->
+        <div class="top-header">
+          <!-- start-logo -->
+          <div class="logo">
+            <a href="index.html"><img src="images/logo.png" title="logo" /></a>
+          </div>
+          <!-- End-logo -->
+          <!-- start-social-icons -->
+          <div class="social-icons">
+            <ul>
+              <li><a href="#"><img src="images/google.png" title="mercado libre" /></a></li>
+            </ul>
+          </div>
+          <div class="clear"> </div>
+          <!-- End-social-icons -->
+        </div>
+        <!-- End-top-header -->
+        <!-- start-top-nav -->
+        <div class="top-nav">
+          <div class="top-nav-left">
+            <ul>
+              <li class="active"><a href="index.html">Inicio</a></li>
+              <li><a href="propiedades.html">Propiedades</a></li>
+              <li><a href="contacto.html">Contacto</a></li>
+              
+              <div class="clear"> </div>
+            </ul>
+          </div>
+          <div class="top-nav-right">
+            <form>
+              <input type="text"><input type="submit" value="" />
+            </form>
+          </div>
+          <div class="clear"> </div>
+        </div>
+        <!-- End-top-nav -->
+      </div>
+      <!-- End-header -->
+    </div>
+    <!-- End-wrap -->
+
     <!-- Add your site or application content here -->
     <div class="container">
-      <div class="header">
-        <ul class="nav nav-pills pull-right">
-          <li class="active"><a ng-href="#">Home</a></li>
-          <li><a ng-href="#/about">About</a></li>
-          <li><a ng-href="#">Contact</a></li>
-        </ul>
-        <h3 class="text-muted">atenas</h3>
-      </div>
 
       <div ng-view=""></div>
 
-      <div class="footer">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
-      </div>
     </div>
 
+    <!---start-footer---->
+    <div class="footer">
+        <div class="wrap">
+          <div class="footer-grid">
+            <h3>Quienes somos</h3>
+            <p>Atenas Inmobiliaria es una empresa establecida en Montevideo,Uruguay desde 19XX. El éxito de la compañía a lo largo de los años está basado, ante todo, en la reputación que ha logrado por su calidad e integridad, dos principios en los que se fundamenta su forma de trabajar.</p>
+            
+          </div>
+          <div class="footer-grid center-grid">
+            <h3>Asociaciones</h3>
+            <ul>
+              <li><a href="http://www.inmuebles.com.uy" target="_blank">inmuebles.com.uy</a></li>
+              <li><a href="http://www.adiu.com.uy" target="_blank">adiu.com.uy</a></li>
+              <li><a href="mailto:atenasinmob@gmail.com">Contáctenos</a></li>
+            </ul>
+          </div>
+          <div class="footer-grid twitts">
+            <h3>ATENAS INMOBILIARIA</h3>
+            <p>Comparte tus mejores momentos<br>
+              Descubre nuevas experiencias<br>
+              Disfruta cada minuto de tu tiempo<br>
+              Siente un mundo de emociones
+                    </p>
+          </div>
+          <div class="footer-grid">
+            <h3>SERVICIOS</h3>
+            <p>Consulte nuestra selección de propiedades en alquiler y venta en Uruguay. Si no encuentra ninguna propiedad que se adapte a sus necesidades, no dude en contactarnos.</p>
+            <a href="propiedades.html">ver mas</a>
+          </div>
+          <div class="clear"> </div>
+        </div>
+        <div class="clear"> </div>
+    </div>
+    <div class="copy-right">
+      <div class="top-to-page">
+              <a href="#top" class="scroll"> </a>
+              <div class="clear"> </div>
+      </div>
+      <p>Diseño de <a href="victoriadasilva.com.uy/"> Victoria Da Silva</a></p>
+    </div>
+    <!---End-footer---->
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
      <script>
@@ -78,5 +188,9 @@
         <script src="scripts/directives/infinitescroll.js"></script>
         <!-- endbuild -->
         <script src="scripts/libs/util.js"></script>
+        <script src="vendor/3DGridEffect/js/modernizr.custom.js"></script>
+        <script src="vendor/3DGridEffect/js/classie.js"></script>
+        <script src="vendor/3DGridEffect/js/helper.js"></script>
+        <script src="vendor/3DGridEffect/js/grid3d.js"></script>
 </body>
 </html>

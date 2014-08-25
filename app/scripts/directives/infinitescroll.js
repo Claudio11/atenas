@@ -10,29 +10,14 @@ angular.module('atenasApp')
             list: "=", // List to append when reaching bottom.
             // If needed create here the condition to search on the DB (most common last date).
         },
-        template:  // TODO: templateUrl
-           '<div class="list-container">' +
-              '<ul><!-- List of properties TODO use templateUrl-->' +
-                '<li ng-repeat="estate in list">' +
-                  '<ul>' +
-                    '<li>' +
-                    '  {{estate.description}}' +
-                    '</li>' +
-                    '<li ng-show="estate.salePrice">' +
-                    '  {{estate.currency.label}} {{estate.salePrice}}' +
-                    '</li>' +
-                    '<li ng-show="estate.rentPrice">' +
-                    '  {{estate.currency.label}} {{estate.rentPrice}}' +
-                    '</li>' +
-                  '</ul>' +
-                '</li>' +
-              '</ul>' +
-            '</div>'
-        ,
+        templateUrl: 'views/realEstates/list-template.html',
         link: function(scope, element, attrs) {
             // Check when the element scroll is near bottom, then we retrieve the elements after the id (sorted by date) and append it to the existing list.
             var isAbleToRequest = true; // Boolean that indicates if is ok to send a request (while is retrieving we should not allow to request even if the scroll is at the bottom). 
             
+            // Added grid element (TODO: see if we have time to remove this gallery).
+            //new grid3D( document.getElementById( 'grid3d' ) );
+
             /**
              *  Method in charge of get the last id of the list (so we know from what id to retrieve items).
              */
