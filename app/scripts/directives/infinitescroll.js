@@ -31,23 +31,40 @@ angular.module('atenasApp')
         ,
         link: function(scope, element, attrs) {
             // Check when the element scroll is near bottom, then we retrieve the elements after the id (sorted by date) and append it to the existing list.
-            console.info(scope.list);
-
-            // Set last retrieved id.
-            var lastId = scope.list[scope.list.length -1].id;
-            if (!Util.isEmpty(lastId)) {
-                scope.lastId = lastId;
+            var isAbleToRequest = true; // Boolean that indicates if is ok to send a request (while is retrieving we should not allow to request even if the scroll is at the bottom). 
+            
+            /**
+             *  Method in charge of get the last id of the list (so we know from what id to retrieve items).
+             */
+            var getLastId = function() {
+                var lastId;
+                if (scope.list.length > 0) {
+                    lastId = scope.list[scope.list.length -1].id;
+                }
+                return lastId;
             }
 
+            scope.lastId = getLastId();
             var elem = element[0];
+
             element.on('scroll', function() {
-                if (elem.scrollHeight - 10 <= elem.scrollTop + elem.offsetHeight) {
-                    // Near the bottom of the list so we retrieve the new data...
-                    elem.scrollTop = 0;
-                    var promise = RealEstate.getListAfterId();
-                    promise.then(function(realEstateList){
-                        scope.list = scope.list.concat(realEstateList);
-                    });
+                console.info(isAbleToRequest);
+                if (isAbleToRequest) {
+                    if (elem.scrollHeight - 10 <= elem.scrollTop + elem.offsetHeight) {
+                        // Near the bottom of the list so we retrieve the new data...
+                        var currentScroll = elem.scrollTop;
+                        isAbleToRequest = false;
+                        var promise = RealEstate.getListAfterId();
+                        // TODO add element (preloading) while retrieves elements, then delete it (directive(?)).
+                        promise.then(function(realEstateList){
+                            if (realEstateList.length > 0) {
+                                scope.list = scope.list.concat(realEstateList);
+                                scope.lastId = getLastId();
+                                elem.scrollTop = currentScroll;
+                            }
+                            isAbleToRequest = true;
+                        });
+                    }
                 }
             });
         }
