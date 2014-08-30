@@ -31,14 +31,21 @@ class Property
 
     public function getProperties()
     {
-        return $this->loadListFromQuery('SELECT id, type, sale, rent, rentPrice, salePrice, currency, description FROM properties LIMIT 3;');
+        return $this->loadListFromQuery('SELECT id, type, sale, rent, rentPrice, salePrice, currency, title, description FROM properties LIMIT 3;');
     }
 
     /**
      *  Obtain the list of properties after the given Id (sorted by created data desc).
      */
     public function getPropertiesAfterId() {
-        return $this->loadListFromQuery('SELECT id, type, sale, rent, rentPrice, salePrice, currency, description FROM properties WHERE id > 2 LIMIT 10;');
+        return $this->loadListFromQuery('SELECT id, type, sale, rent, rentPrice, salePrice, currency, title, description FROM properties WHERE id > 2 LIMIT 10;');
+    }
+
+    /**
+     *  Save the Property.
+     */
+    public function save() {
+        return $this->loadListFromQuery('SELECT id, type, sale, rent, rentPrice, salePrice, currency, title, description FROM properties WHERE id > 2 LIMIT 10;');
     }
 
     public function getFeature($id)

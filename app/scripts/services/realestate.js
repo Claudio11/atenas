@@ -10,6 +10,7 @@ angular.module('atenasApp')
         this.rent = data.rent; // boolean
         this.salePrice = data.salePrice;
         this.rentPrice = data.rentPrice;
+        this.title = data.title;
         this.description = data.description;
         this.currency = Util.getCurrency(data.currency); // object with the format: {label: "u$", usRatio: 1} usRatio = current currency by dollar, i.e.: $ => {label: "$", usRatio: 23.05}.
     };
@@ -32,6 +33,23 @@ angular.module('atenasApp')
         }
         return matches;
     };
+
+    /**
+     *  Save {this}.
+     */
+    RealEstate.prototype.save = function(){
+        var deferred = $q.defer();
+        var collectedData = {'data': this};
+        console.info(collectedData);
+        $http({
+            data: collectedData,
+            method: 'POST',
+            url: 'api/properties/new'
+        })
+        .then(function(response) {
+            console.info('asasda', response);
+        });
+    }
 
     RealEstate.getList = function() {
         var deferred = $q.defer();

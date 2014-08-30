@@ -17,7 +17,8 @@
   border-bottom: 1px solid #e5e5e5;
 }*/
 /* Make the masthead heading the same height as the navigation */
-/*.header h3 {
+
+.header h3 {
   margin-top: 0;
   margin-bottom: 0;
   line-height: 40px;
@@ -25,10 +26,14 @@
 }
 
 .list-container {
-  max-height: 80px;
+  max-height: 480px;
   overflow-y: auto;
 }
-*/
+
+  .list-container figure > img {
+    max-height: 120px;
+  }
+
 /* Custom page footer */
 /*.footer {
   padding-top: 19px;
@@ -64,3 +69,8 @@
   margin-top: 28px;
 }
 */
+
+/* Save & update */
+.container strong, .container span{
+  color: grey;
+}

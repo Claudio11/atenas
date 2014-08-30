@@ -1,54 +1,24 @@
-<section class="grid3d vertical" id="grid3d">
+<section class="grid3d vertical list-container" id="grid3d">
   <h3>propiedades</h3>
   <div class="grid-wrap">
     <div class="grid">
-      <figure>
+
+      <figure ng-repeat="estate in list">
         <img src="3DGridEffect/img/1.jpg" alt="img01"/>
-        <h4>Aenean nonummy hendrerit</h4>
+        <h4>{{estate.title}}</h4>
         <p style="color:#666; font-size:12px">
-          Praesent vestibulum molestie lacus. Aenean nonummy hendrerit mauris. Phasellus porta. Fusce suscipit varius mi. Cum sociis natoque penatibus et magnis dis parturient montes.
+           <span ng-show="estate.salePrice">
+              {{estate.currency.label}} {{estate.salePrice}}
+            </span>
+            <span ng-show="estate.rentPrice">
+              {{estate.currency.label}} {{estate.rentPrice}}
+            </span>
+            <p>
+              {{estate.description}}
+            </p>
         </p>
       </figure>
-      <figure>
-                    <img src="3DGridEffect/img/2.jpg" alt="img05"/>
-                      <h4>Aenean nonummy hendrerit</h4>
-        <p style="color:#666; font-size:12px">Praesent vestibulum molestie lacus. Aenean nonummy hendrerit mauris. Phasellus porta. Fusce suscipit varius mi. Cum sociis natoque penatibus et magnis dis parturient montes.</p>
-                  </figure>
-      <figure>
-                    <img src="3DGridEffect/img/3.jpg" alt="img08"/>
-                      <h4>Aenean nonummy hendrerit</h4>
-        <p style="color:#666; font-size:12px">Praesent vestibulum molestie lacus. Aenean nonummy hendrerit mauris. Phasellus porta. Fusce suscipit varius mi. Cum sociis natoque penatibus et magnis dis parturient montes.</p>
-                  </figure>
-      <figure>
-                    <img src="3DGridEffect/img/4.jpg" alt="img02"/>
-                      <h4>Aenean nonummy hendrerit</h4>
-        <p style="color:#666; font-size:12px">Praesent vestibulum molestie lacus. Aenean nonummy hendrerit mauris. Phasellus porta. Fusce suscipit varius mi. Cum sociis natoque penatibus et magnis dis parturient montes.</p>
-                  </figure>
-      <figure>
-                    <img src="3DGridEffect/img/1.jpg" alt="img04"/>
-                      <h4>Aenean nonummy hendrerit</h4>
-        <p style="color:#666; font-size:12px">Praesent vestibulum molestie lacus. Aenean nonummy hendrerit mauris. Phasellus porta. Fusce suscipit varius mi. Cum sociis natoque penatibus et magnis dis parturient montes.</p>
-                  </figure>
-      <figure>
-                    <img src="3DGridEffect/img/2.jpg" alt="img03"/>
-                      <h4>Aenean nonummy hendrerit</h4>
-        <p style="color:#666; font-size:12px">Praesent vestibulum molestie lacus. Aenean nonummy hendrerit mauris. Phasellus porta. Fusce suscipit varius mi. Cum sociis natoque penatibus et magnis dis parturient montes.</p>
-                  </figure>
-      <figure>
-                    <img src="3DGridEffect/img/3.jpg" alt="img09"/>
-                      <h4>Aenean nonummy hendrerit</h4>
-        <p style="color:#666; font-size:12px">Praesent vestibulum molestie lacus. Aenean nonummy hendrerit mauris. Phasellus porta. Fusce suscipit varius mi. Cum sociis natoque penatibus et magnis dis parturient montes.</p>
-                  </figure>
-      <figure>
-                    <img src="3DGridEffect/img/4.jpg" alt="img06"/>
-                      <h4>Aenean nonummy hendrerit</h4>
-        <p style="color:#666; font-size:12px">Praesent vestibulum molestie lacus. Aenean nonummy hendrerit mauris. Phasellus porta. Fusce suscipit varius mi. Cum sociis natoque penatibus et magnis dis parturient montes.</p>
-                  </figure>
-      <figure>
-                    <img src="3DGridEffect/img/1.jpg" alt="img07"/>
-                      <h4>Aenean nonummy hendrerit</h4>
-        <p style="color:#666; font-size:12px">Praesent vestibulum molestie lacus. Aenean nonummy hendrerit mauris. Phasellus porta. Fusce suscipit varius mi. Cum sociis natoque penatibus et magnis dis parturient montes.</p>
-                 </figure>
+
     </div>
   </div><!-- /grid-wrap -->
   <div class="content">
