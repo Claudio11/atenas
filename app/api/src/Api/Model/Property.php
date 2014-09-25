@@ -24,6 +24,28 @@ class Property
         return $data;
     }
 
+    private function executeInsert($property) {
+        $this->db = connect_db();
+        if (!$this->db) {
+            return null;
+        }
+        else{
+            // TODO: normalize rent and sale empty values, etc, also set correct currency.
+            $stmt = $this->db->prepare('INSERT INTO properties (title, description, sale, salePrice, type) VALUES ("'. $property->title .'", "'. $property->description .'", '. $property->sale .', '. $property->salePrice .', "'. $property->type .'")');
+            // $stmt->bindParam("title", $property->title);
+            // $stmt->bindParam("description", $property->description);
+            // $stmt->bindParam("type", $property->type);
+            // $stmt->bindParam("sale", $property->sale);
+            // $stmt->bindParam("rent", $property->rent);
+            // $stmt->bindParam("salePrice", $property->salePrice);
+            // $stmt->bindParam("rentPrice", $property->rentPrice);
+            $stmt->execute();
+
+            // TODO !!!!!!!!!!!!! Seguir aca, ahora inserta, aceptar valores empty, etc, obtener objeto insertado y devolverlo.
+            return true;
+        }
+    }
+
     public function __construct()
     {
         
@@ -44,8 +66,22 @@ class Property
     /**
      *  Save the Property.
      */
-    public function save() {
-        return $this->loadListFromQuery('SELECT id, type, sale, rent, rentPrice, salePrice, currency, title, description FROM properties WHERE id > 2 LIMIT 10;');
+    public function save($property) {
+        $propertyData = $property['data']; 
+        // return $this->executeInsert('INSERT INTO properties (title, 
+        //                                                      description, 
+        //                                                      sale, 
+        //                                                      salePrice, 
+        //                                                      currency, 
+        //                                                      type) 
+        //                                         VALUES('. $propertyData->title .', 
+        //                                                "sdfsdf s df sdf s df s df sd fs sdfsdfsdfs df sdf sdf sd fsdf", 
+        //                                                1, 
+        //                                                130000, 
+        //                                                "us", "
+        //                                                house");');
+        
+        return $this->executeInsert($propertyData);
     }
 
     public function getFeature($id)

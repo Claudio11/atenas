@@ -6,8 +6,8 @@ angular.module('atenasApp')
     function RealEstate(data){
         this.id = data.id;
         this.type = data.type; // See if its worthy to create subclasses (house, apartment, etc).
-        this.sale = data.sale; // boolean (it can be both sale and rent)
-        this.rent = data.rent; // boolean
+        this.sale = data.sale === '1'; // boolean (it can be both sale and rent)
+        this.rent = data.rent === '1'; // boolean
         this.salePrice = data.salePrice;
         this.rentPrice = data.rentPrice;
         this.title = data.title;
@@ -24,6 +24,7 @@ angular.module('atenasApp')
         var matches = true;
         var lowercaseGeneralSearch = angular.lowercase(filterParams.generalSearch);
         if (filterParams.sale && !this.sale) {
+            console.info(this.sale);
             matches = false;
         }
         if (!Util.isEmpty(filterParams.generalSearch) // If it is empty we do not test it.

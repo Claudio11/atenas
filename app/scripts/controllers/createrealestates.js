@@ -5,7 +5,6 @@ angular.module('atenasApp')
 		$scope.realEstate = new RealEstate({});
 
 		$scope.save = function () {
-			console.info('save', $scope.realEstate);
 			$scope.realEstate.save();
 		}
 
