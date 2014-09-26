@@ -31,18 +31,21 @@ class Property
         }
         else{
             // TODO: normalize rent and sale empty values, etc, also set correct currency.
-            $stmt = $this->db->prepare('INSERT INTO properties (title, description, sale, salePrice, type) VALUES ("'. $property->title .'", "'. $property->description .'", '. $property->sale .', '. $property->salePrice .', "'. $property->type .'")');
-            // $stmt->bindParam("title", $property->title);
-            // $stmt->bindParam("description", $property->description);
-            // $stmt->bindParam("type", $property->type);
-            // $stmt->bindParam("sale", $property->sale);
-            // $stmt->bindParam("rent", $property->rent);
-            // $stmt->bindParam("salePrice", $property->salePrice);
-            // $stmt->bindParam("rentPrice", $property->rentPrice);
-            $stmt->execute();
+            //$stmt = $this->db->prepare('INSERT INTO properties (title, description, sale, salePrice, type) VALUES ("'. $property->title .'", "'. $property->description .'", '. $property->sale .', '. $property->salePrice .', "'. $property->type .'")');
+            if ($stmt = $this->db->prepare("INSERT INTO properties (title, description, sale, salePrice, type) VALUES (?, ?, ?, ?, ?)") ) {
 
-            // TODO !!!!!!!!!!!!! Seguir aca, ahora inserta, aceptar valores empty, etc, obtener objeto insertado y devolverlo.
-            return true;
+
+                $stmt->bind_param('ssiis', $property->title, $property->description, $property->sale, $property->salePrice, $property->type);
+
+                // TODO !!!!!!!!!!!!! Seguir aca, ahora inserta, aceptar valores empty, etc, obtener objeto insertado y devolverlo.
+                $stmt->execute();
+                $stmt->close();
+                return $this->db->insert_id;
+            }
+            else {
+                /* Error */
+                return printf("Prepared Statement Error: %s\n", $mysqli->error);
+            }
         }
     }
 
