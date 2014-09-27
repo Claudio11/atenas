@@ -12,11 +12,6 @@
 	<input type="text" ng-model="realEstate.description" required /><br />
 	
 	<strong>
-		E-mail:
-	</strong>
-	<input type="email" ng-model="realEstate.email" required /><br />
-	
-	<strong>
 		Tipo:
 	</strong>
 	<input type="radio" ng-model="realEstate.type" value="house" /><span>Casa</span>
@@ -30,11 +25,15 @@
 	<div ng-show="realEstate.sale">
 		<span>Importe de venta</span>
 		<input type="text" ng-model="realEstate.salePrice"/>
+		<input type="radio" ng-model="realEstate.currency" value="s"> Pesos <br/>
+		<input type="radio" ng-model="realEstate.currency" value="us"> Dolares <br/>
 	</div><br />
 	<input type="checkbox" ng-model="realEstate.rent"/><span>Alquiler</span>
 	<div ng-show="realEstate.rent">
 		<span>Importe de alquiler</span>
 		<input type="text" ng-model="realEstate.rentPrice"/>
+		<input type="radio" ng-model="realEstate.currencyRent" value="s"> Pesos <br/>
+		<input type="radio" ng-model="realEstate.currencyRent" value="us"> Dolares <br/>
 	</div>
 
 	<br /><br />

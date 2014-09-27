@@ -12,7 +12,12 @@ angular.module('atenasApp')
         this.rentPrice = data.rentPrice;
         this.title = data.title;
         this.description = data.description;
-        this.currency = Util.getCurrency(data.currency); // object with the format: {label: "u$", usRatio: 1} usRatio = current currency by dollar, i.e.: $ => {label: "$", usRatio: 23.05}.
+
+        var actualCurrency = (Util.isEmpty(data.currency)) ? 'us' : data.currency;
+        this.currency = Util.getCurrency(actualCurrency); // currency for sale, object, with the format: {label: "u$", usRatio: 1} usRatio = current currency by dollar, i.e.: $ => {label: "$", usRatio: 23.05}.
+        var actualCurrencyRent = (Util.isEmpty(data.currencyRent)) ? 'us' : data.currencyRent;
+        this.currencyRent = Util.getCurrency(actualCurrencyRent); // currency for rent
+        console.info(this);
     };
 
     /**
@@ -24,7 +29,6 @@ angular.module('atenasApp')
         var matches = true;
         var lowercaseGeneralSearch = angular.lowercase(filterParams.generalSearch);
         if (filterParams.sale && !this.sale) {
-            console.info(this.sale);
             matches = false;
         }
         if (!Util.isEmpty(filterParams.generalSearch) // If it is empty we do not test it.
@@ -41,14 +45,20 @@ angular.module('atenasApp')
     RealEstate.prototype.save = function(){
         var deferred = $q.defer();
         var collectedData = {'data': this};
-        console.info(collectedData);
+        var self = this;
         $http({
             data: collectedData,
             method: 'POST',
             url: 'api/properties/new'
         })
         .then(function(response) {
-            console.info('asasda', response);
+            if (response.data.status) {
+                self.id = response.data.id;
+                alert("Se insertó la propiedad correctamente");
+            }
+            else {
+                alert("La propiedad no ha podido ser insertada");
+            }
         });
     }
 

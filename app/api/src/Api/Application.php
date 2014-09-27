@@ -78,25 +78,14 @@ class Application extends Slim
             $this->response->headers->set('Content-Type', 'application/json');
             $post = json_decode($this->request()->getBody());
             $postArray = get_object_vars($post);
-
             $result = $properties->save($postArray);
+            
             if ($result){
-
-                $response = array(
-                            "status" => true,
-                            "message" => $result
-                            );
+                $response = array("status" => true, "id" => $result);
             }
             else{
-               $response = array(
-                            "status" => false,
-                            "message" => "La propiedad no ha podido ser insertada"
-                            );
-            } 
-
-            
-
-
+               $response = array("status" => false);
+            }
             $this->response->setBody(json_encode($response));
         });
     }
