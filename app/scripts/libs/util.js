@@ -8,13 +8,13 @@ angular.module('atenasApp')
         var currencyObject = {};
         switch (currencyType) {
           case 'us':
-            currencyObject = {label: 'u$', usRatio: 1};
+            currencyObject = {label: 'u$', usRatio: 1, val: 'us'};
             break;
           case 's':
-            currencyObject = {label: '$', usRatio: 23.5};
+            currencyObject = {label: '$', usRatio: 23.5, val: 's'};
             break;
           default:
-            currencyObject = {label: 'u$', usRatio: 1};
+            currencyObject = {label: 'u$', usRatio: 1, val: 'us'};
             break;
         }
         return currencyObject;

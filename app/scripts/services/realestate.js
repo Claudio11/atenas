@@ -13,9 +13,9 @@ angular.module('atenasApp')
         this.title = data.title;
         this.description = data.description;
 
-        var actualCurrency = (Util.isEmpty(data.currency)) ? 'us' : data.currency;
+        var actualCurrency = (Util.isEmpty(data.currency)) ? 'us' : data.currency.val;
         this.currency = Util.getCurrency(actualCurrency); // currency for sale, object, with the format: {label: "u$", usRatio: 1} usRatio = current currency by dollar, i.e.: $ => {label: "$", usRatio: 23.05}.
-        var actualCurrencyRent = (Util.isEmpty(data.currencyRent)) ? 'us' : data.currencyRent;
+        var actualCurrencyRent = (Util.isEmpty(data.currencyRent)) ? 'us' : data.currencyRent.val;
         this.currencyRent = Util.getCurrency(actualCurrencyRent); // currency for rent
         console.info(this);
     };
@@ -37,6 +37,21 @@ angular.module('atenasApp')
             matches = false;
         }
         return matches;
+    };
+
+    /**
+     *  Sets the current currency.
+     *
+     *  @param type Type of currency (u$, $, etc).
+     *  @param transactionType Type of transaction (sale or rent).
+     */
+    RealEstate.prototype.setCurrency = function (type, transactionType) {
+        if (transactionType === 'sale') {
+            this.currency = Util.getCurrency(type);
+        }
+        else {
+            this.currencyRent = Util.getCurrency(type);
+        }
     };
 
     /**

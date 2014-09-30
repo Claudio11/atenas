@@ -38,8 +38,8 @@ class Property
                                              $property->salePrice,
                                              $property->rent,
                                              $property->rentPrice,
-                                             $property->currency,
-                                             $property->currencyRent);
+                                             $property->currency->val,
+                                             $property->currencyRent->val);
 
                 $stmt->execute();
                 $stmt->close();

@@ -12,4 +12,8 @@ angular.module('atenasApp')
 			console.info('update', $scope.realEstate);
 		}
 
+		$scope.setRealEstateCurrency = function (type, transactionType) {
+			$scope.realEstate.setCurrency(type, transactionType);
+		}
+
   	});
