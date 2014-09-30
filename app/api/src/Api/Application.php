@@ -66,10 +66,10 @@ class Application extends Slim
         });
 
         // Properties
-        $this->get('/api/propertiesAfterId', function () {
+        $this->get('/api/propertiesAfterId/:lastId', function ($lastId) {
             $properties = new Property();
             $this->response->headers->set('Content-Type', 'application/json');
-            $this->response->setBody(json_encode($properties->getPropertiesAfterId()));
+            $this->response->setBody(json_encode($properties->getPropertiesAfterId($lastId)));
         });
 
         // New Property

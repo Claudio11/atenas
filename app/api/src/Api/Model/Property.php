@@ -59,14 +59,14 @@ class Property
 
     public function getProperties()
     {
-        return $this->loadListFromQuery('SELECT id, type, sale, rent, rentPrice, salePrice, currency, currencyRent, title, description FROM properties LIMIT 3;');
+        return $this->loadListFromQuery('SELECT id, type, sale, rent, rentPrice, salePrice, currency, currencyRent, title, description FROM properties LIMIT 6;');
     }
 
     /**
      *  Obtain the list of properties after the given Id (sorted by created data desc).
      */
-    public function getPropertiesAfterId() {
-        return $this->loadListFromQuery('SELECT id, type, sale, rent, rentPrice, salePrice, currency, currencyRent, title, description FROM properties WHERE id > 2 LIMIT 10;');
+    public function getPropertiesAfterId($lastId) {
+        return $this->loadListFromQuery('SELECT id, type, sale, rent, rentPrice, salePrice, currency, currencyRent, title, description FROM properties WHERE id > '. $lastId .' LIMIT 10;');
     }
 
     /**

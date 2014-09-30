@@ -77,33 +77,16 @@ angular.module('atenasApp')
         });
     }
 
-    RealEstate.getList = function() {
+    RealEstate.getList = function(lastId) {
         var deferred = $q.defer();
         var realEstatesList = [];
+
+        var url = (Util.isEmpty(lastId)) ? 'api/properties' : 'api/propertiesAfterId/' + lastId;
 
         // TODO add web security checks.
         $http({
             method: 'GET',
-            url: 'api/properties'
-        })
-        .then(function(response) {
-            angular.forEach(response.data, function(value, key) {
-                realEstatesList.push( new RealEstate(value) );
-            });
-            deferred.resolve(realEstatesList);
-        });
-
-        return deferred.promise;
-    };
-
-    RealEstate.getListAfterId = function(realEstateId) {
-        var deferred = $q.defer();
-        var realEstatesList = [];
-
-        // TODO add web security checks.
-        $http({
-            method: 'GET',
-            url: 'api/propertiesAfterId'
+            url: url
         })
         .then(function(response) {
             angular.forEach(response.data, function(value, key) {

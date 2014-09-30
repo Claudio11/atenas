@@ -33,13 +33,12 @@ angular.module('atenasApp')
             var elem = element[0];
 
             element.on('scroll', function() {
-                console.info(isAbleToRequest);
                 if (isAbleToRequest) {
                     if (elem.scrollHeight - 10 <= elem.scrollTop + elem.offsetHeight) {
                         // Near the bottom of the list so we retrieve the new data...
                         var currentScroll = elem.scrollTop;
                         isAbleToRequest = false;
-                        var promise = RealEstate.getListAfterId();
+                        var promise = RealEstate.getList(scope.lastId);
                         // TODO add element (preloading) while retrieves elements, then delete it (directive(?)).
                         promise.then(function(realEstateList){
                             if (realEstateList.length > 0) {
