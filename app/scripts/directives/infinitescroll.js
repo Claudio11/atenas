@@ -7,7 +7,8 @@ angular.module('atenasApp')
         transclude: true,
         replace: true,
         scope: {
-            list: "=", // List to append when reaching bottom.
+            filteredList: "=", // List already filtered
+            list: "="          // List unfiltered.
             // If needed create here the condition to search on the DB (most common last date).
         },
         templateUrl: 'views/realEstates/list-template.html',
