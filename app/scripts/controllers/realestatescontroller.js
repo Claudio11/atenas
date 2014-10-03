@@ -16,7 +16,6 @@ angular.module('atenasApp')
               $scope.filteredList = $filter('mainRealEstateFilter')($scope.realEstates, 
                                                                {generalSearch: $scope.filterData.generalSearch,
                                                                 sale: $scope.filterData.sale});
-              console.info($scope.filteredList);
           }
       });
     });
@@ -27,7 +26,6 @@ angular.module('atenasApp')
             $scope.filteredList = $filter('mainRealEstateFilter')($scope.realEstates, 
                                                              {generalSearch: $scope.filterData.generalSearch,
                                                               sale: $scope.filterData.sale});
-            console.info($scope.filteredList);
         }
     });    
   });

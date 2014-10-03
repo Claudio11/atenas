@@ -17,7 +17,6 @@ angular.module('atenasApp')
         this.currency = Util.getCurrency(actualCurrency); // currency for sale, object, with the format: {label: "u$", usRatio: 1} usRatio = current currency by dollar, i.e.: $ => {label: "$", usRatio: 23.05}.
         var actualCurrencyRent = (Util.isEmpty(data.currencyRent)) ? 'us' : data.currencyRent.val;
         this.currencyRent = Util.getCurrency(actualCurrencyRent); // currency for rent
-        console.info(this);
     };
 
     /**
