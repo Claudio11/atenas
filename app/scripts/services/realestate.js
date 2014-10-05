@@ -89,7 +89,6 @@ angular.module('atenasApp')
         })
         .then(function(response) {
             angular.forEach(response.data, function(value, key) {
-                console.info(value);
                 realEstatesList.push( new RealEstate(value) );
             });
             deferred.resolve(realEstatesList);

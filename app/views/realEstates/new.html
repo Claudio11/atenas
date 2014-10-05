@@ -36,6 +36,8 @@
 		<input type="radio" ng-model="realEstate.currencyRent.val" value="us" ng-change="setRealEstateCurrency('us', 'rent')"> Dolares <br/>
 	</div>
 
+	<input type="file" ng-file-select="onFileSelect($files)">
+
 	<br /><br />
 
 	<button ng-show="realEstate.id" ng-click="update()">Actualizar</button>
