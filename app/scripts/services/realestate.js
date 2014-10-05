@@ -13,9 +13,9 @@ angular.module('atenasApp')
         this.title = data.title;
         this.description = data.description;
 
-        var actualCurrency = (Util.isEmpty(data.currency)) ? 'us' : data.currency.val;
+        var actualCurrency = (Util.isEmpty(data.currency)) ? 'us' : data.currency;
         this.currency = Util.getCurrency(actualCurrency); // currency for sale, object, with the format: {label: "u$", usRatio: 1} usRatio = current currency by dollar, i.e.: $ => {label: "$", usRatio: 23.05}.
-        var actualCurrencyRent = (Util.isEmpty(data.currencyRent)) ? 'us' : data.currencyRent.val;
+        var actualCurrencyRent = (Util.isEmpty(data.currencyRent)) ? 'us' : data.currencyRent;
         this.currencyRent = Util.getCurrency(actualCurrencyRent); // currency for rent
     };
 
@@ -89,9 +89,13 @@ angular.module('atenasApp')
         })
         .then(function(response) {
             angular.forEach(response.data, function(value, key) {
+                console.info(value);
                 realEstatesList.push( new RealEstate(value) );
             });
             deferred.resolve(realEstatesList);
+        },
+        function() {
+            deferred.reject();
         });
 
         return deferred.promise;
