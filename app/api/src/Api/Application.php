@@ -125,29 +125,32 @@ class Application extends Slim
 
                 // DO NOT TRUST $uploadedFile['mime'] VALUE !!
                 // Check MIME Type by yourself.
-                $finfo = new finfo(FILEINFO_MIME_TYPE);
-                if (false === $ext = array_search(
-                    $finfo->file($uploadedFile['tmp_name']),
-                    array(
-                        'jpg' => 'image/jpeg',
-                        'png' => 'image/png',
-                        'gif' => 'image/gif',
-                    ),
-                    true
-                )) {
-                    throw new RuntimeException('Invalid file format.');
-                }
+                // $finfo = new finfo(FILEINFO_MIME_TYPE);
+                // if (false === $ext = array_search(
+                //     $finfo->file($uploadedFile['tmp_name']),
+                //     array(
+                //         'jpg' => 'image/jpeg',
+                //         'png' => 'image/png',
+                //         'gif' => 'image/gif',
+                //     ),
+                //     true
+                // )) {
+                //     throw new RuntimeException('Invalid file format.');
+                // }
 
                 // You should name it uniquely.
                 // DO NOT USE $uploadedFile['name'] WITHOUT ANY VALIDATION !!
                 // On this example, obtain safe unique name from its binary data.
-                if (!move_uploaded_file(
-                    $uploadedFile['tmp_name'],
-                    sprintf('./uploads/%s.%s',
-                        sha1_file($uploadedFile['tmp_name']),
-                        $ext
-                    )
-                )) {
+                // if (!move_uploaded_file(
+                //     $uploadedFile['tmp_name'],
+                //     sprintf('./../../../images/%s.%s',
+                //         sha1_file($uploadedFile['tmp_name']),
+                //         true
+                //     )
+                // )) {
+                //     throw new RuntimeException('Failed to move uploaded file.');
+                // }
+                if (!move_uploaded_file($uploadedFile['tmp_name'], '../images/tmp/'.$uploadedFile['name'] )) {
                     throw new RuntimeException('Failed to move uploaded file.');
                 }
 
