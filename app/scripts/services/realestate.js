@@ -12,6 +12,7 @@ angular.module('atenasApp')
         this.rentPrice = data.rentPrice;
         this.title = data.title;
         this.description = data.description;
+        this.imageList = [];
 
         var actualCurrency = (Util.isEmpty(data.currency)) ? 'us' : data.currency;
         this.currency = Util.getCurrency(actualCurrency); // currency for sale, object, with the format: {label: "u$", usRatio: 1} usRatio = current currency by dollar, i.e.: $ => {label: "$", usRatio: 23.05}.
@@ -51,6 +52,15 @@ angular.module('atenasApp')
         else {
             this.currencyRent = Util.getCurrency(type);
         }
+    };
+
+    /**
+     *  Adds the uploaded image to {this}.
+     *
+     *  @param Image to add.
+     */
+    RealEstate.prototype.addImage = function (picture) {
+        this.imageList.push(picture);
     };
 
     /**

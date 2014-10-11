@@ -2,7 +2,7 @@
 
 namespace Api;
 
-use Api\Model\Features;
+use Api\Model\Assets;
 use Api\Model\Property;
 use \Slim\Slim;
 use \Exception;
@@ -42,20 +42,25 @@ class Application extends Slim
         $this->config = $this->initConfig();
 
         // /features
-        $this->get('/api/features', function () {
-            $features = new Features($this->config['features']);
+        $this->get('/api/assets', function () {
+            $assets = new Assets($this->config['assets']);
             $this->response->headers->set('Content-Type', 'application/json');
-            $this->response->setBody(json_encode($features->getFeatures()));
+            $this->response->setBody(json_encode($features->getAssets()));
         });
 
-        $this->get('/api/features/:id', function ($id) {
-            $features = new Features($this->config['features']);
-            $feature = $features->getFeature($id);
-            if ($feature === null) {
+        $this->get('/api/assets/:id', function ($id) {
+            $assets = new Assets($this->config['assets']);
+            $asset = $assets->getAsset($id);
+            if ($asset === null) {
                 return $this->notFound();
             }
             $this->response->headers->set('Content-Type', 'application/json');
-            $this->response->setBody(json_encode($feature));
+            $this->response->setBody(json_encode($asset));
+        });
+
+        // New asset.
+        $this->post('/api/assets/new', function () {
+
         });
 
         // Properties
@@ -89,7 +94,8 @@ class Application extends Slim
             $this->response->setBody(json_encode($response));
         });
 
-        // File upload. 
+        // File upload
+        // TODO Refactor and add dile type validation (and other checks).
         $this->post('/api/uploadImage', function () {
             // $properties = new Property();
             // $this->response->headers->set('Content-Type', 'application/json');
@@ -150,11 +156,26 @@ class Application extends Slim
                 // )) {
                 //     throw new RuntimeException('Failed to move uploaded file.');
                 // }
-                if (!move_uploaded_file($uploadedFile['tmp_name'], '../images/tmp/'.$uploadedFile['name'] )) {
+
+                $path = '../images/tmp/'.sha1_file($uploadedFile['tmp_name']).$uploadedFile['name'];
+                if (!move_uploaded_file($uploadedFile['tmp_name'], $path )) {
                     throw new RuntimeException('Failed to move uploaded file.');
                 }
 
-                $response = 'File is uploaded successfully.';
+
+                $asset = new Assets();
+                $this->response->headers->set('Content-Type', 'application/json');
+                $assetData = array("path" => $path);
+                $result = $asset->save($assetData);
+                
+                if ($result){
+                    $response = array("status" => true, "id" => $result);
+                }
+                else{
+                   $response = array("status" => false);
+                }
+                
+                $response = array("status" => true, "path" => $path);
 
             } catch (RuntimeException $e) {
 
