@@ -15,8 +15,8 @@ class Assets
             return null;
         }
         else{
-            if ($stmt = $this->db->prepare("INSERT INTO assets (path) VALUES (?)") ) {
-                $stmt->bind_param('s', $asset['path']);
+            if ($stmt = $this->db->prepare("INSERT INTO assets (path, name) VALUES (?, ?)") ) {
+                $stmt->bind_param('ss', $asset['path'], $asset['name']);
 
                 $stmt->execute();
                 $stmt->close();

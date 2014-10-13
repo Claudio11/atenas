@@ -4,6 +4,7 @@ angular.module('atenasApp')
   .factory('RealEstate', function RealEstate($http, $filter, $q, Util) {
   	
     function RealEstate(data){
+        // TODO is it ok to set attributes to be private?. 
         this.id = data.id;
         this.type = data.type; // See if its worthy to create subclasses (house, apartment, etc).
         this.sale = data.sale === '1'; // boolean (it can be both sale and rent)
@@ -55,6 +56,15 @@ angular.module('atenasApp')
     };
 
     /**
+     *  Get property pictures list.
+     *
+     *  @return List of images of the property.
+     */
+    RealEstate.prototype.getImageList = function (picture) {
+        return this.imageList;
+    };
+
+    /**
      *  Adds the uploaded image to {this}.
      *
      *  @param Image to add.
@@ -64,11 +74,27 @@ angular.module('atenasApp')
     };
 
     /**
+     *  Deletes the picture given by parameter.
+     *
+     *  @param Id of the Picture to delete.
+     */
+    RealEstate.prototype.deleteImage = function (pictureId) {
+        var index = 0;
+        angular.forEach(this.imageList, function(picture, picIndex) {
+            if (pictureId === picture.id) {
+                index = picIndex;
+            }
+        });
+        this.imageList.splice(index, 1);
+    };   
+
+    /**
      *  Save {this}.
      */
     RealEstate.prototype.save = function(){
         var deferred = $q.defer();
         var collectedData = {'data': this};
+        console.info('collectedData', collectedData);
         var self = this;
         $http({
             data: collectedData,

@@ -165,17 +165,15 @@ class Application extends Slim
 
                 $asset = new Assets();
                 $this->response->headers->set('Content-Type', 'application/json');
-                $assetData = array("path" => $path);
+                $assetData = array("path" => $path, "name" => $uploadedFile['name']);
                 $result = $asset->save($assetData);
                 
                 if ($result){
-                    $response = array("status" => true, "id" => $result);
+                    $response = array("status" => true, "id" => $result, 'path' => $path);
                 }
                 else{
                    $response = array("status" => false);
                 }
-                
-                $response = array("status" => true, "path" => $path);
 
             } catch (RuntimeException $e) {
 

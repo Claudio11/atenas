@@ -17,6 +17,7 @@ angular.module('atenasApp')
 			$scope.realEstate.setCurrency(type, transactionType);
 		}
 
+		// User upload a file
 		$scope.onFileSelect = function($files) {
 		    //$files: an array of files selected, each file has name, size, and type.
 		    for (var i = 0; i < $files.length; i++) {
@@ -35,7 +36,9 @@ angular.module('atenasApp')
 		        //formDataAppender: function(formData, key, val){}
 		      }).success(function(data, status, headers, config) {
 		        // file is uploaded successfully
-		        $scope.realEstate.addImage(new Picture($files[0], data.path));
+		        console.info(data);
+		        $scope.realEstate.addImage(new Picture($files[0], data.id, data.path));
+		        console.info($scope.realEstate);
 		      });
 		      //.error(...)
 		      //.then(success, error, progress); 
