@@ -79,7 +79,7 @@ angular.module('atenasApp')
      *  @param Id of the Picture to delete.
      */
     RealEstate.prototype.deleteImage = function (pictureId) {
-        var index = 0;
+        var index;
         angular.forEach(this.imageList, function(picture, picIndex) {
             if (pictureId === picture.id) {
                 index = picIndex;
@@ -103,7 +103,11 @@ angular.module('atenasApp')
         })
         .then(function(response) {
             if (response.data.status) {
+                // Sets id of self, and id for image list.
                 self.id = response.data.id;
+                angular.forEach(self.imageList, function(picture, key) {
+                    picture.setRelatedProperty(self.id);
+                });
                 alert("Se insertó la propiedad correctamente");
             }
             else {

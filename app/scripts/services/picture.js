@@ -17,6 +17,15 @@ angular.module('atenasApp')
     }
 
     /**
+     *  Sets the related property.
+     *
+     *  @param Id of the Property to relate to {this}.
+     */
+    Picture.prototype.setRelatedProperty = function (propertyId) {
+        this.property = propertyId;
+    }
+
+    /**
      *  Save {this}.
      */
     // Picture.prototype.save = function(){

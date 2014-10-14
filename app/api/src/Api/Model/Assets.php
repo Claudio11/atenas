@@ -29,6 +29,27 @@ class Assets
         }
     }
 
+    private function executeUpdateProperty($pictureIdList, $propertyId) {
+        $this->db = connect_db();
+        if (!$this->db) {
+            return null;
+        }
+        else{
+            $implodeArray = '"'.implode( '","', $pictureIdList ).'"';
+            if ($stmt = $this->db->prepare("UPDATE assets (propertyId) VALUES (?) WHERE id IN (". $implodeArray .")") ) {
+                $stmt->bind_param('i', $propertyId);
+
+                $stmt->execute();
+                $stmt->close();
+                return true;
+            }
+            else {
+                /* Error */
+                return printf("Error: %s\n", $mysqli->error);
+            }
+        }
+    }
+
     protected function getHref($id)
     {
         return './api/assets/' . $id;
@@ -66,9 +87,23 @@ class Assets
     }
 
     /**
-     *  Save the Asset.
+     *  Saves the Asset.
      */
     public function save($asset) {
         return $this->executeInsert($asset);
+    }
+
+    /**
+     *  Updates the property related to {this}.
+     *
+     *  @param pictureList List of pictures to update its property Id.
+     *  @param propertyId Property Id.
+     */
+    public function bulkUpdateProperty($pictureList, $propertyId) {
+        $pictureIdList = array();
+        foreach ($pictureList as $picture) {
+            $pictureIdList[] = $picture->id;
+        }
+        return $this->executeUpdateProperty($pictureIdList, $propertyId);
     }
 }

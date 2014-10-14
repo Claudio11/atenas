@@ -84,8 +84,13 @@ class Application extends Slim
             $post = json_decode($this->request()->getBody());
             $postArray = get_object_vars($post);
             $result = $properties->save($postArray);
+
+            $pictureList = $postArray['data']->imageList;
             
             if ($result){
+                // If there is any uploaded picture, relate pictures with the property.
+                $assets = new Assets();
+                $assets->bulkUpdateProperty($pictureList, $result);
                 $response = array("status" => true, "id" => $result);
             }
             else{
