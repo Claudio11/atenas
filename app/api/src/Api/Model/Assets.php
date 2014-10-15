@@ -36,7 +36,7 @@ class Assets
         }
         else{
             $implodeArray = '"'.implode( '","', $pictureIdList ).'"';
-            if ($stmt = $this->db->prepare("UPDATE assets (propertyId) VALUES (?) WHERE id IN (". $implodeArray .")") ) {
+            if ($stmt = $this->db->prepare("UPDATE assets SET propertyId = ? WHERE id IN (". $implodeArray .")") ) {
                 $stmt->bind_param('i', $propertyId);
 
                 $stmt->execute();
