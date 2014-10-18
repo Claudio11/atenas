@@ -4,7 +4,8 @@
     <div class="grid">
 
       <figure ng-repeat="estate in filteredList">
-        <img src="3DGridEffect/img/1.jpg" alt="img01"/>
+        <img ng-if="estate.imageList[0]" ng-src="{{estate.imageList[0].path}}" alt="img01"/>
+        <img ng-if="!estate.imageList[0]" ng-src="3DGridEffect/img/1.jpg" alt="img01"/>
         <h4>{{estate.title}}</h4>
         <p style="color:#666; font-size:12px">
            <span ng-show="estate.salePrice">

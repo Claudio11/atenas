@@ -15,8 +15,8 @@ class Assets
             return null;
         }
         else{
-            if ($stmt = $this->db->prepare("INSERT INTO assets (path, name) VALUES (?, ?)") ) {
-                $stmt->bind_param('ss', $asset['path'], $asset['name']);
+            if ($stmt = $this->db->prepare("INSERT INTO assets (path, name, size, type) VALUES (?, ?, ?, ?)") ) {
+                $stmt->bind_param('ssss', $asset['path'], $asset['name'], $asset['size'], $asset['type']);
 
                 $stmt->execute();
                 $stmt->close();
@@ -36,7 +36,7 @@ class Assets
         }
         else{
             $implodeArray = '"'.implode( '","', $pictureIdList ).'"';
-            if ($stmt = $this->db->prepare("UPDATE assets SET propertyId = ? WHERE id IN (". $implodeArray .")") ) {
+            if ($stmt = $this->db->prepare("UPDATE assets SET propertyId = ? WHERE asset_id IN (". $implodeArray .")") ) {
                 $stmt->bind_param('i', $propertyId);
 
                 $stmt->execute();

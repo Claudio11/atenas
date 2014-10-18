@@ -9,15 +9,32 @@ class Property
     private $db;
     public $properties;
 
-    private function loadListFromQuery($queryString) {
+    private function conn() {
         $this->db = connect_db();
         if (!$this->db) {
             die('Could not connect: ' . mysql_error());
         }
-        // Todo add web security.
+    }
+
+    private function loadChildrenList($queryString) {
+        $this->conn();
         $result = $this->db->query( $queryString );
         $data = array();
         while ( $row = $result->fetch_array(MYSQLI_ASSOC) ) {
+            $data[] = $row;
+        }
+        return $data;
+    }
+
+    private function loadListFromQuery($queryString) {
+        $this->conn();
+        // Todo add web security.
+        $result = $this->db->query( $queryString );
+
+        $data = array();
+        while ( $row = $result->fetch_array(MYSQLI_ASSOC) ) {
+            $children = $this->loadChildrenList('SELECT * FROM assets where propertyId = ' . $row['id'] . ' LIMIT 10;');
+            $row['children'] = $children;
             $data[] = $row;
         }
         $this->properties = $data; // Just in case..
@@ -59,14 +76,14 @@ class Property
 
     public function getProperties()
     {
-        return $this->loadListFromQuery('SELECT id, type, sale, rent, rentPrice, salePrice, currency, currencyRent, title, description FROM properties LIMIT 6;');
+        return $this->loadListFromQuery('SELECT * FROM properties LIMIT 6;');
     }
 
     /**
      *  Obtain the list of properties after the given Id (sorted by created data desc).
      */
     public function getPropertiesAfterId($lastId) {
-        return $this->loadListFromQuery('SELECT id, type, sale, rent, rentPrice, salePrice, currency, currencyRent, title, description FROM properties WHERE id > '. $lastId .' LIMIT 10;');
+        return $this->loadListFromQuery('SELECT * FROM properties WHERE id > '. $lastId .' LIMIT 10;');
     }
 
     /**

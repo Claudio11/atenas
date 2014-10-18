@@ -8,12 +8,12 @@ angular.module('atenasApp')
      *  Picture constructor
      */
     function Picture(data, id, path) {
-    	this.name = data.name;
-    	this.size = data.size;
-    	this.type = data.type;
+        this.name = data.name;
+        this.size = data.size;
+        this.type = data.type;
         this.id   = id;
         this.path = path;
-    	this.webkitRelativePath = data.webkitRelativePath;
+        this.webkitRelativePath = data.webkitRelativePath;
     }
 
     /**

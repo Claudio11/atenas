@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('atenasApp')
-  .factory('RealEstate', function RealEstate($http, $filter, $q, Util) {
+  .factory('RealEstate', function RealEstate($http, $filter, $q, Util, Picture) {
   	
     function RealEstate(data){
         // TODO is it ok to set attributes to be private?. 
@@ -13,7 +13,7 @@ angular.module('atenasApp')
         this.rentPrice = data.rentPrice;
         this.title = data.title;
         this.description = data.description;
-        this.imageList = [];
+        this.imageList = (data.children) ? this.setPictureList(data.children) : [];
 
         var actualCurrency = (Util.isEmpty(data.currency)) ? 'us' : data.currency;
         this.currency = Util.getCurrency(actualCurrency); // currency for sale, object, with the format: {label: "u$", usRatio: 1} usRatio = current currency by dollar, i.e.: $ => {label: "$", usRatio: 23.05}.
@@ -74,6 +74,21 @@ angular.module('atenasApp')
     };
 
     /**
+     *  Set the picture list from the data json.
+     *
+     *  @param List of assets.
+     */
+    RealEstate.prototype.setPictureList = function (assetList) {
+        var imageList = [];
+        var self = this;
+        angular.forEach(assetList, function(picture) {
+            var fileSpec = {name: picture.name, type: picture.type, size: picture.size};
+            imageList.push(new Picture(fileSpec, picture.asset_id, picture.path));
+        });
+        return imageList;
+    };
+
+    /**
      *  Deletes the picture given by parameter.
      *
      *  @param Id of the Picture to delete.
@@ -94,7 +109,6 @@ angular.module('atenasApp')
     RealEstate.prototype.save = function(){
         var deferred = $q.defer();
         var collectedData = {'data': this};
-        console.info('collectedData', collectedData);
         var self = this;
         $http({
             data: collectedData,
