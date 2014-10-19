@@ -154,5 +154,27 @@ angular.module('atenasApp')
         return deferred.promise;
     };
 
+    RealEstate.get = function(realEstateId) {
+        var deferred = $q.defer();
+
+        // TODO add web security checks.
+        $http({
+            method: 'GET',
+            url: 'api/properties/' + realEstateId
+        })
+        .then(function(response) {
+            var realEstateToUpdate;
+            if (response.data[0]) {
+              realEstateToUpdate = new RealEstate(response.data[0]);
+            }
+            deferred.resolve(realEstateToUpdate);
+        },
+        function() {
+            deferred.reject();
+        });
+
+        return deferred.promise;
+    };
+
     return RealEstate;
   });

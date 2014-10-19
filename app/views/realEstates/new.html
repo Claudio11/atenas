@@ -25,15 +25,15 @@
 	<div ng-show="realEstate.sale">
 		<span>Importe de venta</span>
 		<input type="text" ng-model="realEstate.salePrice"/>
-		<input type="radio" ng-model="realEstate.currency.val" value="s" ng-change="setRealEstateCurrency('s', 'sale')"> Pesos <br/>
-		<input type="radio" ng-model="realEstate.currency.val" value="us" ng-change="setRealEstateCurrency('us', 'sale')"> Dolares <br/>
+		<input type="radio" ng-model="realEstate.currency.val" value="s" ng-change="realEstate.setCurrency('s', 'sale')"> Pesos <br/>
+		<input type="radio" ng-model="realEstate.currency.val" value="us" ng-change="realEstate.setCurrency('us', 'sale')"> Dolares <br/>
 	</div><br />
 	<input type="checkbox" ng-model="realEstate.rent"/><span>Alquiler</span>
 	<div ng-show="realEstate.rent">
 		<span>Importe de alquiler</span>
 		<input type="text" ng-model="realEstate.rentPrice"/>
-		<input type="radio" ng-model="realEstate.currencyRent.val" value="s" ng-change="setRealEstateCurrency('s', 'rent')"> Pesos <br/>
-		<input type="radio" ng-model="realEstate.currencyRent.val" value="us" ng-change="setRealEstateCurrency('us', 'rent')"> Dolares <br/>
+		<input type="radio" ng-model="realEstate.currencyRent.val" value="s" ng-change="realEstate.setCurrency('s', 'rent')"> Pesos <br/>
+		<input type="radio" ng-model="realEstate.currencyRent.val" value="us" ng-change="realEstate.setCurrency('us', 'rent')"> Dolares <br/>
 	</div>
 
 	<input type="file" ng-file-select="onFileSelect($files)">

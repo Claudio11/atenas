@@ -86,6 +86,11 @@ class Property
         return $this->loadListFromQuery('SELECT * FROM properties WHERE id > '. $lastId .' LIMIT 10;');
     }
 
+    public function get($propertyId)
+    {
+        return $this->loadListFromQuery('SELECT * FROM properties WHERE id = '. $propertyId .';');
+    }
+
     /**
      *  Save the Property.
      */

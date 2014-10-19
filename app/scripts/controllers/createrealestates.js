@@ -1,9 +1,16 @@
 'use strict';
 
 angular.module('atenasApp')
-  	.controller('CreateRealEstatesCtrl', function ($scope, $upload, RealEstate, Picture) {
+  	.controller('CreateRealEstatesCtrl', function ($scope, $upload, $routeParams, RealEstate, Picture) {
 
-		$scope.realEstate = new RealEstate({});
+  		if ($routeParams.id) {
+  			RealEstate.get($routeParams.id).then(function(responseRE) { 
+  				$scope.realEstate = responseRE;
+  			});
+  		}
+  		else {
+  			$scope.realEstate = new RealEstate({});
+  		}
 
 		$scope.save = function () {
 			$scope.realEstate.save();
@@ -13,11 +20,8 @@ angular.module('atenasApp')
 			console.info('update', $scope.realEstate);
 		}
 
-		$scope.setRealEstateCurrency = function (type, transactionType) {
-			$scope.realEstate.setCurrency(type, transactionType);
-		}
-
 		// User upload a file
+		// Refactor this on asset.
 		$scope.onFileSelect = function($files) {
 		    //$files: an array of files selected, each file has name, size, and type.
 		    for (var i = 0; i < $files.length; i++) {
@@ -36,9 +40,7 @@ angular.module('atenasApp')
 		        //formDataAppender: function(formData, key, val){}
 		      }).success(function(data, status, headers, config) {
 		        // file is uploaded successfully
-		        console.info(data);
 		        $scope.realEstate.addImage(new Picture($files[0], data.id, data.path));
-		        console.info($scope.realEstate);
 		      });
 		      //.error(...)
 		      //.then(success, error, progress); 
