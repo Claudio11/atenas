@@ -69,6 +69,34 @@ class Property
         }
     }
 
+    private function executeUpdate($property) {
+        $this->db = connect_db();
+        if (!$this->db) {
+            return null;
+        }
+        else{
+            if ($stmt = $this->db->prepare("UPDATE properties SET title = ?, description = ?, type = ?, sale = ?, salePrice = ?, rent = ?, rentPrice = ?, currency = ?, currencyRent = ? WHERE id = ".  $property->id ) ) {
+                $stmt->bind_param('sssiiiiss', $property->title,
+                                             $property->description,
+                                             $property->type,
+                                             $property->sale,
+                                             $property->salePrice,
+                                             $property->rent,
+                                             $property->rentPrice,
+                                             $property->currency->val,
+                                             $property->currencyRent->val);
+
+                $stmt->execute();
+                $stmt->close();
+                return $this->db->insert_id;
+            }
+            else {
+                /* Error */
+                return printf("Error: %s\n", $mysqli->error);
+            }
+        }
+    }
+
     public function __construct()
     {
         
@@ -97,6 +125,14 @@ class Property
     public function save($property) {
         $propertyData = $property['data'];
         return $this->executeInsert($propertyData);
+    }
+
+    /**
+     *  Save the Property.
+     */
+    public function update($property) {
+        $propertyData = $property['data'];
+        return $this->executeUpdate($propertyData);
     }
 
     public function getFeature($id)

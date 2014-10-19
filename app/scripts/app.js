@@ -29,10 +29,6 @@ angular
           }
         }
       })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
-      })
       .when('/realEstates/upsert/:id?', {
         templateUrl: 'views/realEstates/new.html',
         controller: 'CreateRealEstatesCtrl'

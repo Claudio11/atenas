@@ -3,12 +3,11 @@
 angular.module('atenasApp')
   .directive('infiniteScroll', function (Util, RealEstate) {
     return {
-        restrict: 'A',
+        restrict: 'E',
         transclude: true,
         replace: true,
         scope: {
-            filteredList: "=", // List already filtered
-            list: "="          // List unfiltered.
+            list: "="         // List unfiltered.
             // If needed create here the condition to search on the DB (most common last date).
         },
         templateUrl: 'views/realEstates/list-template.html',

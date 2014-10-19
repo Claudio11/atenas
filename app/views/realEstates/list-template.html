@@ -1,56 +1,44 @@
-<section class="grid3d vertical list-container" id="grid3d">
-  <h3>propiedades</h3>
-  <div class="grid-wrap">
-    <div class="grid">
+<div>
+  <section>
+    <h3>propiedades</h3>
+    <div class="grid-wrap">
+      <div class="grid">
+        <div ng-transclude></div>
+      </div>
+    </div>
+    <!-- /grid-wrap -->
+    <!-- <div class="content">
+      <div>
+                                         
+         </div>
+      <div>
+        
+      </div>
+      <div>
+        
+      </div>
+      <div>
+        
+      </div>
+      <div>
+        
+      </div>
+      <div>
+        
+      </div>
+      <div>
+        
+      </div>
+      <div>
+        
+      </div>
+      <div>
+        
+      </div>
+      <span class="loading"></span>
+      <span class="icon close-content"></span>
+    </div> -->
 
-      <figure ng-repeat="estate in filteredList">
-        <img ng-if="estate.imageList[0]" ng-src="{{estate.imageList[0].path}}" alt="img01"/>
-        <img ng-if="!estate.imageList[0]" ng-src="3DGridEffect/img/1.jpg" alt="img01"/>
-        <h4>{{estate.title}}</h4>
-        <p style="color:#666; font-size:12px">
-           <span ng-show="estate.salePrice">
-              Venta {{estate.currency.label}} {{estate.salePrice}} 
-            </span>
-            <span ng-show="estate.rentPrice">
-              Alquiler {{estate.currencyRent.label}} {{estate.rentPrice}}
-            </span>
-            <p>
-              {{estate.description}}
-            </p>
-        </p>
-      </figure>
 
-    </div>
-  </div><!-- /grid-wrap -->
-  <div class="content">
-    <div>
-                                       
-       </div>
-    <div>
-      
-    </div>
-    <div>
-      
-    </div>
-    <div>
-      
-    </div>
-    <div>
-      
-    </div>
-    <div>
-      
-    </div>
-    <div>
-      
-    </div>
-    <div>
-      
-    </div>
-    <div>
-      
-    </div>
-    <span class="loading"></span>
-    <span class="icon close-content"></span>
-  </div>
-</section>
+  </section>
+</div>

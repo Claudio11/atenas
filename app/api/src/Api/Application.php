@@ -106,6 +106,29 @@ class Application extends Slim
             $this->response->setBody(json_encode($response));
         });
 
+        // Updates Property
+        $this->post('/api/properties/update', function () {
+            $properties = new Property();
+            $this->response->headers->set('Content-Type', 'application/json');
+            $post = json_decode($this->request()->getBody());
+            $postArray = get_object_vars($post);
+            $result = $properties->update($postArray);
+
+            $pictureList = $postArray['data']->imageList;
+            
+            if ($result){
+                // If there is any uploaded picture, relate pictures with the property.
+                $assets = new Assets();
+                // TODO Also remove (in the DB) deleted pictures (from the list).
+                $assets->bulkUpdateProperty($pictureList, $result);
+                $response = array("status" => true, "id" => $result);
+            }
+            else{
+               $response = array("status" => false);
+            }
+            $this->response->setBody(json_encode($response));
+        });
+
         // File upload
         // TODO Refactor and add dile type validation (and other checks).
         $this->post('/api/uploadImage', function () {

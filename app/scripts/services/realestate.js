@@ -130,6 +130,29 @@ angular.module('atenasApp')
         });
     }
 
+    /**
+     *  Save {this}.
+     */
+    RealEstate.prototype.update = function(){
+        var deferred = $q.defer();
+        var collectedData = {'data': this};
+        var self = this;
+        $http({
+            data: collectedData,
+            method: 'POST',
+            url: 'api/properties/update'
+        })
+        .then(function(response) {
+          console.info(response);
+            if (response.status) {
+                alert("Se actualizó la propiedad correctamente");
+            }
+            else {
+                alert("La propiedad no ha podido ser actualizada");
+            }
+        });
+    }
+
     RealEstate.getList = function(lastId) {
         var deferred = $q.defer();
         var realEstatesList = [];

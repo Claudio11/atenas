@@ -74,3 +74,65 @@
 .container strong, .container span{
   color: grey;
 }
+
+/* Real estate detail */
+
+
+.detail-content{
+  overflow-y: scroll;
+  background: rgba(255, 255, 255, 0.6);
+  display: block;
+  z-index: 400;
+  -webkit-overflow-scrolling: touch;
+  color: black;
+}
+
+  .detail-content, .detail-loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+  }
+
+  .detail-loading {
+    opacity: 1;
+    z-index: 1;
+    background: transparent url(../img/preloader.gif) no-repeat center center;
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+    -webkit-transition: opacity 0.5s, -webkit-transform 0.5s;
+    transition: opacity 0.5s, transform 0.5s;
+  }
+  .detail-icon {
+
+  }
+
+    .detail-icon:before {
+      font-family: 'fontawesome';
+      speak: none;
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+  .detail-close-content {
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    right: 10px;
+    font-size: 1.6em;
+    color: #aaa;
+    cursor: pointer;
+    pointer-events: none;
+    padding: 1em;
+    opacity: 1;
+    -webkit-transition: opacity 0.3s;
+    transition: opacity 0.3s;
+    border: solid 1px black;
+  }
