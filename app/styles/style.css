@@ -763,6 +763,31 @@ body{
 	margin-bottom:15px;
 }
 
+/* Lista de Propiedades */
+
+.row-with-filter {
+	width:80%;
+}
+
+	.image-property {
+		height: 120px;
+	}
+
+.filters-container {
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 20%;
+}
+
+@media screen and (max-width: 1000px) {
+
+	.image-property {
+		height: 86px;
+	}
+
+}	
+
 /* General Styles */
 center > h4 { color: #fff; margin-top: 50px; }
 

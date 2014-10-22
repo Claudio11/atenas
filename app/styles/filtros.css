@@ -1,0 +1,83 @@
+/* CSS Document */
+
+#columnaderecha {
+	margin-right: 10px;
+	margin-left: 0;
+	display: block;
+	position: relative;
+	float: left;
+	margin-bottom: 10px;
+	background-color: #F7F7F7;
+}
+
+.criterio_orden {
+	margin-bottom: 10px;
+	overflow: hidden;
+}
+
+.criterio_ordenamiento {
+	font-size: 13px;
+	color: #fff;
+	display: inline-block;
+	background-color: rgba(170, 7, 7, 0.5);
+	height: 23px;
+	width: 100%;
+	text-align: left;
+	margin-bottom: 5px;
+	padding: 4px 10px 2px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+br {
+    clear: left;
+    text-align: left;
+}
+
+a.items_ordenamiento_azul {
+    color:#980509;
+    cursor: pointer;
+    font-size: 12px;
+    line-height: 20px;
+}
+
+span.items_cantidad_azul {
+	display: inline-block;
+	font-size: 12px;
+	color: #919191;
+	float: right;
+	margin-right: 10px;
+}
+
+.texto_filtro {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	
+}
+
+a.items_ordenamiento_azul {
+	padding-left: 15px;
+	margin-right:10px;
+	
+}
+
+.clickable a {
+	font-family: Arial, Helvetica, sans-serif;
+	display: block;
+	clear: both;
+	color: #003478;
+	text-decoration: none;
+	font-weight: 700;
+	font-size: 12px;
+	padding-top: 5px;
+}
+
+.items_ordenamiento_filtro_azul {
+	text-align: left;
+	position: relative;
+}
+
+.items_ordenamiento_filtro_azul input[type="checkbox"], .items_ordenamiento_filtro_azul input[type="radio"] {
+    position: absolute;
+    top: 0;
+    right: 5px;
+}

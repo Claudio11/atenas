@@ -37,7 +37,6 @@ body {
 }
 
 .grid {
-	width:80%;
 	position: relative;
 	-webkit-transition: all 0.5s cubic-bezier(0,0,0.25,1);
 	transition: all 0.5s cubic-bezier(0,0,0.25,1);

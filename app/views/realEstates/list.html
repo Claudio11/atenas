@@ -3,11 +3,11 @@
   Busqueda: <input type="text" ng-model="filterData.generalSearch"/>
   Venta: <input type="checkbox" ng-model="filterData.sale"/>
 
-
-	 <infinite-scroll list="realEstates">
+ 	<infinite-scroll list="realEstates" class="list-container">			
+	 
 		<figure ng-repeat="estate in filteredList" ng-click="setCurrentDetail(estate)">
-			<img ng-if="estate.imageList[0]" ng-src="{{estate.imageList[0].path}}" alt="img01"/>
-			<img ng-if="!estate.imageList[0]" ng-src="3DGridEffect/img/1.jpg" alt="img01"/>
+			<img ng-if="estate.imageList[0]" ng-src="{{estate.imageList[0].path}}" alt="img01" class="image-property"/>
+			<img ng-if="!estate.imageList[0]" ng-src="3DGridEffect/img/1.jpg" alt="img01" class="image-property"/>
 			<h4>{{estate.title}}</h4>
 			<p style="color:#666; font-size:12px">
 				<span ng-show="estate.salePrice">
@@ -22,11 +22,12 @@
 			</p>
 		</figure>
 
-  	</infinite-scroll>
+  	
+	</infinite-scroll>
 
   	<real-estate-detail ng-if="currentDetail" estate="currentDetail">
   		<span class="detail-loading"></span>
-  		<!-- TODO: Seguir aca setCurrentDetail no esta siendo llamado-->
-    	<div class="detail-icon detail-close-content" ng-click="setCurrentDetail(false)"></div>
+  		<!-- TODO: Seguir aca setCurrecntDetail no esta siendo llamado-->
+    	<div class="detail-icon detail-close-content" ng-click="setCurrentDetail(false)">X</div>
   	</real-estate-detail>	
 </div>
