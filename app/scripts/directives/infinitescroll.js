@@ -37,9 +37,8 @@ angular.module('atenasApp')
                     var offsetHeight = $document[0].body.offsetHeight;
                     var scrollPosition = doc.scrollTop();
 
-                    if (offsetHeight - scrollPosition < 700) {
+                    if (offsetHeight - scrollPosition < 900) {
                         // Near the bottom of the list so we retrieve the new data...
-                        var currentScroll = doc.scrollTop;
                         isAbleToRequest = false;
                         var promise = RealEstate.getList(scope.lastId);
                         // TODO add element (preloading) while retrieves elements, then delete it (directive(?)).
@@ -47,7 +46,6 @@ angular.module('atenasApp')
                             if (realEstateList.length > 0) {
                                 scope.list = scope.list.concat(realEstateList);
                                 scope.lastId = getLastId();
-                                doc.scrollTop = currentScroll;
                                 isAbleToRequest = true;
                             }
                             else {
