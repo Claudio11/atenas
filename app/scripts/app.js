@@ -29,6 +29,15 @@ angular
           }
         }
       })
+      .when('/featured', {
+        templateUrl: 'views/realEstates/featured.html',
+        controller: 'FeaturedCtrl',
+        resolve: {
+          realEstatesList: function (RealEstate) {
+            return RealEstate.getList();
+          }
+        }
+      })
       .when('/realEstates/upsert/:id?', {
         templateUrl: 'views/realEstates/new.html',
         controller: 'CreateRealEstatesCtrl'
