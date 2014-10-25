@@ -13,7 +13,7 @@
  	<div class="top-grids">
  		<div class="wrap">
 	 		<div class="top-grid" ng-repeat="estate in featuredEstates">
-	 			<a href="#"><img ng-src="images/icon1.png" title="icon-name"></a>
+	 			<a href="#"><img ng-src="{{estate.sale | transactionImage}}" title="icon-name"></a>
 	 			<h3>{{estate.title}}</h3>
 	 			<p>{{estate.description}}</p>
 	 			<a class="button" href="destacada_uno.html">ver mas</a>
