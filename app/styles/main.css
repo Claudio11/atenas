@@ -136,3 +136,34 @@
     transition: opacity 0.3s;
     border: solid 1px black;
   }
+
+
+
+  /* Featured styles */
+
+.container {
+  margin-top: -33px;
+}
+
+  .content {
+    overflow: visible !important;
+    visibility: visible !important;
+    height: auto !important;
+    position: relative !important;
+    pointer-events: auto !important;
+    background-color: #ececed !important;
+  }
+
+      .top-grids {
+        background-color: #ececed !important;
+      }
+
+  .content > div {
+    opacity: 1 !important;
+    position: relative !important;
+    height: auto !important;
+  }
+
+  .camera_wrap {
+    display: block !important;
+  }

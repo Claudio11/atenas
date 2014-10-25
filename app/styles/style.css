@@ -174,6 +174,11 @@ body{
 	color:#aa0707;
 	margin: 0.5em 0;
 }
+.mid-grid h6 {
+	font-size: 2em;
+	color: #8D949A;
+	font-family: 'Open Sans', sans-serif;
+}
 .mid-grid p{
 	font-size: 0.875em;
 	font-family: 'Open Sans', sans-serif;
