@@ -156,7 +156,12 @@
 
       .top-grids {
         background-color: #ececed !important;
+        overflow: visible !important;
       }
+
+        .top-grid:nth-child(3) {
+          margin-right: 0 !important;
+        }
   .content > div {
     opacity: 1 !important;
     position: relative !important;
