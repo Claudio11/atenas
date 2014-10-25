@@ -2,13 +2,14 @@
 
 angular.module('atenasApp')
   	.controller('FeaturedCtrl', function ($scope, realEstatesList) {
-  		$scope.realEstates = realEstatesList.splice(0, 3);
-      	console.info('FeaturedCtrl', $scope.realEstates);
+  		$scope.featuredEstates = realEstatesList.splice(0, 3);
+      	console.info('FeaturedCtrl', $scope.featuredEstates);
 
+      	// Initialize camera gallery...
       	jQuery(function(){
-	        jQuery('#camera_wrap_1').camera({
-	          height: '500px',
-	          pagination: false,
-	        });
-	      });
+			jQuery('#camera_wrap_1').camera({
+			  height: '500px',
+			  pagination: false,
+			});
+		});
   	});
