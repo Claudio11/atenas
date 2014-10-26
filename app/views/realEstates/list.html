@@ -31,8 +31,8 @@
 		  	
 			</infinite-scroll>
 		  </div>
-
-      <div class="filters-container">
+     <div class="message-container">
+      <div class="filters-container" ng-class="{'filters-container-open': filterViewMore}">
 
         <div id="columnaderecha">
         <!-- Abre columnaderecha -->
@@ -47,7 +47,7 @@
                     <div class="items_ordenamiento_filtro_azul">
                     <a class="items_ordenamiento_azul" title="Venta">
                     <span class="texto_filtro">Venta</span>
-                    <input type="checkbox" value="1" name="test[]" id="myid1">
+                    <input type="checkbox" ng-model="filterData.sale"/>
                     </a>
                     </div>
                 </div>
@@ -433,11 +433,13 @@
                 <div class="clickable" id="clickable12346">
                 <a href="javascript:openclose_req(12346);">+ Otros Departamentos</a>
             </div> -->  
-        </div> 
+          </div> 
             
-    </div>
-      </div>
-    
+    	</div>
+      </div> <!-- End filter container -->
+      <div class="toggle-more" ng-hide="filterViewMore" ng-click="toggleViewMore()">Ver mas...</div>
+      <div class="toggle-more" ng-show="filterViewMore" ng-click="toggleViewMore()">Ver menos...</div>
+     </div><!-- End message container -->
     </div>
     <!-- /grid-wrap -->
     <!-- <div class="content">
