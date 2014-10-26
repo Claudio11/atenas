@@ -2,6 +2,7 @@
   Filtros:
   Busqueda: <input type="text" ng-model="filterData.generalSearch"/>
   Venta: <input type="checkbox" ng-model="filterData.sale"/>
+  Alquiler <input type="checkbox" ng-model="filterData.rent"/>
 
   	<div>
 	  <section>
@@ -41,23 +42,8 @@
             
             
             <!-- Operación -->
-            <div id="Div_Cont_Operacion" class="criterio_orden"> 
-                <span class="criterio_ordenamiento">Operacion</span><br>
-                <div id="Div_Operacion">
-                    <div class="items_ordenamiento_filtro_azul">
-                    <a class="items_ordenamiento_azul" title="Venta">
-                    <span class="texto_filtro">Venta</span>
-                    <input type="checkbox" ng-model="filterData.sale"/>
-                    </a>
-                    </div>
-                </div>
-                <div class="items_ordenamiento_filtro_azul">
-                    <a class="items_ordenamiento_azul" title="Alquiler">
-                    <span class="texto_filtro">Alquiler</span>
-                    <input type="checkbox" value="1" name="test[]" id="myid1">
-                    </a>
-                </div>
-                
+            <div id="Div_Cont_Operacion" class="criterio_orden" filter-section filter-data="filterData.operation"> 
+
             </div>
             
             <!-- Inmueble -->

@@ -32,8 +32,13 @@ angular.module('atenasApp')
         if (filterParams.sale && !this.sale) {
             matches = false;
         }
+        if (filterParams.rent && !this.rent) {
+            matches = false;
+        }
         if (!Util.isEmpty(filterParams.generalSearch) // If it is empty we do not test it.
-                && (angular.lowercase(this.description).indexOf(lowercaseGeneralSearch) === -1)) {
+                && (angular.lowercase(this.description).indexOf(lowercaseGeneralSearch) === -1)
+                && (angular.lowercase(this.title).indexOf(lowercaseGeneralSearch) === -1)
+            ) {
             // TODO: improve search so it matches every word instead of checking for all the string (indexof).
             matches = false;
         }
