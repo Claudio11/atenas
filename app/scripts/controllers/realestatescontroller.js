@@ -3,6 +3,7 @@
 angular.module('atenasApp')
   .controller('RealEstatesCtrl', function ($scope, $filter, realEstatesList) {
 
+    $scope.filterViewMore = false;
     $scope.filterData = {};
     $scope.filteredList = $scope.realEstates = realEstatesList; // Set real estates
     $scope.currentDetail; // Current real estate in the detail popup.
@@ -10,9 +11,15 @@ angular.module('atenasApp')
     // Fields that can be filtered.
     var filterableFields = ['filterData.generalSearch', 'filterData.sale'];
 
+    // Sets the current detail real estate.
     $scope.setCurrentDetail = function (currentDetail) {
       $scope.currentDetail = currentDetail;
       console.info($scope.currentDetail);
+    }
+
+    // Toggles if the filter is short or long.
+    $scope.toggleViewMore = function () {
+      $scope.filterViewMore = !$scope.filterViewMore;
     }
 
     angular.forEach(filterableFields, function(field) {

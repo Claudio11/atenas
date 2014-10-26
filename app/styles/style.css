@@ -777,12 +777,25 @@ body{
 	.image-property {
 		height: 120px;
 	}
-
-.filters-container {
+.message-container {
 	position: absolute;
 	right: 0;
 	top: 0;
 	width: 20%;
+}
+
+/* Filters */
+.toggle-more {
+	position: absolute;
+	bottom: -30px;
+	color: blue;
+	font-size: 0.7em;
+	cursor: pointer;
+}
+.filters-container {
+	position: relative;
+	right: 0;
+	top: 0;
 	height: 100%;
 	max-height: 400px;
 	overflow: hidden;
