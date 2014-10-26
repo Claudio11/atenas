@@ -1,17 +1,11 @@
+<span class="criterio_ordenamiento">{{filterData.label}}</span><br>
 <div ng-hide="selection">
 	<div class="criterio_orden"> 
-        <span class="criterio_ordenamiento">{{filterData.name}}</span><br>
-        <div class="items_ordenamiento_filtro_azul">
-            <a class="items_ordenamiento_azul" title="Venta">
-            <span class="texto_filtro" ng-click="setSelection('sale', 'Venta')">Venta</span>
+        <div class="items_ordenamiento_filtro_azul" ng-repeat="(attr, data) in filterData.data">
+            <a class="items_ordenamiento_azul" title="{{data.label}}">
+            <span class="texto_filtro" ng-click="setSelection(attr, data.label)">{{data.label}}</span>
             </a>
         </div>
-        <div class="items_ordenamiento_filtro_azul">
-            <a class="items_ordenamiento_azul" title="Alquiler">
-            <span class="texto_filtro" ng-click="setSelection('rent', 'Alquiler')">Alquiler</span>
-            </a>
-        </div>
-        
     </div>
 </div>
 <div ng-show="selection">
