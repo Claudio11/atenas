@@ -171,3 +171,8 @@
   .camera_wrap {
     display: block !important;
   }
+
+  .centered {
+    text-align: center;
+    margin-left: 0 !important;
+  }

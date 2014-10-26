@@ -10,7 +10,7 @@ angular.module('atenasApp')
             list: "="         // List unfiltered.
             // If needed create here the condition to search on the DB (most common last date).
         },
-        templateUrl: 'views/realEstates/list-template.html',
+        template: '<div ng-transclude></div>',
         link: function(scope, element, attrs) {
             // Check when the element scroll is near bottom, then we retrieve the elements after the id (sorted by date) and append it to the existing list.
             var isAbleToRequest = true; // Boolean that indicates if is ok to send a request (while is retrieving we should not allow to request even if the scroll is at the bottom). 

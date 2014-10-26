@@ -783,7 +783,15 @@ body{
 	right: 0;
 	top: 0;
 	width: 20%;
+	height: 100%;
+	max-height: 400px;
+	overflow: hidden;
 }
+
+	.filters-container-open {
+		overflow-y: auto;
+		max-height: 600px;
+	}
 
 @media screen and (max-width: 1000px) {
 
