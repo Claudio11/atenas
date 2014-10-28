@@ -35,6 +35,9 @@ angular.module('atenasApp')
         if (filterParams.rent && !this.rent) {
             matches = false;
         }
+        if (filterParams.type && filterParams.type !== this.type) {
+            matches = false;
+        }
         if (!Util.isEmpty(filterParams.generalSearch) // If it is empty we do not test it.
                 && (angular.lowercase(this.description).indexOf(lowercaseGeneralSearch) === -1)
                 && (angular.lowercase(this.title).indexOf(lowercaseGeneralSearch) === -1)
