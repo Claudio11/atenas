@@ -14,6 +14,16 @@ angular.module('atenasApp')
         this.title = data.title;
         this.description = data.description;
         this.imageList = (data.children) ? this.setPictureList(data.children) : [];
+        this.bathLength = data.bathLength;
+        this.garage = data.garage === '1';
+        this.yardage = data.yardage;
+        this.furnished = data.furnished === '1';
+        this.orientation = data.orientation;
+        this.terrace = data.terrace === '1';
+        this.commonExpenses = data.commonExpenses;
+        this.vigilance = data.vigilance === '1';
+        this.whiteLine = data.whiteLine === '1';
+        this.featured = data.featured === '1';
 
         var actualCurrency = (Util.isEmpty(data.currency)) ? 'us' : data.currency;
         this.currency = Util.getCurrency(actualCurrency); // currency for sale, object, with the format: {label: "u$", usRatio: 1} usRatio = current currency by dollar, i.e.: $ => {label: "$", usRatio: 23.05}.

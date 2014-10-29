@@ -28,6 +28,34 @@ angular.module('atenasApp')
                               house: {
                                 value: false, 
                                 label: 'Casa'
+                              },
+                              terrain: {
+                                value: false, 
+                                label: 'Terreno'
+                              }, 
+                              premise: {
+                                value: false, 
+                                label: 'Locales'
+                              }
+                            }
+                          },
+                          {label: 'Baños', 
+                            data: {
+                              0: {
+                                value: false, 
+                                label: 'Sin baño'
+                              }, 
+                              1: {
+                                value: false, 
+                                label: '1 baño'
+                              },
+                              2: {
+                                value: false, 
+                                label: '2 baños'
+                              }, 
+                              3: {
+                                value: false, 
+                                label: 'Mas de 2 baños'
                               }
                             }
                           }
@@ -36,7 +64,8 @@ angular.module('atenasApp')
     // Fields that can be filtered.
     // TODO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Iterate over filter data and create filterable fields programatically (except for generalSearch)
     var filterableFields = ['filterData.generalSearch', 'filterData[0].data.sale.value', 'filterData[0].data.rent.value',
-                            'filterData[1].data.apartment.value', 'filterData[1].data.house.value'];
+                            'filterData[1].data.apartment.value', 'filterData[1].data.house.value',
+                            'filterData[2].data[0].value', 'filterData[2].data[1].value', 'filterData[2].data[2].value', 'filterData[2].data[3].value'];
     // Call getFilterableFields (from filterData).
 
     // TODO put filter logic in a filter service
@@ -59,7 +88,8 @@ angular.module('atenasApp')
                                                {generalSearch: $scope.filterData.generalSearch,
                                                 sale: $scope.filterData[0].data.sale.value,
                                                 rent: $scope.filterData[0].data.rent.value,
-                                                type: getSelectedItem($scope.filterData[1].data)});
+                                                type: getSelectedItem($scope.filterData[1].data),
+                                                bathLength: getSelectedItem($scope.filterData[2].data)});
     }
 
     angular.forEach(filterableFields, function(field) {
