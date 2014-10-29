@@ -47,8 +47,11 @@ class Property
             return null;
         }
         else{
-            if ($stmt = $this->db->prepare("INSERT INTO properties (title, description, type, sale, salePrice, rent, rentPrice, currency, currencyRent) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)") ) {
-                $stmt->bind_param('sssiiiiss', $property->title,
+            if ($stmt = $this->db->prepare("INSERT INTO properties (title, description, type, sale, salePrice, rent, ". 
+                                           "rentPrice, currency, currencyRent, bedroomLength, bathLength, garage, ".
+                                           "yardage, furnished, orientation, terrace, commonExpenses, vigilance, whiteLine, ".
+                                           "featured) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)") ) {
+                $stmt->bind_param('sssiiiissiiiiisiiiii', $property->title,
                                              $property->description,
                                              $property->type,
                                              $property->sale,
@@ -56,7 +59,19 @@ class Property
                                              $property->rent,
                                              $property->rentPrice,
                                              $property->currency->val,
-                                             $property->currencyRent->val);
+                                             $property->currencyRent->val,
+
+                                             $property->bedroomLength,
+                                             $property->bathLength,
+                                             $property->garage,
+                                             $property->yardage,
+                                             $property->furnished,
+                                             $property->orientation,
+                                             $property->terrace,
+                                             $property->commonExpenses,
+                                             $property->vigilance,
+                                             $property->whiteLine,
+                                             $property->featured);
 
                 $stmt->execute();
                 $stmt->close();

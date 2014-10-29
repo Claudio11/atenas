@@ -14,6 +14,7 @@ angular.module('atenasApp')
         this.title = data.title;
         this.description = data.description;
         this.imageList = (data.children) ? this.setPictureList(data.children) : [];
+        this.bedroomLength = data.bedroomLength;
         this.bathLength = data.bathLength;
         this.garage = data.garage === '1';
         this.yardage = data.yardage;

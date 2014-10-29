@@ -47,6 +47,15 @@
 	<br /><br />
 
 	<strong>
+		Cantidad de dormitorios:
+	</strong>
+	<input type="radio" ng-model="realEstate.bedroomLength" value="0" /><span>Sin dormitorio</span>
+	<input type="radio" ng-model="realEstate.bedroomLength" value="1" /><span>1 dormitorio</span>
+	<input type="radio" ng-model="realEstate.bedroomLength" value="2" /><span>2 dormitorios</span>
+	<input type="radio" ng-model="realEstate.bedroomLength" value="3" /><span>3 dormitorios</span>
+	<input type="radio" ng-model="realEstate.bedroomLength" value="4" /><span>Mas de 3 dormitorios</span><br />
+
+	<strong>
 		Cantidad de baños:
 	</strong>
 	<input type="radio" ng-model="realEstate.bathLength" value="0" /><span>Sin baño</span>
@@ -57,8 +66,8 @@
 	<strong>
 		Garage:
 	</strong>
-	<input type="radio" ng-model="realEstate.garage" value="true" /><span>Si</span>
-	<input type="radio" ng-model="realEstate.garage" value="false" /><span>No</span><br />
+	<input type="radio" ng-model="realEstate.garage" ng-value="true" /><span>Si</span>
+	<input type="radio" ng-model="realEstate.garage" ng-value="false" /><span>No</span><br />
 
 	<strong>
 		Metraje:
@@ -68,41 +77,41 @@
 	<strong>
 		Amueblado:
 	</strong>
-	<input type="radio" ng-model="realEstate.furnished" value="true"/><span>Si</span>
-	<input type="radio" ng-model="realEstate.furnished" value="false"/><span>No</span><br />
+	<input type="radio" ng-model="realEstate.furnished" ng-value="true"/><span>Si</span>
+	<input type="radio" ng-model="realEstate.furnished" ng-value="false"/><span>No</span><br />
 
 
 	<strong>
 		Orientacion:
 	</strong>
 	<input type="radio" ng-model="realEstate.orientation" value="front" /><span>Frente</span>
-	<input type="radio" ng-model="realEstate.orientation" value="counter-front" /><span>Contrafrente</span>
+	<input type="radio" ng-model="realEstate.orientation" value="counterFront" /><span>Contrafrente</span>
 	<input type="radio" ng-model="realEstate.orientation" value="inside" /><span>Interior</span>
 	<input type="radio" ng-model="realEstate.orientation" value="lateral" /><span>Lateral</span><br />
 
 	<strong>
 		Terraza:
 	</strong>
-	<input type="radio" ng-model="realEstate.terrace" value="true"/><span>Si</span>
-	<input type="radio" ng-model="realEstate.terrace" value="false"/><span>No</span><br />
+	<input type="radio" ng-model="realEstate.terrace" ng-value="true"/><span>Si</span>
+	<input type="radio" ng-model="realEstate.terrace" ng-value="false"/><span>No</span><br />
 
 	<strong>
 		Gastos Comunes
 	</strong>
-	<input type="radio" ng-model="realEstate.commonExpenses" value="true"/><span>Si</span>
-	<input type="radio" ng-model="realEstate.commonExpenses" value="false"/><span>No</span><br />
+	<input type="radio" ng-model="realEstate.commonExpenses" ng-value="true"/><span>Si</span>
+	<input type="radio" ng-model="realEstate.commonExpenses" ng-value="false"/><span>No</span><br />
 
 	<strong>
 		Vigilancia:
 	</strong>
-	<input type="radio" ng-model="realEstate.vigilance" value="true"/><span>Si</span>
-	<input type="radio" ng-model="realEstate.vigilance" value="false"/><span>No</span><br />
+	<input type="radio" ng-model="realEstate.vigilance" ng-value="true"/><span>Si</span>
+	<input type="radio" ng-model="realEstate.vigilance" ng-value="false"/><span>No</span><br />
 
 	<strong>
 		Linea blanca:
 	</strong>
-	<input type="radio" ng-model="realEstate.whiteLine" value="true"/><span>Si</span>
-	<input type="radio" ng-model="realEstate.whiteLine" value="false"/><span>No</span><br />
+	<input type="radio" ng-model="realEstate.whiteLine" ng-value="true"/><span>Si</span>
+	<input type="radio" ng-model="realEstate.whiteLine" ng-value="false"/><span>No</span><br />
 
 	<button ng-show="realEstate.id" ng-click="update()">Actualizar</button>
 	<button ng-hide="realEstate.id" ng-click="save()">Salvar</button>
