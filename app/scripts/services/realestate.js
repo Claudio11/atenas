@@ -33,7 +33,7 @@ angular.module('atenasApp')
     };
 
     /**
-     *  Returns true if it matches the current filters.
+     *  Returns true if {{this}} matches the current filters.
      *
      *  @param Filter param with the following format: (TODO).
      */
@@ -48,6 +48,12 @@ angular.module('atenasApp')
         }
         if (filterParams.type && filterParams.type !== this.type) {
             matches = false;
+        }
+        if (filterParams.bathLength && filterParams.bathLength !== this.bathLength.toString()) {
+            if (this.bathLength < 2 || filterParams.bathLength !== '3') {
+                // It can have more than 2 bathrooms (3 means more than 2 bathrooms).  
+                matches = false;
+            }
         }
         if (!Util.isEmpty(filterParams.generalSearch) // If it is empty we do not test it.
                 && (angular.lowercase(this.description).indexOf(lowercaseGeneralSearch) === -1)
