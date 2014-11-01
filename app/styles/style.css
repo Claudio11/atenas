@@ -1,5 +1,5 @@
 /* reset */
-html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,dl,dt,dd,ol,nav ul,nav li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
+html,body,div,span,applet,object,iframe,h6,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,dl,dt,dd,ol,nav ul,nav li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}
 article, aside, details, figcaption, figure,footer, header, hgroup, menu, nav, section {display: block;}
 ol,ul{list-style:none;margin:0px;padding:0px;}
 blockquote,q{quotes:none;}
@@ -19,7 +19,11 @@ a{text-decoration:none;}
 .vertical-top{	vertical-align:top;}/* vertical align top */
 nav.vertical ul li{	display:block;}/* vertical menu */
 nav.horizontal ul li{	display: inline-block;}/* horizontal menu */
-img{max-width:100%;}
+
+img{
+	max-width:100%;
+	
+}
 /*end reset*/
 body{
 	background:#ECECED;
@@ -62,9 +66,12 @@ body{
 }
 .top-nav-left{
 	float:left;
+	
 }
 .top-nav-right{
 	float:right;
+	padding-top: 3px;
+	padding-right: 3px;
 }
 .top-nav-left ul li{
 	display:inline-block;
@@ -103,7 +110,7 @@ body{
 	-webkit-transition: 0.5s ease;
 }
 .top-nav-right input[type="submit"]:hover{
-	background: url(../images/search-icon.png) no-repeat 42% 50% #aa0707;
+	/*background: url(../images/search-icon.png) no-repeat 42% 50% #aa0707;*/
 }
 .top-nav-right input[type="text"]{
 	border:1px solid #EEE;
@@ -163,7 +170,7 @@ body{
 	margin-top: -4em;
 }
 /*----start---mid-grid-----*/
-.mid-grid h1{
+.mid-grid h6{
 	font-size:2em;
 	font-family: 'Open Sans', sans-serif;
 	color:#8D949A;
@@ -173,11 +180,6 @@ body{
 	font-family: 'Open Sans', sans-serif;
 	color:#aa0707;
 	margin: 0.5em 0;
-}
-.mid-grid h6 {
-	font-size: 2em;
-	color: #8D949A;
-	font-family: 'Open Sans', sans-serif;
 }
 .mid-grid p{
 	font-size: 0.875em;
@@ -332,7 +334,7 @@ body{
 	font-size: 0.875em;
 	text-transform: uppercase;
 	background: #FFF;
-	padding: 10px 15px;
+/*	padding: 10px 15px; */
 	display: inline-block;
 	margin: 9px 0;
 	-webkit-transition: all 0.3s ease-out;
@@ -345,9 +347,9 @@ body{
 	background:#aa0707;
 	color:#FFF;
 }
-.footer-grid ul li{
+/*.footer-grid ul li{
 	display:block;
-}
+}*/
 .center-grid a{
 	background: none;
 	padding: 0px;
@@ -589,10 +591,10 @@ body{
 	float:left;
 }
 .gallery-grid p {
-	font-size: 0.875em;
-	padding: 0.2em 0em 1.2em 0em;
+	font-size: 0.8em;
+	/*padding: 0.2em 0em 1.2em 0em;*/
 	color: #6a6a6a;
-	line-height: 1.8em;
+	line-height: 1.9em;
 	font-family: Arial, Helvetica, sans-serif;
 }
 .gallery-button a {
@@ -613,6 +615,7 @@ body{
 }
 .gallery-grids {
 	margin-bottom: 2em;
+	margin-right: 19%;
 }
 
 .projects-bottom-paination ul li{
@@ -639,9 +642,9 @@ body{
 }
 .gallery-grid h4{
 	font-family: 'Open Sans', sans-serif;
-	font-size: 18px;
+	font-size: 22px;
 	line-height: 22px;
-	text-transform: uppercase;
+	/*text-transform: uppercase; */
 	color: #8D949A;
 	-webkit-transition: all 0.3s ease-out;
 	-moz-transition: all 0.3s ease-out;
@@ -768,6 +771,63 @@ body{
 	margin-bottom:15px;
 }
 
+/***** Pop up styles *****/
+
+.cont .gallery-grid  {
+	width: 45%;						
+}
+
+.cont { 
+		width:100%;
+		height:900px;				
+}
+
+.cont .gallery-grid ul {	
+	width: 32%; list-style:circle;						
+}
+
+.cont .gallery-grid h4 {
+	padding: 20px 0px 20px 20px;
+}
+
+.padding {
+	padding-left: 33px !important;	
+} 
+
+/***** LOGO *****/
+.social-nav {
+	position:absolute;
+	top: 0px;
+	left: 1%;
+	
+	
+}
+.social-nav h1 {margin: 0; padding:0;}
+.social-nav h1 a{
+	list-style: none;
+	display:block;
+	float: left;
+	background: rgba(255,255,255,0.4);
+	padding:100px 10px 5px 10px;
+	margin: 1px; 
+	
+}
+.social-nav h1 a:hover {background: rgba(255,255,255,0.8);}
+/***** LOGO *****/
+
+/***** social icons *****/
+.social-icons ul li a {
+	background: none;
+}
+
+.social-icons ul li a:hover {
+	background: none;
+}
+
+
+
+/***** social icons *****/
+
 /* Lista de Propiedades */
 
 .row-with-filter {
@@ -845,6 +905,47 @@ ul#accordion-freebie > li > span { margin-bottom: 10px; }
 		width:94%;
 		padding:3%; 
 	}
+}
+
+/***** Media Quries *****/
+@media only screen and (max-width: 1024px) {
+	.wrap{
+		width:95%;
+	}	
+}
+/*  GO FULL WIDTH AT LESS THAN 800 PIXELS */
+
+@media only screen and (max-width: 800px) {
+	.wrap{
+		width:95%;
+	}
+	.span_2_of_3 {
+		width:94%;
+		padding:3%; 
+	}
+	.col{ 
+		margin: 1% 0 1% 0%;
+	}
+	.span_1_of_3 {
+		width:94%;
+		padding:3%; 
+	}
+	
+	/*  menu responsive */
+	.column{
+		display:block;
+	}
+	
+	.top-nav{
+		display:none;
+	}
+	
+	.social-nav {
+
+		z-index: 1000;
+}
+	/*  menu responsive */
+	
 }
 
 /*  GO FULL WIDTH AT LESS THAN 640 PIXELS */
@@ -953,4 +1054,54 @@ ul#accordion-freebie > li > span { margin-bottom: 10px; }
 	.top-grid h3 {
 		font-size: 1.5em;
 	}
+	
+	.top-nav-left  { 
+		padding-left: 15%;		
+	}
+}
+
+@media only screen and (max-width: 641px) and (min-width: 591px) {
+	.top-nav-left  { 
+		padding-left: 15%;		
+	}
+}
+
+@media only screen and (max-width: 935px) {
+	.top-grid {
+		width:100%;
+		padding-top: 1.5em;
+		padding-bottom: 6.5em;
+	}	
+}
+
+@media only screen and (max-width: 768px) {
+	.footer-grid{
+	width: 100%;
+	}
+}
+
+@media only screen and (max-width: 800px) {
+	
+	.company_address {
+		padding-left: 0;
+		padding-top: 5%;
+	}
+	
+	.column {
+		min-height: 90px;
+	}
+
+}
+
+@media only screen and (min-width: 801px) {
+/*  menu responsive */
+	.column{
+		display:none;
+	}
+	
+	.top-nav{
+		display:block;
+	}
+	/*  menu responsive */
+	
 }

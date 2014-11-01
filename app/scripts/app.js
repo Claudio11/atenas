@@ -21,17 +21,18 @@ angular
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/realEstates/list.html',
-        controller: 'RealEstatesCtrl',
+        templateUrl: 'views/realEstates/featured.html',
+        controller: 'FeaturedCtrl',
         resolve: {
           realEstatesList: function (RealEstate) {
             return RealEstate.getList();
           }
         }
       })
-      .when('/featured', {
-        templateUrl: 'views/realEstates/featured.html',
-        controller: 'FeaturedCtrl',
+      .when('/list', {
+        
+        templateUrl: 'views/realEstates/list.html',
+        controller: 'RealEstatesCtrl',
         resolve: {
           realEstatesList: function (RealEstate) {
             return RealEstate.getList();

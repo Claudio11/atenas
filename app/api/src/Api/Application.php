@@ -156,6 +156,7 @@ class Application extends Slim
 
                 // Check $uploadedFile['error'] value.
                 if ($uploadedFile['error'] != 0) {
+                    // TODO: Add errors.
                     throw new RuntimeException('Unknown errors.');
                 }
 
@@ -164,33 +165,15 @@ class Application extends Slim
                     throw new RuntimeException('Exceeded filesize limit.');
                 }
 
-                // DO NOT TRUST $uploadedFile['mime'] VALUE !!
-                // Check MIME Type by yourself.
-                // $finfo = new finfo(FILEINFO_MIME_TYPE);
-                // if (false === $ext = array_search(
-                //     $finfo->file($uploadedFile['tmp_name']),
-                //     array(
-                //         'jpg' => 'image/jpeg',
-                //         'png' => 'image/png',
-                //         'gif' => 'image/gif',
-                //     ),
-                //     true
-                // )) {
-                //     throw new RuntimeException('Invalid file format.');
-                // }
-
-                // You should name it uniquely.
-                // DO NOT USE $uploadedFile['name'] WITHOUT ANY VALIDATION !!
-                // On this example, obtain safe unique name from its binary data.
-                // if (!move_uploaded_file(
-                //     $uploadedFile['tmp_name'],
-                //     sprintf('./../../../images/%s.%s',
-                //         sha1_file($uploadedFile['tmp_name']),
-                //         true
-                //     )
-                // )) {
-                //     throw new RuntimeException('Failed to move uploaded file.');
-                // }
+                // Really checking MIME type.
+                // Tirar php info para mas informacion
+                // TODO Continue here... not finding fileinfo file...
+                /*$fileinfo = new finfo(FILEINFO_MIME_TYPE);
+                $file = $fileinfo->file($uploadedFile['tmp_name']);
+                $allowed_types = array('image/jpeg', 'image/png');
+                if(!in_array($file, $allowed_types)) {
+                    throw new RuntimeException('Invalid file format.');
+                }*/
 
                 $path = '../images/tmp/'.sha1_file($uploadedFile['tmp_name']).$uploadedFile['name'];
                 if (!move_uploaded_file($uploadedFile['tmp_name'], $path )) {

@@ -63,7 +63,7 @@ angular.module('atenasApp')
 
     // Fields that can be filtered.
     // TODO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Iterate over filter data and create filterable fields programatically (except for generalSearch)
-    var filterableFields = ['filterData.generalSearch', 'filterData[0].data.sale.value', 'filterData[0].data.rent.value',
+    var filterableFields = ['generalSearch', 'filterData[0].data.sale.value', 'filterData[0].data.rent.value',
                             'filterData[1].data.apartment.value', 'filterData[1].data.house.value',
                             'filterData[2].data[0].value', 'filterData[2].data[1].value', 'filterData[2].data[2].value', 'filterData[2].data[3].value'];
     // Call getFilterableFields (from filterData).
@@ -85,7 +85,7 @@ angular.module('atenasApp')
     var getFilteredList = function () {
       // TODO!!!!!!: Iterate over filterData and set filter data programatically (except for generalSearch).
       return $filter('mainRealEstateFilter')($scope.realEstates, 
-                                               {generalSearch: $scope.filterData.generalSearch,
+                                               {generalSearch: $scope.generalSearch,
                                                 sale: $scope.filterData[0].data.sale.value,
                                                 rent: $scope.filterData[0].data.rent.value,
                                                 type: getSelectedItem($scope.filterData[1].data),
