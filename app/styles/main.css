@@ -184,3 +184,11 @@
   top: -30px;
   text-align: left;
 }
+
+.message-container  {
+  -webkit-transition: right 500ms ease;
+   -moz-transition: right 500ms ease;
+    -ms-transition: right 500ms ease;
+     -o-transition: right 500ms ease;
+        transition: right 500ms ease;
+}

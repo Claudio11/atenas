@@ -951,12 +951,12 @@ ul#accordion-freebie > li > span { margin-bottom: 10px; }
 	}
 
 	.message-container {
-		right: -18%;
+		right: -43%;
+		width: 47%;
 	}
 
 	.message-container.displayed {
-		right: 0;
-		width: 30%;	
+		right: -7%;
 	}
 }
 
