@@ -14,12 +14,12 @@ angular.module('atenasApp')
         this.title = data.title;
         this.description = data.description;
         this.imageList = (data.children) ? this.setPictureList(data.children) : [];
-        this.bedroomLength = data.bedroomLength;
-        this.bathLength = data.bathLength;
+        this.bedroomLength = data.bedroomLength || 0;
+        this.bathLength = data.bathLength || 0;
         this.garage = data.garage === '1';
-        this.yardage = data.yardage;
+        this.yardage = data.yardage || 0;
         this.furnished = data.furnished === '1';
-        this.orientation = data.orientation;
+        this.orientation = data.orientation || 'front';
         this.terrace = data.terrace === '1';
         this.commonExpenses = data.commonExpenses;
         this.vigilance = data.vigilance === '1';
