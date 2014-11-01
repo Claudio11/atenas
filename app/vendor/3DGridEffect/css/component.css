@@ -52,7 +52,7 @@ body {
 .grid figure,
 .grid .placeholder {
 	width: 340px;
-	height: 300px;
+	height: auto !important;
 }
 
 .grid figure {

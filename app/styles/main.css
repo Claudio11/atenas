@@ -140,9 +140,6 @@
 
   /* Featured styles */
 
-.container {
-  margin-top: -33px;
-}
 
   .content {
     overflow: visible !important;
@@ -183,6 +180,7 @@
   height: 30px;
   top: -30px;
   text-align: left;
+  display: none;
 }
 
 .message-container  {
@@ -191,4 +189,60 @@
     -ms-transition: right 500ms ease;
      -o-transition: right 500ms ease;
         transition: right 500ms ease;
+}
+
+.footer-grid h3 {
+  margin-left: 0;
+}
+
+.estates-title {
+  font-size: 1.5em;
+}
+
+/* real estate list styles */
+figure.real-estate-container h4 {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.3em;
+  line-height: 1.3em;
+  /* text-transform: uppercase; */
+  color: #8D949A;
+  -webkit-transition: all 0.3s ease-out;
+  -moz-transition: all 0.3s ease-out;
+  -ms-transition: all 0.3s ease-out;
+  -o-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+  cursor: pointer;
+  padding: 13px 0px 2px 0px;
+  text-transform: capitalize;
+}
+
+figure.real-estate-container p {
+font-size: 0.8em;
+color: #6a6a6a;
+line-height: 1.9em;
+font-family: Arial, Helvetica, sans-serif;
+}
+
+figure.real-estate-container .estate-description {
+  min-height: 90px;
+}
+
+figure .gallery-button {
+  text-align: left;
+}
+
+.price-container {
+  color:#666;
+  font-size:12px;
+  text-align: left;
+}
+
+.mounted{
+  margin-top: -33px;
+}
+
+.column {
+  position: absolute !important;
+  padding: 0 !important;
+  width: auto !important;
 }

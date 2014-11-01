@@ -1,27 +1,28 @@
 <div>
   	<div>
-	  <section>
+	  <section class="wrap">
 	    <div class="grid-wrap">
 	      <div class="grid row-with-filter">
-	        <h3>propiedades</h3>
+	        <h3 class="estates-title">propiedades</h3>
 
 		 	<infinite-scroll list="realEstates" class="list-container">			
 			 
-				<figure ng-repeat="estate in filteredList" ng-click="setCurrentDetail(estate)">
+				<figure class="real-estate-container" ng-repeat="estate in filteredList" ng-click="setCurrentDetail(estate)">
 					<img ng-if="estate.imageList[0]" ng-src="{{estate.imageList[0].path}}" alt="img01" class="image-property"/>
 					<img ng-if="!estate.imageList[0]" ng-src="3DGridEffect/img/1.jpg" alt="img01" class="image-property"/>
 					<h4>{{estate.title}}</h4>
-					<p style="color:#666; font-size:12px">
+					<div class="price-container">
 						<span ng-show="estate.salePrice">
 						  Venta {{estate.currency.label}} {{estate.salePrice}} 
 						</span>
 						<span ng-show="estate.rentPrice">
 						  Alquiler {{estate.currencyRent.label}} {{estate.rentPrice}}
 						</span>
-						<p>
-						  {{estate.description}}
-						</p>
+                    </div>
+					<p class="estate-description">
+					  {{estate.description}}
 					</p>
+                    <div class="gallery-button"><a href="#">ver mas</a></div>
 				</figure>
 
 		  	

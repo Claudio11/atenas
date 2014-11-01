@@ -832,6 +832,7 @@ body{
 
 .row-with-filter {
 	width:80%;
+	font-size:16px
 }
 
 	.image-property {
@@ -840,7 +841,7 @@ body{
 .message-container {
 	position: absolute;
 	right: 0;
-	top: 0;
+	top: 64px;
 	width: 20%;
 }
 
@@ -1101,6 +1102,10 @@ ul#accordion-freebie > li > span { margin-bottom: 10px; }
 	
 	.column {
 		min-height: 90px;
+	}
+
+	.above-container {
+		display: block !important;
 	}
 
 }

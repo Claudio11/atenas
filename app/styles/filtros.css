@@ -8,6 +8,7 @@
 	float: left;
 	margin-bottom: 10px;
 	background-color: #F7F7F7;
+	width: 100%;
 }
 
 .criterio_orden {
@@ -22,7 +23,7 @@
 	background-color: rgba(170, 7, 7, 0.5);
 	height: 23px;
 	width: 100%;
-	text-align: left;
+	text-align: center;
 	margin-bottom: 5px;
 	padding: 4px 10px 2px;
 	font-family: Arial, Helvetica, sans-serif;
@@ -72,7 +73,7 @@ a.items_ordenamiento_azul {
 }
 
 .items_ordenamiento_filtro_azul {
-	text-align: left;
+	text-align: center;
 	position: relative;
 }
 
