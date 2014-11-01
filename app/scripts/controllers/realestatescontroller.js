@@ -3,6 +3,8 @@
 angular.module('atenasApp')
   .controller('RealEstatesCtrl', function ($scope, $filter, realEstatesList) {
 
+    $scope.displayed = false;
+
     $scope.filteredList = $scope.realEstates = realEstatesList; // Set real estates
     $scope.currentDetail; // Current real estate in the detail popup.
     $scope.filterViewMore = false;
@@ -68,7 +70,7 @@ angular.module('atenasApp')
                             'filterData[2].data[0].value', 'filterData[2].data[1].value', 'filterData[2].data[2].value', 'filterData[2].data[3].value'];
     // Call getFilterableFields (from filterData).
 
-    // TODO put filter logic in a filter service
+    // TODO put filter logic in a filter service!!!!!!!!!!!!!!!!!!!!!!
     var getSelectedItem = function (itemsData) {
       var selectedAttr;
       angular.forEach(itemsData, function(data, attr) {
@@ -117,6 +119,11 @@ angular.module('atenasApp')
     // Toggles if the filter is short or long.
     $scope.toggleViewMore = function () {
       $scope.filterViewMore = !$scope.filterViewMore;
+    }
+
+    // Toggles position of filters on small devices.
+    $scope.toggleFilterPosition = function () {
+      $scope.displayed = !$scope.displayed;
     }
 
   });

@@ -27,7 +27,8 @@
 		  	
 			</infinite-scroll>
 		  </div>
-     <div class="message-container">
+     <div class="message-container" ng-class="{'displayed': displayed}">
+        <div ng-click="toggleFilterPosition()" class="above-container">Click</div>
       <div class="filters-container" ng-class="{'filters-container-open': filterViewMore}">
 
         <div id="columnaderecha">

@@ -943,9 +943,21 @@ ul#accordion-freebie > li > span { margin-bottom: 10px; }
 	.social-nav {
 
 		z-index: 1000;
-}
+	}
 	/*  menu responsive */
 	
+	.row-with-filter {
+		width: 100%;
+	}
+
+	.message-container {
+		right: -18%;
+	}
+
+	.message-container.displayed {
+		right: 0;
+		width: 30%;	
+	}
 }
 
 /*  GO FULL WIDTH AT LESS THAN 640 PIXELS */
