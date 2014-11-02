@@ -41,12 +41,15 @@
         <div id="ordenamiento" class="ordenamiento_verde">
             <!-- Abre ordenamiento -->
             
-            <!-- List of filters -->
+            <!-- List of filters (reduced version) (TODO filter first 3 or 4 of ng-repeat) -->
             <div ng-repeat="data in filterData" class="criterio_orden" filter-section filter-data="data"> 
 
             </div>
-                
-                 <!-- Precio -->
+
+            <!-- List of filters (full version) (entire ng repeat)-->
+            <div ng-show="filterViewMore">
+  
+                <!-- Precio -->
                 <div id="Div_Cont_Inmueble" class="criterio_orden"> 
                     <span id="etiquetaInm" class="criterio_ordenamiento">Precio</span><br>
                         <div id="Div_Inmueble">
@@ -274,7 +277,10 @@
                         <input type="radio" value="1" name="test[]" id="myid1">
                         </a>
                      </div>
-                 </div>                                   
+                 </div>
+            </div>
+                
+                                                    
                
        <!-- Abre ordenamiento  </div>
             
@@ -353,8 +359,8 @@
             
         </div>
       </div> <!-- End filter container -->
-      <div class="toggle-more" ng-hide="filterViewMore" ng-click="toggleViewMore()">Ver mas...</div>
-      <div class="toggle-more" ng-show="filterViewMore" ng-click="toggleViewMore()">Ver menos...</div>
+      <div class="toggle-more" ng-hide="filterViewMore" ng-click="toggleViewMore()">Ver todos los filtros</div>
+      <div class="toggle-more" ng-show="filterViewMore" ng-click="toggleViewMore()">Ver filtros básicos</div>
      </div><!-- End message container -->
     </div>
     <!-- /grid-wrap -->

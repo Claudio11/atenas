@@ -832,7 +832,8 @@ body{
 
 .row-with-filter {
 	width:80%;
-	font-size:16px
+	font-size:16px;
+	min-height: 600px;
 }
 
 	.image-property {
@@ -858,13 +859,13 @@ body{
 	right: 0;
 	top: 0;
 	height: 100%;
-	max-height: 400px;
+	height: auto;
 	overflow: hidden;
 }
 
 	.filters-container-open {
 		overflow-y: auto;
-		max-height: 600px;
+		max-height: 478px;
 	}
 
 @media screen and (max-width: 1000px) {
@@ -905,6 +906,20 @@ ul#accordion-freebie > li > span { margin-bottom: 10px; }
 	.span_1_of_3 {
 		width:94%;
 		padding:3%; 
+	}
+
+	.message-container {
+		-moz-opacity: 0.20;
+		-khtml-opacity: 0.20;
+		opacity: 0.20;
+		-ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=20);
+	}
+
+	.message-container.displayed {
+		-moz-opacity: 1;
+		-khtml-opacity: 1;
+		opacity: 1;
+		-ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=100);
 	}
 }
 

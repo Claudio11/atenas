@@ -184,11 +184,11 @@
 }
 
 .message-container  {
-  -webkit-transition: right 500ms ease;
-   -moz-transition: right 500ms ease;
-    -ms-transition: right 500ms ease;
-     -o-transition: right 500ms ease;
-        transition: right 500ms ease;
+  -webkit-transition: right 500ms, opacity 500ms ease;
+   -moz-transition: right 500ms, opacity 500ms ease;
+    -ms-transition: right 500ms, opacity 500ms ease;
+     -o-transition: right 500ms, opacity 500ms ease;
+        transition: right 500ms, opacity 500ms ease;
 }
 
 .footer-grid h3 {
