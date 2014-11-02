@@ -1,33 +1,37 @@
 <div>
-  	<div>
-	  <section class="wrap">
-	    <div class="grid-wrap">
-	      <div class="grid row-with-filter">
-	        <h3 class="estates-title">propiedades</h3>
+    <div>
+      <section class="wrap">
+        <div class="grid-wrap">
+          <div class="grid row-with-filter">
+            <h3 class="estates-title">propiedades</h3>
 
-		 	<infinite-scroll list="realEstates" class="list-container">			
-			 
-				<figure class="real-estate-container" ng-repeat="estate in filteredList" ng-click="setCurrentDetail(estate)">
-					<img ng-if="estate.imageList[0]" ng-src="{{estate.imageList[0].path}}" alt="img01" class="image-property"/>
-					<img ng-if="!estate.imageList[0]" ng-src="3DGridEffect/img/1.jpg" alt="img01" class="image-property"/>
-					<h4>{{estate.title}}</h4>
-					<div class="price-container">
-						<span ng-show="estate.salePrice">
-						  Venta {{estate.currency.label}} {{estate.salePrice}} 
-						</span>
-						<span ng-show="estate.rentPrice">
-						  Alquiler {{estate.currencyRent.label}} {{estate.rentPrice}}
-						</span>
-                    </div>
-					<p class="estate-description">
-					  {{estate.description}}
-					</p>
-                    <div class="gallery-button"><a href="#">ver mas</a></div>
-				</figure>
+            <infinite-scroll list="realEstates" class="list-container">         
+                <div ng-if="filteredList.length > 0">
+                    <figure class="real-estate-container" ng-repeat="estate in filteredList" ng-click="setCurrentDetail(estate)">
+                        <img ng-if="estate.imageList[0]" ng-src="{{estate.imageList[0].path}}" alt="img01" class="image-property"/>
+                        <img ng-if="!estate.imageList[0]" ng-src="3DGridEffect/img/1.jpg" alt="img01" class="image-property"/>
+                        <h4>{{estate.title}}</h4>
+                        <div class="price-container">
+                            <span ng-show="estate.salePrice">
+                              Venta {{estate.currency.label}} {{estate.salePrice}} 
+                            </span>
+                            <span ng-show="estate.rentPrice">
+                              Alquiler {{estate.currencyRent.label}} {{estate.rentPrice}}
+                            </span>
+                        </div>
+                        <p class="estate-description">
+                          {{estate.description}}
+                        </p>
+                        <div class="gallery-button"><a href="#">ver mas</a></div>
+                    </figure>
+                </div>
 
-		  	
-			</infinite-scroll>
-		  </div>
+                <div ng-if="filteredList.length == 0">
+                    No hay propiedades que coincidan con los filtros seleccionados (DAR ESTILO Y MOSTRAR BOTON PARA TRAER MAS PROPIEDADES).
+                </div>
+            
+            </infinite-scroll>
+          </div>
      <div class="message-container" ng-class="{'displayed': displayed}">
         <div ng-click="toggleFilterPosition()" class="above-container">Click</div>
       <div class="filters-container" ng-class="{'filters-container-open': filterViewMore}">
@@ -347,7 +351,7 @@
             </div> -->  
           </div> 
             
-    	</div>
+        </div>
       </div> <!-- End filter container -->
       <div class="toggle-more" ng-hide="filterViewMore" ng-click="toggleViewMore()">Ver mas...</div>
       <div class="toggle-more" ng-show="filterViewMore" ng-click="toggleViewMore()">Ver menos...</div>
@@ -390,9 +394,9 @@
   </section>
 </div>
 
-  	<real-estate-detail ng-if="currentDetail" estate="currentDetail">
-  		<span class="detail-loading"></span>
-  		<!-- TODO: Seguir aca setCurrecntDetail no esta siendo llamado-->
-    	<div class="detail-icon detail-close-content" ng-click="setCurrentDetail(false)">X</div>
-  	</real-estate-detail>	
+    <real-estate-detail ng-if="currentDetail" estate="currentDetail">
+        <span class="detail-loading"></span>
+        <!-- TODO: Seguir aca setCurrecntDetail no esta siendo llamado-->
+        <div class="detail-icon detail-close-content" ng-click="setCurrentDetail(false)">X</div>
+    </real-estate-detail>   
 </div>
