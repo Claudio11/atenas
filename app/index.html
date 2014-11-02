@@ -91,7 +91,7 @@
                 </ul>
               </div>
               <div class="top-nav-right" ng-show="isList">
-                <input type="text" ng-model="generalSearch"/>
+                <input type="text" ng-model="generalSearch" placeholder="Buscar..."/>
                 <input type="submit" value="" />
               </div>
               <div class="clear"> </div>
@@ -147,6 +147,10 @@
 
           <!-- start-footer -->
      <div class="footer">
+        <div class="top-to-page" ng-show="isList">
+            <a href="#top" class="scroll"> </a>
+            <div class="clear"> </div>
+        </div>
     <div class="wrap">
       <div class="footer-grid">
         <h3>Quienes somos</h3>
@@ -196,10 +200,6 @@
     <div class="clear"> </div>
   </div>
   <div class="copy-right">
-    <div class="top-to-page">
-            <a href="#top" class="scroll"> </a>
-            <div class="clear"> </div>
-          </div>
     <p>Diseño de <a href="http://www.victoriadasilva.com.uy" target="_blank"> Victoria Da Silva</a></p>
   </div>
      <!-- End-footer -->

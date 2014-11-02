@@ -70,8 +70,9 @@ body{
 }
 .top-nav-right{
 	float:right;
-	padding-top: 3px;
-	padding-right: 3px;
+	padding: 3px;
+	width: 20%;
+	position: relative;
 }
 .top-nav-left ul li{
 	display:inline-block;
@@ -99,7 +100,7 @@ body{
 }
 .top-nav-right input[type="submit"]{
 	background: url(../images/search-icon.png) no-repeat 42% 50% #8D949A;
-	padding: 19.7px 20px;
+	padding: 15.7px 20px;
 	border: none;
 	display: block;
 	float: left;
@@ -108,6 +109,8 @@ body{
 	transition: 0.5s ease;
 	-o-transition: 0.5s ease;
 	-webkit-transition: 0.5s ease;
+	position: absolute;
+	right: 3px;
 }
 .top-nav-right input[type="submit"]:hover{
 	/*background: url(../images/search-icon.png) no-repeat 42% 50% #aa0707;*/
@@ -115,9 +118,10 @@ body{
 .top-nav-right input[type="text"]{
 	border:1px solid #EEE;
 	float:left;
-	padding: 17.5px;
+	padding: 14.5px;
 	outline:none;
 	display: block;
+	width: 100%;
 }
 /*---start-content-----*/
 .top-grid{
@@ -423,6 +427,7 @@ body{
 	position: absolute;
 	right: 14px;
 	bottom: 5px;
+	top: -50px;
 }
 .scroll:hover{
 	opacity:0.8;
@@ -842,7 +847,7 @@ body{
 .message-container {
 	position: absolute;
 	right: 0;
-	top: 64px;
+	top: -24px;
 	width: 20%;
 }
 

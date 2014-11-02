@@ -280,3 +280,7 @@ figure .gallery-button {
   padding-left: 10%;
   padding-top: 10%;
 }
+
+.footer {
+  position: relative;
+}
