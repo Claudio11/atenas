@@ -274,3 +274,9 @@ figure .gallery-button {
 .container{
   min-height: 500px;
 }
+
+.correct-inner-text {
+  width: 80%;
+  padding-left: 10%;
+  padding-top: 10%;
+}
