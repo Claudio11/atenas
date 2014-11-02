@@ -18,7 +18,11 @@ angular
     'ngTouch',
     'angularFileUpload'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, $httpProvider) {
+
+    // Add needed interceptor/s.
+    $httpProvider.interceptors.push('httpInterceptor');
+
     $routeProvider
       .when('/', {
         templateUrl: 'views/realEstates/featured.html',
