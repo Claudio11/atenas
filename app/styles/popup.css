@@ -1,0 +1,201 @@
+	.color p
+	{
+		line-height: 180%; 
+		padding-left:3%;
+		color:#FFF;
+		font-style:normal;
+		padding-right:3%;
+		
+	}
+	
+	
+
+	.container-detail
+	{
+		margin: 0px auto;
+		width: 80%;
+	}
+	
+
+
+
+
+/* Imagen estilo  */
+
+
+	.image
+	{
+		display: inline-block;
+		border: 1px solid rgba(0,0,0,.1);
+	}
+	
+	.image img
+	{
+		display: block;
+		width: 100%;
+	}
+	
+	.image-full
+	{
+		display: block;
+		width: 100%;
+		margin: 0 0 3em 0;
+	}
+	
+	.image-left
+	{
+		float: left;
+		margin: 0 2em 2em 0;
+	}
+	
+	.image-centered
+	{
+		display: block;
+		margin: 0 0 2em 0;
+	}
+	
+	.image-centered img
+	{
+		margin: 0 auto;
+		width: auto;
+	}
+
+
+/*********************************************************************************/
+/* Heading Titles                                                                */
+/*********************************************************************************/
+
+	.title
+	{
+		margin-bottom: 3em;
+	}
+	
+	.title h2
+	{
+		font-size: 2em;
+	}
+	
+	.title .byline
+	{
+		font-size: 1.1em;
+		color: #6F6F6F#;
+	}
+
+
+
+/* Imagen padding  */
+
+	#banner
+	{
+		padding-top: 5em;
+	}
+
+
+/*********************************************************************************/
+/* Welcome                                                                       */
+/*********************************************************************************/
+
+	#welcome
+	{
+		overflow: hidden;
+		padding: 4em 100px 2em 100px;
+		text-align: center;
+	}
+	
+	#welcome .content
+	{
+		padding: 0em 8em;
+	}
+	
+	#welcome .title h2
+	{
+		font-family: 'Questrial', sans-serif;
+		font-size: 2em;
+		color: rgba(0,0,0,.6);
+		text-transform: capitalize;
+	}
+
+	#welcome .title h4
+	{
+		font-family: 'Questrial', sans-serif;
+		font-size: 1em;
+		color: rgba(0,0,0,.6);
+		text-transform: capitalize;
+	}
+
+	#welcome p
+	{
+		font-family: 'Questrial', sans-serif;
+		font-size: 12pt;
+		color: rgba(0,0,0,.6);
+		text-transform: capitalize;
+	}
+
+	#portfolio {
+		font-family: 'Questrial', sans-serif;
+		font-size: 16px;
+		color: rgba(255, 255, 255, 1);
+	}
+	
+	#welcome a,
+	#welcome strong
+	{
+	}
+
+/*********************************************************************************/
+/* detalle                                                                         */
+/*********************************************************************************/
+
+	#page-wrapper
+	{
+		overflow: hidden;
+		background: #2F1E28;
+		padding: 3em 0em 6em 0em;
+		text-align: center;
+	}
+
+	#page
+	{
+	}
+
+
+
+/* info filtros                                                                     */
+/*********************************************************************************/
+
+	#portfolio
+	{
+		overflow: hidden;
+		padding-top: 5em;
+		border-top: 1px solid rgba(0,0,0,0.2);
+	}
+	
+	#portfolio .box
+	{
+		text-align: center;
+		color: rgba(0,0,0,0.5);
+	}
+	
+	#portfolio h3
+	{
+		display: block;
+		padding-bottom: 1em;
+		font-size: 1em;
+		color: rgba(0,0,0,0.6);
+	}
+
+	#portfolio .title
+	{
+		text-align: center;
+	}
+
+	#portfolio .title h2
+	{
+		color: rgba(0,0,0,0.8);
+	}
+	
+		li.color { 
+		background:#bbb;
+		
+	}
+	

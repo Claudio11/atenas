@@ -24,6 +24,9 @@
     <link rel="stylesheet" type="text/css" href="styles/filtros.css" />
     <link rel="stylesheet" type="text/css" href="styles/default.css" />
     <link rel="stylesheet" type="text/css" href="styles/component.css" />
+    <link rel="stylesheet" type="text/css" href="styles/popup.css" />
+    <link rel="stylesheet" type="text/css" href="styles/fonts.css" />
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900|Quicksand:400,700|Questrial" rel="stylesheet" />
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script type="text/javascript">
@@ -53,11 +56,12 @@
     </script>
   </head>
   <body ng-app="atenasApp">
+    <!-- LOGO -->
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     <div ng-controller="MainCtrl">
-          <div id="loaderDiv" loader="">
+          <div id="loaderDiv" loader>
               <img src="http://preloaders.net/preloaders/239/Spinning%20gear.gif" class="ajax-loader">
           </div>
           <!-- start-wrap -->
@@ -137,8 +141,6 @@
 
           </div>
           <!-- End-wrap -->
-
-          <!-- Add your site or application content here -->
           <div class="container" ng-class="{'mounted': isFeatured}">
 
             <div ng-view=""></div>
@@ -181,15 +183,15 @@
         <div class="social-icons">
           <ul>
             <li>
-                          <a target="_blank" href="http://www.facebook.com">
-                              <img src="images/facebook.png" title="facebook" alt="facebook" />
-                            </a>
-                        </li>
+              <a target="_blank" href="http://www.facebook.com">
+                  <img src="images/facebook.png" title="facebook" alt="facebook" />
+                </a>
+            </li>
             <li>
-                          <a target="_blank" href="http://www.mercadolibre.com.uy">
-                              <img src="images/google.png" title="mercado libre" alt="mercado libre" />
-                            </a>
-                        </li>
+              <a target="_blank" href="http://www.mercadolibre.com.uy">
+                  <img src="images/google.png" title="mercado libre" alt="mercado libre" />
+                </a>
+            </li>
           </ul>
         </div>
         <div class="clear"> </div>

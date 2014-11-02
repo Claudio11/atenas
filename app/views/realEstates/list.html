@@ -27,7 +27,7 @@
                 </div>
 
                 <div ng-if="filteredList.length == 0" class="correct-inner-text">
-                    No hay propiedades que coincidan con los filtros seleccionados (DAR ESTILO Y MOSTRAR BOTON PARA TRAER MAS PROPIEDADES).
+                    No hay propiedades que coincidan con los filtros seleccionados.
                 </div>
             
             </infinite-scroll>
@@ -280,81 +280,6 @@
                  </div>
             </div>
                 
-                                                    
-               
-       <!-- Abre ordenamiento  </div>
-            
-            <div id="Div_Cant_Departamentos" class="criterio_orden"> 
-              <span class="criterio_ordenamiento">Departamento</span><br>
-                <div class="item_op">
-                    <div class="item_op_top"> 
-                    </div>
-                </div>
-                <div id="DivDepartamentos" class="item_op_med">
-                
-                <div class="items_ordenamiento_filtro_azul">
-                    <a class="items_ordenamiento_azul" href="/inmuebles/montevideo" title="Montevideo">
-                    <span class="texto_filtro">Montevideo</span>
-                    <span class="items_cantidad_azul"> (13961) </span>
-                    </a>
-                </div>
-                <div class="items_ordenamiento_filtro_azul">
-                    <a class="items_ordenamiento_azul" href="/inmuebles/maldonado" title="Maldonado">
-                    <span class="texto_filtro">Maldonado</span>
-                    <span class="items_cantidad_azul"> (1763) </span>
-                    </a>
-                </div>
-                <div class="items_ordenamiento_filtro_azul">
-                    <a class="items_ordenamiento_azul" href="/inmuebles/canelones" title="Canelones">
-                    <span class="texto_filtro">Canelones</span>
-                    <span class="items_cantidad_azul"> (1676) </span>
-                    </a>
-                </div>
-                <div class="items_ordenamiento_filtro_azul">
-                    <a class="items_ordenamiento_azul" href="/inmuebles/rocha" title="Rocha">
-                    <span class="texto_filtro">Rocha</span>
-                    <span class="items_cantidad_azul"> (109) </span>
-                    </a>
-                </div>
-                <div class="items_ordenamiento_filtro_azul">
-                    <a class="items_ordenamiento_azul" href="/inmuebles/san-jose" title="San Jose">
-                        <span class="texto_filtro">San Jose</span>
-                    <span class="items_cantidad_azul"> (56) </span>
-                </a>
-                </div>
-                <div class="items_ordenamiento_filtro_azul">
-                    <a class="items_ordenamiento_azul" href="/inmuebles/lavalleja" title="Lavalleja">
-                    <span class="texto_filtro">Lavalleja</span>
-                    <span class="items_cantidad_azul"> (29) </span>
-                    </a>
-                </div>
-                <div class="items_ordenamiento_filtro_azul">
-                    <a class="items_ordenamiento_azul" href="/inmuebles/colonia" title="Colonia">
-                    <span class="texto_filtro">Colonia</span>
-                    <span class="items_cantidad_azul"> (27) </span>
-                    </a>
-                </div>
-                <div class="items_ordenamiento_filtro_azul">
-                    <a class="items_ordenamiento_azul" href="/inmuebles/florida" title="Florida">
-                    <span class="texto_filtro">Florida</span>
-                    <span class="items_cantidad_azul"> (20) </span>
-                    </a>
-                </div>
-                <div class="items_ordenamiento_filtro_azul">
-                    <a class="items_ordenamiento_azul" href="/inmuebles/durazno" title="Durazno">
-                    <span class="texto_filtro">Durazno</span>
-                    <span class="items_cantidad_azul"> (7) </span>
-                    </a>
-                </div>
-                <div class="items_ordenamiento_filtro_azul">
-                    <a class="items_ordenamiento_azul" href="/inmuebles/rivera" title="Rivera">
-                    <span class="texto_filtro">Rivera</span>
-                    <span class="items_cantidad_azul"> (6) </span>
-                    </a>
-                </div>
-                <div class="clickable" id="clickable12346">
-                <a href="javascript:openclose_req(12346);">+ Otros Departamentos</a>
-            </div> -->  
           </div> 
             
         </div>
@@ -363,46 +288,65 @@
       <div class="toggle-more" ng-show="filterViewMore" ng-click="toggleViewMore()">Ver filtros básicos</div>
      </div><!-- End message container -->
     </div>
-    <!-- /grid-wrap -->
-    <!-- <div class="content">
-      <div>
-                                         
-         </div>
-      <div>
-        
-      </div>
-      <div>
-        
-      </div>
-      <div>
-        
-      </div>
-      <div>
-        
-      </div>
-      <div>
-        
-      </div>
-      <div>
-        
-      </div>
-      <div>
-        
-      </div>
-      <div>
-        
-      </div>
-      <span class="loading"></span>
-      <span class="icon close-content"></span>
-    </div> -->
-
 
   </section>
 </div>
 
     <real-estate-detail ng-if="currentDetail" estate="currentDetail">
         <span class="detail-loading"></span>
-        <!-- TODO: Seguir aca setCurrecntDetail no esta siendo llamado-->
         <div class="detail-icon detail-close-content" ng-click="setCurrentDetail(false)">X</div>
+
+        <div class="wrapper">
+            <div id="banner" class="container-detail">
+                <img ng-if="currentDetail.imageList[0]" ng-src="{{currentDetail.imageList[0].path}}" alt="img01"/>
+                <img ng-if="!currentDetail.imageList[0]" ng-src="3DGridEffect/img/1.jpg" alt="img01"/>
+            </div>
+            <div id="welcome" class="container-detail">
+                
+            <div class="title">
+                <h2>
+                    {{currentDetail.title}}
+                </h2>
+                <h4>    
+                    <span ng-show="currentDetail.salePrice">
+                      Venta {{currentDetail.currency.label}} {{currentDetail.salePrice}} 
+                    </span>
+                    <span ng-show="currentDetail.rentPrice">
+                      Alquiler {{currentDetail.currencyRent.label}} {{currentDetail.rentPrice}}
+                    </span>
+                </h4>
+            </div>
+                <p ng-bind="currentDetail.description"></p>
+            </div>
+            
+            <div id="portfolio" class="container-detail"> 
+                    
+                <ul class="padding">
+                    <li class="color"><p>OPERACION: Venta</p></li>
+                    <li class="color"><p>INMUEBLE: Casa</p></li>
+                    <li class="color"><p>DORMITORIOS: 1 Ambiente</p></li>
+                    <li class="color"><p>BAÑOS: 1 Baño</p></li>
+                    <li class="color"><p>PRECIO: U$S 198.000</p></li>        
+                </ul>
+                
+                <ul>
+                    <li class="color"><p>METRAJE: Hasta 50 m2</p></li>            
+                    <li class="color"><p>MUEBLES: No Amueblado</p></li>
+                    <li class="color"><p>ORIENTACIÓN: Frente</p></li>
+                    <li class="color"><p>VIGILANCIA: SI</p></li>
+                    <li class="color"><p>LINEA BLANCA: NO</p></li>
+                 </ul>
+                
+                <ul>
+                    <li class="color"><p>GARAGE: Sin Garage</p></li>
+                    <li class="color"><p>TERRAZA: SI</p></li>
+                    <li class="color"><p>GASTOS COMUNES: $880</p></li>
+                    <li class="color"><p>DESTACADA: SI</p></li>
+                    <li class="color"><p>CANTIDAD DE VISITAS: XXX</p></li>     
+                </ul>
+              
+            </div>
+        </div>
+
     </real-estate-detail>   
 </div>

@@ -16,17 +16,17 @@
 	overflow: hidden;
 }
 
-.criterio_ordenamiento {
+.criterio_orden span.criterio_ordenamiento {
 	font-size: 13px;
 	color: #fff;
 	display: inline-block;
-	background-color: rgba(170, 7, 7, 0.5);
 	height: 23px;
 	width: 100%;
 	text-align: center;
 	margin-bottom: 5px;
-	padding: 4px 10px 2px;
 	font-family: Arial, Helvetica, sans-serif;
+	padding: 13px;
+	background-color: #aa0707;
 }
 
 br {
@@ -51,9 +51,12 @@ span.items_cantidad_azul {
 
 .texto_filtro {
 	font-family: Arial, Helvetica, sans-serif;
-	font-size: 12px;
-	
+	font-size: 14px;
 }
+
+	.texto_filtro:hover {
+		text-decoration: underline;
+	}
 
 a.items_ordenamiento_azul {
 	padding-left: 15px;
@@ -81,4 +84,29 @@ a.items_ordenamiento_azul {
     position: absolute;
     top: 0;
     right: 5px;
+}
+
+.selected-filter {
+	background: #ccc;
+	border-radius: 5px 5px 5px 5px;
+	-moz-border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px 5px 5px 5px;
+	border: 0px solid #000000;
+	width: 86%;
+	margin-left: 7%;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	position: relative;
+}
+
+.unset-selected {
+	position: absolute;
+	right: 8px;
+	cursor: pointer;
+	top: 0;
+}
+
+.selected-value {
+	width: 86%;
+	color: white;
 }

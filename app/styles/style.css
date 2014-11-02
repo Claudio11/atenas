@@ -324,6 +324,7 @@ body{
 	font-size: 1em;
 	text-transform: uppercase;
 	padding: 10px 0 3px 0px;
+	text-align: center;
 }
 .footer-grid p{
 	font-size: 0.9em;
@@ -331,6 +332,7 @@ body{
 	color: #777;
 	line-height: 1.6em;
 	font-family: Arial, Helvetica, sans-serif;
+	text-align: center;
 }
 .footer-grid a{
 	font-family: 'Open Sans', sans-serif;
@@ -346,6 +348,10 @@ body{
 	-ms-transition: all 0.3s ease-out;
 	-o-transition: all 0.3s ease-out;
 	transition: all 0.3s ease-out;
+	text-align: center;
+}
+.footer-grid > ul >li{
+	text-align: center;
 }
 .footer-grid a:hover{
 	background:#aa0707;
@@ -795,9 +801,6 @@ body{
 	padding: 20px 0px 20px 20px;
 }
 
-.padding {
-	padding-left: 33px !important;	
-} 
 
 /***** LOGO *****/
 .social-nav {
@@ -982,6 +985,37 @@ ul#accordion-freebie > li > span { margin-bottom: 10px; }
 	.message-container.displayed {
 		right: -7%;
 	}
+
+	div.top-grid {
+		margin: 25px 0;
+		padding-bottom: 2.5em;
+	}
+
+	.company_address {
+		padding-left: 0;
+		padding-top: 5%;
+	}
+	
+	.column {
+		min-height: 90px;
+	}
+
+	.above-container {
+		display: block !important;
+	}
+
+	.mid-grid p {
+		text-align: center;
+	}
+
+	div#portfolio {
+		padding-top: 2em;
+	}
+
+	#portfolio > ul {
+	  width: 92%;
+	  text-align: center;
+	}
 }
 
 /*  GO FULL WIDTH AT LESS THAN 640 PIXELS */
@@ -1114,23 +1148,6 @@ ul#accordion-freebie > li > span { margin-bottom: 10px; }
 	.footer-grid{
 	width: 100%;
 	}
-}
-
-@media only screen and (max-width: 800px) {
-	
-	.company_address {
-		padding-left: 0;
-		padding-top: 5%;
-	}
-	
-	.column {
-		min-height: 90px;
-	}
-
-	.above-container {
-		display: block !important;
-	}
-
 }
 
 @media only screen and (min-width: 801px) {

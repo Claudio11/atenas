@@ -8,6 +8,6 @@
         </div>
     </div>
 </div>
-<div ng-show="selection">
-	{{selection.value}} <span ng-click="unsetSelection()">X</span>
+<div ng-show="selection" class="selected-filter">
+	<div class="selected-value">{{selection.value}}</div> <span ng-click="unsetSelection()" class="unset-selected">X</span>
 </div>

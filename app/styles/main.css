@@ -77,23 +77,23 @@
 /* Real estate detail */
 
 
-.detail-content{
+/*.detail-content{
   overflow-y: scroll;
   background: rgba(255, 255, 255, 0.6);
   display: block;
   z-index: 400;
   -webkit-overflow-scrolling: touch;
   color: black;
-}
+}*/
 
-  .detail-content, .detail-loading {
+  /*.detail-content, .detail-loading {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     pointer-events: none;
-  }
+  }*/
 
   .detail-loading {
     opacity: 1;
@@ -121,19 +121,17 @@
     }
 
   .detail-close-content {
-    position: fixed;
+    position: absolute;
     z-index: 1000;
     top: 0;
     right: 10px;
     font-size: 1.6em;
     color: #aaa;
     cursor: pointer;
-    pointer-events: none;
     padding: 1em;
     opacity: 1;
     -webkit-transition: opacity 0.3s;
     transition: opacity 0.3s;
-    border: solid 1px black;
   }
 
 
@@ -251,15 +249,22 @@ figure .gallery-button {
   text-transform: none;
 }
 
+.detail-content {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.96);
+}
+
 #loaderDiv {
-   position: fixed;
+  position: fixed;
+  background: rgba(240, 240, 240, 0.8);
+}
+
+#loaderDiv, .detail-content {
    top: 0;
    right: 0;
    bottom: 0;
    left: 0;
    z-index: 1100;
-   background-color: white;
-   opacity: .6;
 }
 
 .ajax-loader {
@@ -278,9 +283,29 @@ figure .gallery-button {
 .correct-inner-text {
   width: 80%;
   padding-left: 10%;
-  padding-top: 10%;
+  padding-top: 15%;
 }
 
 .footer {
   position: relative;
+}
+
+.mid-grid h6 {
+  margin-bottom: 35px;
+}
+
+#banner img {
+  width: 80%;
+  height: auto;
+  margin-left: 10%;
+}
+
+#portfolio li.color{
+  margin-bottom: 16px;
+}
+
+#portfolio > ul {
+  float:left;
+  width: 28%;
+  margin-left: 4%;
 }
