@@ -223,8 +223,8 @@ line-height: 1.9em;
 font-family: Arial, Helvetica, sans-serif;
 }
 
-figure.real-estate-container .estate-description {
-  min-height: 90px;
+figure.real-estate-container .estate-description, .top-grids .top-grid .estate-description {
+  height: 90px;
 }
 
 figure .gallery-button {
@@ -245,4 +245,8 @@ figure .gallery-button {
   position: absolute !important;
   padding: 0 !important;
   width: auto !important;
+}
+
+.top-grid .centered {
+  text-transform: none;
 }
