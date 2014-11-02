@@ -1137,10 +1137,11 @@ ul#accordion-freebie > li > span { margin-bottom: 10px; }
 }
 
 @media only screen and (max-width: 935px) {
-	.top-grid {
+
+	div.top-grid {
 		width:100%;
-		padding-top: 1.5em;
-		padding-bottom: 6.5em;
+		margin: 25px 0;
+		padding-bottom: 2.5em;
 	}	
 }
 

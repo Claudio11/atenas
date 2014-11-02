@@ -16,16 +16,15 @@
 	overflow: hidden;
 }
 
-.criterio_orden span.criterio_ordenamiento {
+.criterio_orden div.criterio_ordenamiento {
 	font-size: 13px;
 	color: #fff;
-	display: inline-block;
-	height: 23px;
+	height: 24px;
+	line-height: 24px;
 	width: 100%;
 	text-align: center;
 	margin-bottom: 5px;
 	font-family: Arial, Helvetica, sans-serif;
-	padding: 13px;
 	background-color: #aa0707;
 }
 
@@ -97,6 +96,7 @@ a.items_ordenamiento_azul {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 14px;
 	position: relative;
+	margin-top: 10px;
 }
 
 .unset-selected {
