@@ -43,6 +43,10 @@ angular
           }
         }
       })
+      .when('/contact', {
+        templateUrl: 'views/contact.html',
+        controller: 'ContactCtrl'
+      })
       .when('/realEstates/upsert/:id?', {
         templateUrl: 'views/realEstates/new.html',
         controller: 'CreateRealEstatesCtrl'

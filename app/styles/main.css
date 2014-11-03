@@ -309,3 +309,7 @@ figure .gallery-button {
   width: 28%;
   margin-left: 4%;
 }
+
+.color span {
+  color: #FFF;
+}

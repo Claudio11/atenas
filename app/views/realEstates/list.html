@@ -323,25 +323,53 @@
                     
                 <ul class="padding">
                     <li class="color"><p>OPERACION: Venta</p></li>
-                    <li class="color"><p>INMUEBLE: Casa</p></li>
-                    <li class="color"><p>DORMITORIOS: 1 Ambiente</p></li>
-                    <li class="color"><p>BAÑOS: 1 Baño</p></li>
-                    <li class="color"><p>PRECIO: U$S 198.000</p></li>        
+                    <li class="color"><p>INMUEBLE: {{currentDetail.type | labelType}}</p></li>
+                    <li class="color">
+                        <p>
+                            DORMITORIOS: 
+                            <ng-pluralize count="currentDetail.bedroomLength"
+                                when="{0: 'Sin dormitorio',
+                                       1: '1 dormitorio',
+                                       'other': '{} dormitorios.'}">
+                            </ng-pluralize>
+                        </p>
+                    </li>
+                    <li class="color">
+                        <p>BAÑOS: 
+                            <ng-pluralize count="currentDetail.bathLength"
+                                when="{0: 'Sin baño',
+                                       1: '1 baño',
+                                       'other': '{} baños.'}">
+                            </ng-pluralize>
+                        </p>
+                    </li>
+                    <li class="color">
+                        <p>
+                            PRECIO: 
+                            <span ng-show="currentDetail.salePrice">
+                              Venta {{currentDetail.currency.label}} {{currentDetail.salePrice}} 
+                            </span>
+                            <span ng-show="currentDetail.salePrice && currentDetail.rentPrice"> / </span>
+                            <span ng-show="currentDetail.rentPrice">
+                              Alquiler {{currentDetail.currencyRent.label}} {{currentDetail.rentPrice}}
+                            </span>
+                        </p>
+                    </li>        
                 </ul>
                 
                 <ul>
-                    <li class="color"><p>METRAJE: Hasta 50 m2</p></li>            
-                    <li class="color"><p>MUEBLES: No Amueblado</p></li>
-                    <li class="color"><p>ORIENTACIÓN: Frente</p></li>
-                    <li class="color"><p>VIGILANCIA: SI</p></li>
-                    <li class="color"><p>LINEA BLANCA: NO</p></li>
+                    <li class="color"><p>METRAJE: {{currentDetail.yardage}} m2</p></li>            
+                    <li class="color"><p>MUEBLES: {{currentDetail.furnished | booleanLabel}}</p></li>
+                    <li class="color"><p>ORIENTACIÓN: {{currentDetail.orientation | orientationLabel}}</p></li>
+                    <li class="color"><p>VIGILANCIA: {{currentDetail.vigilance | booleanLabel}}</p></li>
+                    <li class="color"><p>LINEA BLANCA: {{currentDetail.whiteLine | booleanLabel}}</p></li>
                  </ul>
                 
                 <ul>
-                    <li class="color"><p>GARAGE: Sin Garage</p></li>
-                    <li class="color"><p>TERRAZA: SI</p></li>
+                    <li class="color"><p>GARAGE: {{currentDetail.garage | booleanLabel}}</p></li>
+                    <li class="color"><p>TERRAZA: {{currentDetail.terrace | booleanLabel}}</p></li>
                     <li class="color"><p>GASTOS COMUNES: $880</p></li>
-                    <li class="color"><p>DESTACADA: SI</p></li>
+                    <li class="color"><p>DESTACADA: {{currentDetail.featured | booleanLabel}}</p></li>
                     <li class="color"><p>CANTIDAD DE VISITAS: XXX</p></li>     
                 </ul>
               
