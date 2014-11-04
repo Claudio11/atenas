@@ -764,8 +764,8 @@ body{
 	color: #FFF;
 }
 .company_address{ 
-			padding-top: 48%;
-			padding-left:28%;
+			padding-top: 43%;
+			padding-left:32%;
 }
 .company_address p{
 	font-size: 0.875em;
@@ -858,9 +858,12 @@ body{
 .toggle-more {
 	position: absolute;
 	bottom: -30px;
-	color: blue;
+	color: #aa0707;
 	font-size: 0.7em;
 	cursor: pointer;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	text-decoration: underline;
 }
 .filters-container {
 	position: relative;
@@ -1015,6 +1018,27 @@ ul#accordion-freebie > li > span { margin-bottom: 10px; }
 	#portfolio > ul {
 	  width: 92%;
 	  text-align: center;
+	}
+
+	.social-icons > ul > li > a > img {
+		display: none;
+	}
+
+	div.mounted {
+		margin-top: -155px;
+	}
+
+	.dl-menu {
+		width: 225%;
+		text-align: center;
+	}
+
+	.dl-menuwrapper li {
+		border-top: solid 2px #ccc;
+	}
+
+	.message-container {
+		top: 64px;
 	}
 }
 

@@ -169,7 +169,6 @@ body {
 	overflow: hidden;
 	height: 0;
 	opacity: 0;
-	background: #fff;
 }
 
 .content > div.show {
