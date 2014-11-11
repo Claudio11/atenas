@@ -91,9 +91,9 @@
             <div class="top-nav">
               <div class="top-nav-left">
                 <ul>
-                  <li><a ng-href="/#/">Inicio</a></li>
-                  <li><a ng-href="/#/list">Propiedades</a></li>
-                  <li><a ng-href="/#/contact">Contacto</a></li>
+                  <li><a ng-href="/#/" ng-class="{'selected-section': isFeatured}">Inicio</a></li>
+                  <li><a ng-href="/#/list" ng-class="{'selected-section': isList}">Propiedades</a></li>
+                  <li><a ng-href="/#/contact" ng-class="{'selected-section': isContact}">Contacto</a></li>
                   
                   <div class="clear"> </div>
                 </ul>

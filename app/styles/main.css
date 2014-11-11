@@ -326,3 +326,8 @@ figure .gallery-button {
 .social-icons > ul > li > a > img {
   width: 100%;
 }
+
+.selected-section {
+  color: #FFFFFF !important;
+  background: url(../images/nav-bg-icon.png) no-repeat 50% 102% #8D949A !important;
+}
