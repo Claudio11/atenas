@@ -249,6 +249,10 @@ figure .gallery-button {
   text-transform: none;
 }
 
+.top-grid .button, .real-estate-container .gallery-button {
+  cursor: pointer;
+}
+
 .detail-content {
   position: absolute;
   background: rgba(255, 255, 255, 0.96);

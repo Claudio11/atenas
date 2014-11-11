@@ -114,7 +114,6 @@ angular.module('atenasApp')
       // Sets the current detail real estate.
       $scope.setCurrentDetail = function (currentDetail) {
         $scope.currentDetail = currentDetail;
-        console.info($scope.currentDetail);
       }
 
       // Toggles if the filter is short or long.

@@ -16,7 +16,7 @@
 	 			<a href="#"><img ng-src="{{estate.sale | transactionImage}}" title="icon-name"></a>
 	 			<h3 class="centered">{{estate.title}}</h3>
 	 			<p class="estate-description">{{estate.description}}</p>
-	 			<a class="button" href="destacada_uno.html">ver mas</a>
+	 			<a class="button" ng-click="setCurrentDetail(estate)">ver mas</a>
 	 		</div>
 	 		<div class="clear"> </div>
  		</div>
@@ -31,3 +31,89 @@
  	</div>
 
  </div>
+
+ <real-estate-detail ng-if="currentDetail" estate="currentDetail">
+        <span class="detail-loading"></span>
+        <div class="detail-icon detail-close-content" ng-click="setCurrentDetail(false)">X</div>
+
+        <div class="wrapper">
+            <div id="banner" class="container-detail">
+                <img ng-if="currentDetail.imageList[0]" ng-src="{{currentDetail.imageList[0].path}}" alt="img01"/>
+                <img ng-if="!currentDetail.imageList[0]" ng-src="3DGridEffect/img/1.jpg" alt="img01"/>
+            </div>
+            <div id="welcome" class="container-detail">
+                
+            <div class="title">
+                <h2>
+                    {{currentDetail.title}}
+                </h2>
+                <h4>    
+                    <span ng-show="currentDetail.salePrice">
+                      Venta {{currentDetail.currency.label}} {{currentDetail.salePrice}} 
+                    </span>
+                    <span ng-show="currentDetail.rentPrice">
+                      Alquiler {{currentDetail.currencyRent.label}} {{currentDetail.rentPrice}}
+                    </span>
+                </h4>
+            </div>
+                <p ng-bind="currentDetail.description"></p>
+            </div>
+            
+            <div id="portfolio" class="container-detail"> 
+                    
+                <ul class="padding">
+                    <li class="color"><p>OPERACION: Venta</p></li>
+                    <li class="color"><p>INMUEBLE: {{currentDetail.type | labelType}}</p></li>
+                    <li class="color">
+                        <p>
+                            DORMITORIOS: 
+                            <ng-pluralize count="currentDetail.bedroomLength"
+                                when="{0: 'Sin dormitorio',
+                                       1: '1 dormitorio',
+                                       'other': '{} dormitorios.'}">
+                            </ng-pluralize>
+                        </p>
+                    </li>
+                    <li class="color">
+                        <p>BAÑOS: 
+                            <ng-pluralize count="currentDetail.bathLength"
+                                when="{0: 'Sin baño',
+                                       1: '1 baño',
+                                       'other': '{} baños.'}">
+                            </ng-pluralize>
+                        </p>
+                    </li>
+                    <li class="color">
+                        <p>
+                            PRECIO: 
+                            <span ng-show="currentDetail.salePrice">
+                              Venta {{currentDetail.currency.label}} {{currentDetail.salePrice}} 
+                            </span>
+                            <span ng-show="currentDetail.salePrice && currentDetail.rentPrice"> / </span>
+                            <span ng-show="currentDetail.rentPrice">
+                              Alquiler {{currentDetail.currencyRent.label}} {{currentDetail.rentPrice}}
+                            </span>
+                        </p>
+                    </li>        
+                </ul>
+                
+                <ul>
+                    <li class="color"><p>METRAJE: {{currentDetail.yardage}} m2</p></li>            
+                    <li class="color"><p>MUEBLES: {{currentDetail.furnished | booleanLabel}}</p></li>
+                    <li class="color"><p>ORIENTACIÓN: {{currentDetail.orientation | orientationLabel}}</p></li>
+                    <li class="color"><p>VIGILANCIA: {{currentDetail.vigilance | booleanLabel}}</p></li>
+                    <li class="color"><p>LINEA BLANCA: {{currentDetail.whiteLine | booleanLabel}}</p></li>
+                 </ul>
+                
+                <ul>
+                    <li class="color"><p>GARAGE: {{currentDetail.garage | booleanLabel}}</p></li>
+                    <li class="color"><p>TERRAZA: {{currentDetail.terrace | booleanLabel}}</p></li>
+                    <li class="color"><p>GASTOS COMUNES: $880</p></li>
+                    <li class="color"><p>DESTACADA: {{currentDetail.featured | booleanLabel}}</p></li>
+                    <li class="color"><p>CANTIDAD DE VISITAS: XXX</p></li>     
+                </ul>
+              
+            </div>
+        </div>
+
+    </real-estate-detail>
