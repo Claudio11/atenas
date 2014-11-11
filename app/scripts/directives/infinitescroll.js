@@ -6,7 +6,8 @@ angular.module('atenasApp')
         return {
             restrict: 'E',
             scope: {
-                list: "="         // List unfiltered.
+                list: "=",         // List unfiltered.
+                filteredList: "="
                 // If needed create here the condition to search on the DB (most common last date).
             },
             link: function(scope, element, attrs) {
@@ -38,9 +39,7 @@ angular.module('atenasApp')
                         if (offsetHeight - scrollPosition < 900) {
                             // Near the bottom of the list so we retrieve the new data...
                             isAbleToRequest = false;
-                            var promise = RealEstate.getList(scope.lastId);
-                            // TODO add element (preloading) while retrieves elements, then delete it (directive(?)).
-                            promise.then(function(realEstateList){
+                            RealEstate.getList(scope.lastId).then(function(realEstateList){
                                 if (realEstateList.length > 0) {
                                     scope.list = scope.list.concat(realEstateList);
                                     scope.lastId = getLastId();
@@ -52,6 +51,18 @@ angular.module('atenasApp')
                                 }
                             });
                         }
+                    }
+                });
+
+                // When filtered list length is lesser than 5, call for more properties TODO: (maybe keep asking until filtered list is bigger than 5(?)). 
+                scope.$watch('filteredList', function (newV, oldV) {
+                    if (isAbleToRequest && newV.length < 5) {
+                        RealEstate.getList(scope.lastId).then(function(realEstateList){
+                            if (realEstateList.length > 0) {
+                                scope.list = scope.list.concat(realEstateList);
+                                scope.lastId = getLastId();
+                            }
+                        });
                     }
                 });
             }

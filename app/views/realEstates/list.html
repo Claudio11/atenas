@@ -5,7 +5,7 @@
           <div class="grid row-with-filter">
             <h3 class="estates-title">propiedades</h3>
 
-            <infinite-scroll list="realEstates" class="list-container">         
+            <infinite-scroll list="realEstates" filtered-list="filteredList" class="list-container">         
                 <div ng-if="filteredList.length > 0">
                     <figure class="real-estate-container" ng-repeat="estate in filteredList" ng-click="setCurrentDetail(estate)">
                         <img ng-if="estate.imageList[0]" ng-src="{{estate.imageList[0].path}}" alt="img01" class="image-property"/>
