@@ -298,8 +298,12 @@
 
         <div class="wrapper">
             <div id="banner" class="container-detail">
-                <img ng-if="currentDetail.imageList[0]" ng-src="{{currentDetail.imageList[0].path}}" alt="img01"/>
-                <img ng-if="!currentDetail.imageList[0]" ng-src="3DGridEffect/img/1.jpg" alt="img01"/>
+                <ul ng-if="currentDetail.imageList.length > 0" rn-carousel rn-carousel-controls class="image">
+                  <li ng-repeat="image in currentDetail.imageList">
+                     <div class="layer"><img ng-src="{{image.path}}" alt="img01"/></div>
+                  </li>
+                </ul>
+                <img ng-if="currentDetail.imageList.length == 0" ng-src="3DGridEffect/img/1.jpg" alt="img01"/>
             </div>
             <div id="welcome" class="container-detail">
                 

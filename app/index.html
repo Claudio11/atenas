@@ -8,6 +8,7 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/angular-carousel/dist/angular-carousel.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -235,12 +236,12 @@
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/ng-file-upload/angular-file-upload.js"></script>
     <script src="bower_components/ng-file-upload-shim/angular-file-upload-shim.js"></script>
+    <script src="bower_components/angular-carousel/dist/angular-carousel.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/about.js"></script>
         <script src="scripts/controllers/realestatescontroller.js"></script>
         <script src="scripts/services/realestate.js"></script>
         <script src="scripts/filters/mainrealestate.js"></script>
@@ -260,14 +261,15 @@
         <script src="scripts/filters/orientationlabel.js"></script>
         <script src="scripts/controllers/contact.js"></script>
         <script src="scripts/libs/util.js"></script>
+        <script src="scripts/filters/ellipsis.js"></script>
+
         <script src="vendor/3DGridEffect/js/modernizr.custom.js"></script>
         <script src="vendor/3DGridEffect/js/classie.js"></script>
         <script src="vendor/3DGridEffect/js/helper.js"></script>
         <script src="vendor/3DGridEffect/js/grid3d.js"></script>
         <script src="vendor/jquery.easing.1.3.js"></script>
-        <script src="scripts/filters/ellipsis.js"></script>
-        <!-- endbuild -->
         <script src="vendor/camera.min.js"></script>
+        <!-- endbuild -->
 
 </body>
 </html>

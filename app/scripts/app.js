@@ -16,7 +16,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'angularFileUpload'
+    'angularFileUpload',
+    'angular-carousel'
   ])
   .config(function ($routeProvider, $httpProvider) {
 

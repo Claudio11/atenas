@@ -299,6 +299,10 @@ figure .gallery-button {
   margin-bottom: 35px;
 }
 
+#banner {
+  text-align: center;
+}
+
 #banner img {
   width: 80%;
   height: auto;
