@@ -255,7 +255,7 @@ figure .gallery-button {
 
 .detail-content {
   position: absolute;
-  background: rgba(255, 255, 255, 0.96);
+  background: rgba(255, 255, 255, 0.92);
 }
 
 #loaderDiv {
@@ -334,4 +334,10 @@ figure .gallery-button {
 .selected-section {
   color: #FFFFFF !important;
   background: url(../images/nav-bg-icon.png) no-repeat 50% 102% #8D949A !important;
+}
+
+ul[rn-carousel] {
+  height: 300px;
+  display: block !important;
+  border: none;
 }
