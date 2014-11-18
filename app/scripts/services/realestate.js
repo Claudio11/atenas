@@ -5,7 +5,6 @@ angular.module('atenasApp')
     function ($http, $filter, $q, Util, Picture) {
   	
         function RealEstate(data){
-            // TODO is it ok to set attributes to be private?. 
             this.id = data.id;
             this.type = data.type; // See if its worthy to create subclasses (house, apartment, etc).
             this.sale = data.sale === '1'; // boolean (it can be both sale and rent)

@@ -223,6 +223,7 @@ font-family: Arial, Helvetica, sans-serif;
 
 figure.real-estate-container .estate-description, .top-grids .top-grid .estate-description {
   height: 90px;
+  word-break: break-all;
 }
 
 figure .gallery-button {
