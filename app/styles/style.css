@@ -842,6 +842,7 @@ body{
 	width:80%;
 	font-size:16px;
 	min-height: 600px;
+	padding-top: 3%;	
 }
 
 	.image-property {
@@ -850,7 +851,7 @@ body{
 .message-container {
 	position: absolute;
 	right: 0;
-	top: -24px;
+	top: 0;
 	width: 20%;
 }
 

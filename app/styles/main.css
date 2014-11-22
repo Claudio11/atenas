@@ -306,7 +306,7 @@ figure .gallery-button {
 
 #banner img {
   width: 80%;
-  height: auto;
+  height: 350px;
   margin-left: 10%;
 }
 
@@ -338,7 +338,33 @@ figure .gallery-button {
 }
 
 ul[rn-carousel] {
-  height: 300px;
+  height: 350px;
   display: block !important;
   border: none;
+}
+
+/* Media queries */
+
+@media screen and (max-width: 1000px) {
+
+  #banner img, ul[rn-carousel] {
+    height: 300px;
+  }
+
+}
+
+@media screen and (max-width: 800px) {
+
+  #banner img, ul[rn-carousel] {
+    height: 250px;
+  }
+
+}
+
+@media screen and (max-width: 600px) {
+
+  #banner img, ul[rn-carousel] {
+    height: 200px;
+  }
+
 }
