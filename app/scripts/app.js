@@ -17,12 +17,16 @@ angular
     'ngSanitize',
     'ngTouch',
     'angularFileUpload',
-    'angular-carousel'
+    'angular-carousel',
+    'LocalStorageModule'
   ])
-  .config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider) {
+  .config(['$routeProvider', '$httpProvider', 'localStorageServiceProvider', function ($routeProvider, $httpProvider, localStorageServiceProvider) {
 
     // Add needed interceptor/s.
     $httpProvider.interceptors.push('httpInterceptor');
+
+    // Set prefix for local storage. 
+    localStorageServiceProvider.setPrefix('atenas');
 
     $routeProvider
       .when('/', {

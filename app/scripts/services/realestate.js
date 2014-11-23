@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('atenasApp')
-  .factory('RealEstate', ['$http', '$filter', '$q', 'Util', 'Picture',
-    function ($http, $filter, $q, Util, Picture) {
+  .factory('RealEstate', ['$http', '$filter', '$q', 'localStorageService', 'Util', 'Picture',
+    function ($http, $filter, $q, localStorageService, Util, Picture) {
   	
         function RealEstate(data){
             this.id = data.id;
@@ -106,7 +106,6 @@ angular.module('atenasApp')
          */
         RealEstate.prototype.setPictureList = function (assetList) {
             var imageList = [];
-            var self = this;
             angular.forEach(assetList, function(picture) {
                 var fileSpec = {name: picture.name, type: picture.type, size: picture.size};
                 imageList.push(new Picture(fileSpec, picture.asset_id, picture.path));
@@ -134,10 +133,9 @@ angular.module('atenasApp')
          */
         RealEstate.prototype.save = function(){
             var deferred = $q.defer();
-            var collectedData = {'data': this};
             var self = this;
             $http({
-                data: collectedData,
+                data: {'data': this},
                 method: 'POST',
                 url: 'api/properties/new'
             })
@@ -161,15 +159,12 @@ angular.module('atenasApp')
          */
         RealEstate.prototype.update = function(){
             var deferred = $q.defer();
-            var collectedData = {'data': this};
-            var self = this;
             $http({
-                data: collectedData,
+                data: {'data': this},
                 method: 'POST',
                 url: 'api/properties/update'
             })
             .then(function(response) {
-              console.info(response);
                 if (response.status) {
                     alert("Se actualizó la propiedad correctamente");
                 }
@@ -184,17 +179,35 @@ angular.module('atenasApp')
          *  not been seen in the last day (TODO)).
          */
         RealEstate.prototype.setAsViewed = function () {
-            var deferred = $q.defer();
-            var collectedData = {'data': this};
-            var self = this;
-            $http({
-                data: collectedData,
-                method: 'POST',
-                url: 'api/properties/viewed'
-            })
-            .then(function(response) {
-              console.info(response);
-            });
+
+            var shouldUpdateViewCount = true;   // If it is not visited or was visited more than 3 hours ago
+            var currentTimestamp = new Date().getTime();
+            var lastMarkedVisitTimestamp = localStorageService.get('visited_' + this.id);
+
+            if (lastMarkedVisitTimestamp) {
+                var diffHours = (currentTimestamp - lastMarkedVisitTimestamp) / (1000 * 3600); 
+                if (diffHours < 3) {
+                    shouldUpdateViewCount = false;
+                }
+            }
+
+            if (shouldUpdateViewCount) {
+                var deferred = $q.defer();
+                var self = this;
+                $http({
+                    data: {'data': this},
+                    method: 'POST',
+                    url: 'api/properties/viewed'
+                })
+                .then(function(response) {
+                    if (response.data.status) {
+                        localStorageService.set('visited_' + self.id, currentTimestamp);
+                    }
+                    else {
+                        console.log('Error al actualizar contador de visitas.');
+                    }
+                });
+            }
         } 
 
 

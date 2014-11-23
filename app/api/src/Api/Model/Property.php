@@ -123,8 +123,9 @@ class Property
                 $stmt->bind_param('i', $views);
 
                 $stmt->execute();
+                $affc_rows = $stmt->affected_rows;
                 $stmt->close();
-                return $this->db->affected_rows;
+                return $affc_rows > 0;
             }
             else {
                 /* Error */
