@@ -291,9 +291,9 @@
   </section>
 </div>
 
-    <real-estate-detail ng-if="currentDetail" estate="currentDetail">
+    <real-estate-detail ng-show="currentDetail" estate="currentDetail">
         <span class="detail-loading"></span>
-        <div class="detail-icon detail-close-content" ng-click="setCurrentDetail(false)">X</div>
+        <div class="detail-icon detail-close-content" ng-click="setCurrentDetail(undefined)">X</div>
 
         <div class="wrapper">
             <div id="banner" class="container-detail">

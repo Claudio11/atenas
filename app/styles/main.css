@@ -223,7 +223,7 @@ font-family: Arial, Helvetica, sans-serif;
 
 figure.real-estate-container .estate-description, .top-grids .top-grid .estate-description {
   height: 90px;
-  word-break: break-all;
+  word-break: break-word;
 }
 
 figure .gallery-button {
@@ -255,9 +255,20 @@ figure .gallery-button {
 }
 
 .detail-content {
-  position: absolute;
-  background: rgba(255, 255, 255, 0.92);
+  position: fixed;
+  background: rgba(255, 255, 255, 0.94);
 }
+
+  .detail-viewport {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+  }
+
+.no-scroll {
+  overflow: hidden;
+}  
 
 #loaderDiv {
   position: fixed;
@@ -305,9 +316,9 @@ figure .gallery-button {
 }
 
 #banner img {
-  width: 80%;
-  height: 350px;
-  margin-left: 10%;
+  width: 50%;
+  height: 200px;
+  margin: 0 auto;
 }
 
 #portfolio li.color{
@@ -338,9 +349,13 @@ figure .gallery-button {
 }
 
 ul[rn-carousel] {
-  height: 350px;
+  height: 200px;
   display: block !important;
   border: none;
+}
+
+.detail-content .wrapper {
+  padding-bottom: 40px;
 }
 
 /* Media queries */
@@ -348,7 +363,7 @@ ul[rn-carousel] {
 @media screen and (max-width: 1000px) {
 
   #banner img, ul[rn-carousel] {
-    height: 300px;
+    height: 150px;
   }
 
 }
@@ -356,7 +371,7 @@ ul[rn-carousel] {
 @media screen and (max-width: 800px) {
 
   #banner img, ul[rn-carousel] {
-    height: 250px;
+    height: 125px;
   }
 
 }
@@ -364,7 +379,10 @@ ul[rn-carousel] {
 @media screen and (max-width: 600px) {
 
   #banner img, ul[rn-carousel] {
-    height: 200px;
+    height: 100px;
   }
 
+  #portfolio > ul {
+    width: 100%;
+  }
 }

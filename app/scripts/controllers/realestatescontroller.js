@@ -7,7 +7,6 @@ angular.module('atenasApp')
       $scope.displayed = false;
 
       $scope.filteredList = $scope.realEstates = realEstatesList; // Set real estates
-      $scope.currentDetail; // Current real estate in the detail popup.
       $scope.filterViewMore = false;
       $scope.filterData = [
                             {label: 'Operacion', 
@@ -110,11 +109,6 @@ angular.module('atenasApp')
               $scope.filteredList = getFilteredList();
           }
       });
-
-      // Sets the current detail real estate.
-      $scope.setCurrentDetail = function (currentDetail) {
-        $scope.currentDetail = currentDetail;
-      }
 
       // Toggles if the filter is short or long.
       $scope.toggleViewMore = function () {

@@ -32,14 +32,18 @@
 
  </div>
 
- <real-estate-detail ng-if="currentDetail" estate="currentDetail">
+ <real-estate-detail ng-show="currentDetail" estate="currentDetail">
         <span class="detail-loading"></span>
-        <div class="detail-icon detail-close-content" ng-click="setCurrentDetail(false)">X</div>
+        <div class="detail-icon detail-close-content" ng-click="setCurrentDetail(undefined)">X</div>
 
         <div class="wrapper">
             <div id="banner" class="container-detail">
-                <img ng-if="currentDetail.imageList[0]" ng-src="{{currentDetail.imageList[0].path}}" alt="img01"/>
-                <img ng-if="!currentDetail.imageList[0]" ng-src="3DGridEffect/img/1.jpg" alt="img01"/>
+                <ul ng-if="currentDetail.imageList.length > 0" rn-carousel rn-carousel-controls class="image">
+                  <li ng-repeat="image in currentDetail.imageList">
+                     <div class="layer"><img ng-src="{{image.path}}" alt="img01"/></div>
+                  </li>
+                </ul>
+                <img ng-if="currentDetail.imageList.length == 0" ng-src="3DGridEffect/img/1.jpg" alt="img01"/>
             </div>
             <div id="welcome" class="container-detail">
                 
@@ -56,7 +60,7 @@
                     </span>
                 </h4>
             </div>
-                <p ng-bind="currentDetail.description | ellipsis : 200"></p>
+                <p ng-bind="currentDetail.description"></p>
             </div>
             
             <div id="portfolio" class="container-detail"> 

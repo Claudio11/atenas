@@ -1,11 +1,8 @@
 	.color p
 	{
-		line-height: 180%; 
-		padding-left:3%;
 		color:#FFF;
 		font-style:normal;
-		padding-right:3%;
-		
+		padding: 2% 3%;
 	}
 	
 	
@@ -87,7 +84,7 @@
 
 	#banner
 	{
-		padding-top: 5em;
+		padding-top: 4em;
 	}
 
 
@@ -98,7 +95,7 @@
 	#welcome
 	{
 		overflow: hidden;
-		padding: 4em 100px 2em 100px;
+		padding: 3em 2em;
 		text-align: center;
 	}
 	
@@ -110,7 +107,7 @@
 	#welcome .title h2
 	{
 		font-family: 'Questrial', sans-serif;
-		font-size: 2em;
+		font-size: 1.5em;
 		color: rgba(0,0,0,.6);
 		text-transform: capitalize;
 	}

@@ -19,7 +19,7 @@ angular
     'angularFileUpload',
     'angular-carousel'
   ])
-  .config(function ($routeProvider, $httpProvider) {
+  .config(['$routeProvider', '$httpProvider', function ($routeProvider, $httpProvider) {
 
     // Add needed interceptor/s.
     $httpProvider.interceptors.push('httpInterceptor');
@@ -55,4 +55,4 @@ angular
       .otherwise({
         redirectTo: '/'
       });
-  });
+  }]);
