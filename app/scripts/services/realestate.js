@@ -25,6 +25,7 @@ angular.module('atenasApp')
             this.vigilance = data.vigilance === '1';
             this.whiteLine = data.whiteLine === '1';
             this.featured = data.featured === '1';
+            this.views = data.views;
 
             var actualCurrency = (Util.isEmpty(data.currency)) ? 'us' : data.currency;
             this.currency = Util.getCurrency(actualCurrency); // currency for sale, object, with the format: {label: "u$", usRatio: 1} usRatio = current currency by dollar, i.e.: $ => {label: "$", usRatio: 23.05}.
@@ -178,6 +179,32 @@ angular.module('atenasApp')
             });
         }
 
+        /**
+         *  Set {this} as viewed (in order to send the data to the database we check if {this} has 
+         *  not been seen in the last day (TODO)).
+         */
+        RealEstate.prototype.setAsViewed = function () {
+            var deferred = $q.defer();
+            var collectedData = {'data': this};
+            var self = this;
+            $http({
+                data: collectedData,
+                method: 'POST',
+                url: 'api/properties/viewed'
+            })
+            .then(function(response) {
+              console.info(response);
+            });
+        } 
+
+
+        // Static methods.
+
+        /**
+         *  Obtain the proper list
+         *
+         *  @param Id of the last real estate in the list (optional).
+         */
         RealEstate.getList = function(lastId) {
             var deferred = $q.defer();
             var realEstatesList = [];

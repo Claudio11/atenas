@@ -112,6 +112,27 @@ class Property
         }
     }
 
+    private function updateViewed($property) {
+        $this->db = connect_db();
+        if (!$this->db) {
+            return null;
+        }
+        else{
+            if ($stmt = $this->db->prepare("UPDATE properties SET views = ? WHERE id = ".  $property->id ) ) {
+                $views = ++$property->views;
+                $stmt->bind_param('i', $views);
+
+                $stmt->execute();
+                $stmt->close();
+                return $this->db->affected_rows;
+            }
+            else {
+                /* Error */
+                return printf("Error: %s\n", $mysqli->error);
+            }
+        }
+    }
+
     public function __construct()
     {
         
@@ -135,7 +156,7 @@ class Property
     }
 
     /**
-     *  Save the Property.
+     *  Saves the Property.
      */
     public function save($property) {
         $propertyData = $property['data'];
@@ -143,11 +164,19 @@ class Property
     }
 
     /**
-     *  Save the Property.
+     *  Updates the Property.
      */
     public function update($property) {
         $propertyData = $property['data'];
         return $this->executeUpdate($propertyData);
+    }
+
+    /**
+     * Add a new visit to {this}.
+     */
+    public function addView($property) {
+        $propertyData = $property['data'];
+        return $this->updateViewed($propertyData);
     }
 
     public function getFeature($id)

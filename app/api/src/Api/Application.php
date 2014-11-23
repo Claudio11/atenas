@@ -129,6 +129,17 @@ class Application extends Slim
             $this->response->setBody(json_encode($response));
         });
 
+        // Adds a new visit to the property
+        $this->post('/api/properties/viewed', function () {
+            $properties = new Property();
+            $this->response->headers->set('Content-Type', 'application/json');
+            $post = json_decode($this->request()->getBody());
+            $postArray = get_object_vars($post);
+            $result = $properties->addView($postArray);
+            
+            $this->response->setBody(json_encode(array("status" => $result)));
+        });
+
         // File upload
         // TODO Refactor and add dile type validation (and other checks).
         $this->post('/api/uploadImage', function () {
