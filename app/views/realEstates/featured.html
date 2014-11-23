@@ -13,7 +13,7 @@
  	<div class="top-grids">
  		<div class="wrap">
 	 		<div class="top-grid" ng-repeat="estate in featuredEstates">
-	 			<a href="#"><img ng-src="{{estate.sale | transactionImage}}" title="icon-name"></a>
+	 			<a href="#"><img ng-src="{{estate | transactionImage}}" title="icon-name"></a>
 	 			<h3 class="centered">{{estate.title}}</h3>
 	 			<p class="estate-description">{{estate.description | ellipsis : 200}}</p>
 	 			<a class="button" ng-click="setCurrentDetail(estate)">ver mas</a>
