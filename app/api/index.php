@@ -5,11 +5,12 @@ ini_set('display_startup_errors', 1);
 date_default_timezone_set('UTC');
 
 // require_once(__DIR__ . '/../../php-console-master/src/PhpConsole/__autoload.php');
+require_once('/var/www/html/php-console-master/src/PhpConsole/__autoload.php');
 
 // // Call debug from PhpConsole\Handler
-// $handler = PhpConsole\Handler::getInstance();
-// $handler->start();
-// $handler->debug('called from handler debug', 'some.three.tags');
+$handler = PhpConsole\Handler::getInstance();
+$handler->start();
+
 
 try {
 
@@ -27,6 +28,7 @@ try {
         );
     }
 
+    $handler->debug('called from handler debug', 'some.three.tags');
     // Run application
     $app = new \Api\Application();
     $app->run();
