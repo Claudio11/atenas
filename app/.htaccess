@@ -505,6 +505,19 @@ FileETag None
 #    RewriteRule ^(.+)\.(\d+)\.(js|css|png|jpg|gif)$ $1.$3 [L]
 # </IfModule>
 
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^api/(.*)$ api/index.php [QSA,L]
+</IfModule>
+
+#<Directory /var/www/html/atenas/api>
+    #put here the rewrite rules
+ #  RewriteEngine On
+  # RewriteCond %{REQUEST_FILENAME} ! -f
+   #RewriteRule ^ index.php [QSA,L]
+#</Directory>
+
 # ------------------------------------------------------------------------------
 # | File concatenation                                                         |
 # ------------------------------------------------------------------------------
