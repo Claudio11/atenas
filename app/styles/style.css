@@ -929,18 +929,35 @@ ul#accordion-freebie > li > span { margin-bottom: 10px; }
 		padding:3%; 
 	}
 
-	.message-container {
+	.filters-container {
 		-moz-opacity: 0.20;
 		-khtml-opacity: 0.20;
 		opacity: 0.20;
 		-ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=20);
 	}
 
-	.message-container.displayed {
+	.message-container.displayed .filters-container {
 		-moz-opacity: 1;
 		-khtml-opacity: 1;
 		opacity: 1;
 		-ms-filter:"progid:DXImageTransform.Microsoft.Alpha"(Opacity=100);
+	}
+
+	.filter-toggle {
+		-webkit-transition: transform 500ms;
+	    -moz-transition: transform 500ms;
+	    -ms-transition: transform 500ms;
+	    -o-transition: transform 500ms;
+	    transition: transform 500ms;
+	    cursor: pointer;
+	}
+
+	.rotate180left {
+		-webkit-transform: rotate(-180deg);
+		-moz-transform: rotate(-180deg);
+		-o-transform: rotate(-180deg);
+		-ms-transform: rotate(-180deg);
+		transform: rotate(-180deg);
 	}
 
 	.row-with-filter {
