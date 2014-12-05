@@ -31,9 +31,10 @@
             
             </infinite-scroll>
           </div>
-     <div class="message-container" ng-class="{'displayed': displayed}">
+     <div class="message-container" click-outside="toggleFilterPosition()" is-active="displayed" ng-class="{'displayed': displayed}">
         <div ng-click="toggleFilterPosition()" class="above-container">
-            <img src="images/marker10.png" class="filter-toggle" ng-class="{'rotate180left': displayed}">
+            <img src="images/marker10.png" class="filter-toggle" ng-class="{'rotate180left': displayed}"/>
+            <img src="images/marker10.png" class="filter-toggle" ng-class="{'rotate180left': displayed}"/>
         </div>
       <div class="filters-container" ng-class="{'filters-container-open': filterViewMore}">
 
@@ -285,8 +286,8 @@
             
         </div>
       </div> <!-- End filter container -->
-      <div class="toggle-more" ng-hide="filterViewMore" ng-click="toggleViewMore()">Ver todos los filtros</div>
-      <div class="toggle-more" ng-show="filterViewMore" ng-click="toggleViewMore()">Ver filtros básicos</div>
+      <!-- <div class="toggle-more" ng-hide="filterViewMore" ng-click="toggleViewMore()">Ver todos los filtros</div>
+      <div class="toggle-more" ng-show="filterViewMore" ng-click="toggleViewMore()">Ver filtros básicos</div> -->
      </div><!-- End message container -->
     </div>
 
