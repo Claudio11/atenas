@@ -201,6 +201,7 @@ angular.module('atenasApp')
                 })
                 .then(function(response) {
                     if (response.data.status) {
+                        self.views++;
                         localStorageService.set('visited_' + self.id, currentTimestamp);
                     }
                     else {
