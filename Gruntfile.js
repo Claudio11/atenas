@@ -160,7 +160,7 @@ module.exports = function (grunt) {
       },
       dist: {
         options: {
-          base: '<%= yeoman.dist %>/api',
+          base: '<%= yeoman.dist %>/api'
         }
       }
     },
@@ -232,7 +232,7 @@ module.exports = function (grunt) {
         src: [
           '<%= yeoman.dist %>/scripts/{,*/}*.js',
           '<%= yeoman.dist %>/styles/{,*/}*.css',
-          '<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+          //'<%= yeoman.dist %>/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
           '<%= yeoman.dist %>/styles/fonts/*'
         ]
       }
@@ -248,7 +248,7 @@ module.exports = function (grunt) {
         flow: {
           html: {
             steps: {
-              js: ['concat', 'uglifyjs'],
+              js: ['concat'],
               css: ['cssmin']
             },
             post: {}
@@ -289,7 +289,10 @@ module.exports = function (grunt) {
     //   }
     // },
     // concat: {
-    //   dist: {}
+    //   dist: {
+    //     src: ['scripts/**/*.js', 'vendor/**/*.js', '!vendor/camera.min.js'],
+    //     dest: '<%= yeoman.dist %>/scripts/scripts.js'
+    //   }
     // },
 
     imagemin: {
@@ -472,7 +475,6 @@ module.exports = function (grunt) {
     'copy:dist',
     'cdnify',
     'cssmin',
-    'uglify',
     'filerev',
     'usemin',
     'htmlmin'
