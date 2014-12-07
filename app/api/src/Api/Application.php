@@ -7,6 +7,7 @@ use Api\Model\Property;
 use \Slim\Slim;
 use \Exception;
 
+
 // TODO Move all "features" things to a class with index() and get() methods
 class Application extends Slim
 {
@@ -27,8 +28,13 @@ class Application extends Slim
 
     public function __construct(array $userSettings = array(), $configDirectory = 'config')
     {
+
         // Slim initialization
         parent::__construct($userSettings);
+
+        $handler = \PhpConsole\Handler::getInstance();
+            $handler->debug('called from handler debug', $_SERVER['REQUEST_URI']);
+
         $this->config('debug', false);
         $this->notFound(function () {
             $this->handleNotFound();
@@ -65,6 +71,7 @@ class Application extends Slim
 
         // Properties
         $this->get('/api/properties', function () {
+            //$handler->debug('called from handler debug', 'asdasdasd2');
             $properties = new Property();
             $this->response->headers->set('Content-Type', 'application/json');
             $this->response->setBody(json_encode($properties->getProperties()));
@@ -186,8 +193,8 @@ class Application extends Slim
                     throw new RuntimeException('Invalid file format.');
                 }*/
 
-                $path = '../images/tmp/'.sha1_file($uploadedFile['tmp_name']).$uploadedFile['name'];
-                if (!move_uploaded_file($uploadedFile['tmp_name'], $path )) {
+                $path = 'images/tmp/'.sha1_file($uploadedFile['tmp_name']).$uploadedFile['name'];
+                if (!move_uploaded_file($uploadedFile['tmp_name'], '../' . $path )) {
                     throw new RuntimeException('Failed to move uploaded file.');
                 }
 
