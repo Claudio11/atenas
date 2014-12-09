@@ -27,6 +27,7 @@ img{
 /*end reset*/
 body{
 	background:#ECECED;
+	padding-top: 20px !important;
 }
 /*----start-wrap-----*/
 .wrap{
@@ -668,6 +669,20 @@ body{
 .gallery-grid h4:hover{
 	color:#aa0707;
 }
+/* menu */
+
+.top-nav .top-nav-left > ul > li {
+	height: 57px;
+}
+
+.top-nav .top-nav-left > ul > li:nth-child(2) {
+	border-left: 0 !important;
+}
+
+.top-nav .top-nav-left > ul > li > img {
+	height: 100%;
+}
+
 /*---contect----*/
 /*  Contact Form  ============================================================================= */
 .section {
