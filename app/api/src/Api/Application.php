@@ -32,9 +32,6 @@ class Application extends Slim
         // Slim initialization
         parent::__construct($userSettings);
 
-        $handler = \PhpConsole\Handler::getInstance();
-            $handler->debug('called from handler debug', $_SERVER['REQUEST_URI']);
-
         $this->config('debug', false);
         $this->notFound(function () {
             $this->handleNotFound();
