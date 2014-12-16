@@ -374,6 +374,12 @@ ul[rn-carousel] {
     height: 125px;
   }
 
+  .menu-small-container{
+    position: relative;
+    z-index: 1;
+    box-shadow: none !important;
+  }
+
 }
 
 @media screen and (max-width: 600px) {

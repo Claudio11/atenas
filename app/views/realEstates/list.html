@@ -33,8 +33,8 @@
           </div>
      <div class="message-container" click-outside="toggleFilterPosition()" is-active="displayed" ng-class="{'displayed': displayed}">
         <div ng-click="toggleFilterPosition()" class="above-container">
-            <img src="images/marker10.png" class="filter-toggle" ng-class="{'rotate180left': displayed}"/>
-            <img src="images/marker10.png" class="filter-toggle" ng-class="{'rotate180left': displayed}"/>
+            <img src="images/marker10.png" class="filter-toggle" ng-class="{'rotate180left': !displayed}"/>
+            <img src="images/marker10.png" class="filter-toggle" ng-class="{'rotate180left': !displayed}"/>
         </div>
       <div class="filters-container" ng-class="{'filters-container-open': filterViewMore}">
 
