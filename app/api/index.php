@@ -21,7 +21,7 @@ try {
     }
 
     // Slim bug, they dont plan on fixing it soon... (http://help.slimframework.com/discussions/problems/5954-no-way-to-make-slim-work-in-a-subdir)
-    $_SERVER['REQUEST_URI'] = str_replace('/dist/api', '/dist/api/api', $_SERVER['REQUEST_URI']);
+    $_SERVER['REQUEST_URI'] = str_replace('/api', '/api/api', $_SERVER['REQUEST_URI']);
 
     // Run application
     $app = new \Api\Application();
