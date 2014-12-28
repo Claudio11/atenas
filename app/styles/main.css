@@ -234,9 +234,10 @@ figure .gallery-button {
   color:#666;
   font-size:12px;
   text-align: left;
+  min-height: 15px;
 }
 
-.mounted{
+div.mounted{
   margin-top: -33px;
 }
 
@@ -358,6 +359,12 @@ ul[rn-carousel] {
   padding-bottom: 40px;
 }
 
+#dl-menu {
+  margin-top: 14px;
+  margin-left: 5px;
+}
+
+
 /* Media queries */
 
 @media screen and (max-width: 1000px) {
@@ -378,6 +385,10 @@ ul[rn-carousel] {
     position: relative;
     z-index: 1;
     box-shadow: none !important;
+  }
+
+  div.mounted{
+    margin-top: 0px;
   }
 
 }
