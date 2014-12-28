@@ -50,9 +50,9 @@ angular.module('atenasApp')
             if (filterParams.type && filterParams.type !== this.type) {
                 matches = false;
             }
-            if (filterParams.bathLength && filterParams.bathLength !== this.bathLength.toString()) {
-                if (this.bathLength < 2 || filterParams.bathLength !== '3') {
-                    // It can have more than 2 bathrooms (3 means more than 2 bathrooms).  
+            if (filterParams.bedroomLength && filterParams.bedroomLength !== this.bedroomLength.toString()) {
+                if (this.bedroomLength <= 3 || filterParams.bedroomLength !== '4') {
+                    // It can have more than 3 bedrooms (4 means "more than 3 bedrooms").  
                     matches = false;
                 }
             }
