@@ -239,6 +239,7 @@ figure .gallery-button {
 
 div.mounted{
   margin-top: -33px;
+  width: 100%; /* Needed for firefox. */
 }
 
 .column {
@@ -367,6 +368,10 @@ ul[rn-carousel] {
 
 .contact {
   margin-top: 40px !important;
+}
+
+.slider {
+  overflow: hidden;
 }
 
 /* Media queries */

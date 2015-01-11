@@ -5,7 +5,7 @@ if (isset($_POST['inputName']) && isset($_POST['inputEmail']) && isset($_POST['i
 
     //check if any of the inputs are empty
     if (empty($_POST['inputName']) || empty($_POST['inputEmail']) || empty($_POST['inputSubject']) || empty($_POST['inputMessage'])) {
-        $data = array('success' => false, 'message' => 'Please fill out the form completely.');
+        $data = array('success' => false, 'message' => 'Por favor complete el formulario completamente.');
         echo json_encode($data);
         exit;
     }
@@ -24,17 +24,17 @@ if (isset($_POST['inputName']) && isset($_POST['inputEmail']) && isset($_POST['i
     }
 
     if(!$mail->send()) {
-        $data = array('success' => false, 'message' => 'Message could not be sent. Mailer Error: ' . $mail->ErrorInfo);
+        $data = array('success' => false, 'message' => 'El mensaje no se pudo enviar. Error: ' . $mail->ErrorInfo);
         echo json_encode($data);
         exit;
     }
 
-    $data = array('success' => true, 'message' => 'Thanks! We have received your message.');
+    $data = array('success' => true, 'message' => 'Gracias! Hemos recibido su mensaje.');
     echo json_encode($data);
 
 } else {
 
-    $data = array('success' => false, 'message' => 'Please fill out the form completely.');
+    $data = array('success' => false, 'message' => 'Por favor complete el formulario completamente.');
     echo json_encode($data);
 
 }
