@@ -365,6 +365,10 @@ ul[rn-carousel] {
 }
 
 
+.contact {
+  margin-top: 40px !important;
+}
+
 /* Media queries */
 
 @media screen and (max-width: 1000px) {
@@ -383,7 +387,7 @@ ul[rn-carousel] {
 
   .menu-small-container{
     position: relative;
-    z-index: 1;
+    z-index: 401;
     box-shadow: none !important;
   }
 
