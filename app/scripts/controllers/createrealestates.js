@@ -28,8 +28,8 @@ angular.module('atenasApp')
 			    for (var i = 0; i < $files.length; i++) {
 			      var file = $files[i];
 			      $scope.upload = $upload.upload({
-			        url: 'api/uploadImage',
 			        method: 'POST',
+			        url: 'api/uploadImage',
 			        //headers: {'header-key': 'header-value'},
 			        //withCredentials: true,
 			        //data: {myObj: $scope.myModelObj},
