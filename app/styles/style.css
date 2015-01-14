@@ -894,6 +894,11 @@ body{
 		max-height: 478px;
 	}
 
+
+#dl-menu .dl-menu {
+	background-color: rgba(170, 170, 170, 0.6);
+}	
+
 @media screen and (max-width: 1000px) {
 
 	.image-property {
