@@ -35,9 +35,9 @@ angular.module('atenasApp')
                                   value: false, 
                                   label: 'Terreno'
                                 }, 
-                                premise: {
+                                local: {
                                   value: false, 
-                                  label: 'Locales'
+                                  label: 'Local'
                                 }
                               }
                             },
@@ -68,13 +68,13 @@ angular.module('atenasApp')
                           ];
 
       // Fields that can be filtered.
-      // TODO!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! Iterate over filter data and create filterable fields programatically (except for generalSearch)
+      // TODO Iterate over filter data and create filterable fields programatically (except for generalSearch)
       var filterableFields = ['generalSearch', 'filterData[0].data.sale.value', 'filterData[0].data.rent.value',
-                              'filterData[1].data.apartment.value', 'filterData[1].data.house.value', 'filterData[1].data.terrain.value', 'filterData[1].data.premise.value',
+                              'filterData[1].data.apartment.value', 'filterData[1].data.house.value', 'filterData[1].data.terrain.value', 'filterData[1].data.local.value',
                               'filterData[2].data[0].value', 'filterData[2].data[1].value', 'filterData[2].data[2].value', 'filterData[2].data[3].value', 'filterData[2].data[4].value'];
       // Call getFilterableFields (from filterData).
 
-      // TODO put filter logic in a filter service!!!!!!!!!!!!!!!!!!!!!!
+      // TODO put filter logic in a filter service
       var getSelectedItem = function (itemsData) {
         var selectedAttr;
         angular.forEach(itemsData, function(data, attr) {
