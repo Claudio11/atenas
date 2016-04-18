@@ -47,7 +47,7 @@ class Property
             return null;
         }
         else{
-            if ($stmt = $this->db->prepare("INSERT INTO properties (title, description, type, sale, salePrice, rent, ". 
+            if ($stmt = $this->db->prepare("INSERT INTO properties (title, description, type, sale, salePrice, rent, ".
                                            "rentPrice, currency, currencyRent, bedroomLength, bathLength, garage, ".
                                            "yardage, furnished, orientation, terrace, commonExpenses, vigilance, whiteLine, ".
                                            "featured) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)") ) {
@@ -90,8 +90,11 @@ class Property
             return null;
         }
         else{
-            if ($stmt = $this->db->prepare("UPDATE properties SET title = ?, description = ?, type = ?, sale = ?, salePrice = ?, rent = ?, rentPrice = ?, currency = ?, currencyRent = ? WHERE id = ".  $property->id ) ) {
-                $stmt->bind_param('sssiiiiss', $property->title,
+            if ($stmt = $this->db->prepare("UPDATE properties SET title = ?, description = ?, type = ?, sale = ?, salePrice = ?, rent = ?,".
+                                           " rentPrice = ?, currency = ?, currencyRent = ?, whiteLine = ?, vigilance = ?, ".
+                                           " bathLength = ?, garage = ?, yardage = ?, furnished = ?, orientation = ?, ".
+                                           " terrace = ?, commonExpenses = ?, featured = ?, bedroomLength = ? WHERE id = ".  $property->id ) ) {
+                $stmt->bind_param('sssiiiissiiiiiisiiii', $property->title,
                                              $property->description,
                                              $property->type,
                                              $property->sale,
@@ -99,7 +102,18 @@ class Property
                                              $property->rent,
                                              $property->rentPrice,
                                              $property->currency->val,
-                                             $property->currencyRent->val);
+                                             $property->currencyRent->val,
+                                             $property->whiteLine,
+                                             $property->vigilance,
+                                             $property->bathLength,
+                                             $property->garage,
+                                             $property->yardage,
+                                             $property->furnished,
+                                             $property->orientation,
+                                             $property->terrace,
+                                             $property->commonExpenses,
+                                             $property->featured,
+                                             $property->bedroomLength);
 
                 $stmt->execute();
                 $stmt->close();
@@ -136,7 +150,7 @@ class Property
 
     public function __construct()
     {
-        
+
     }
 
     public function getProperties()

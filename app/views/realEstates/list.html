@@ -4,17 +4,17 @@
         <div class="grid-wrap">
           <div class="grid row-with-filter">
 
-            <infinite-scroll list="realEstates" filtered-list="filteredList" class="list-container">         
+            <infinite-scroll list="realEstates" filtered-list="filteredList" class="list-container">
                 <div ng-if="filteredList.length > 0">
                     <figure class="real-estate-container" ng-repeat="estate in filteredList" ng-click="setCurrentDetail(estate)">
                         <img ng-if="estate.imageList[0]" ng-src="{{estate.imageList[0].path}}" alt="img01" class="image-property"/>
                         <img ng-if="!estate.imageList[0]" ng-src="3DGridEffect/img/1.jpg" alt="img01" class="image-property"/>
                         <h4>{{estate.title | ellipsis : 30}}</h4>
                         <div class="price-container">
-                            <span ng-show="estate.salePrice">
-                              Venta {{estate.currency.label}} {{estate.salePrice}} 
+                            <span ng-show="estate.sale && estate.salePrice">
+                              Venta {{estate.currency.label}} {{estate.salePrice}}
                             </span>
-                            <span ng-show="estate.rentPrice">
+                            <span ng-show="estate.rent && estate.rentPrice">
                               Alquiler {{estate.currencyRent.label}} {{estate.rentPrice}}
                             </span>
                         </div>
@@ -28,7 +28,7 @@
                 <div ng-if="filteredList.length == 0" class="correct-inner-text">
                     No hay propiedades que coincidan con los filtros seleccionados.
                 </div>
-            
+
             </infinite-scroll>
           </div>
      <div class="message-container" click-outside="toggleFilterPosition()" is-active="displayed" ng-class="{'displayed': displayed}">
@@ -42,17 +42,17 @@
         <!-- Abre columnaderecha -->
         <div id="ordenamiento" class="ordenamiento_verde">
             <!-- Abre ordenamiento -->
-            
+
             <!-- List of filters (reduced version) (TODO filter first 3 or 4 of ng-repeat) -->
-            <div ng-repeat="data in filterData" class="criterio_orden" filter-section filter-data="data"> 
+            <div ng-repeat="data in filterData" class="criterio_orden" filter-section filter-data="data">
 
             </div>
 
             <!-- List of filters (full version) (entire ng repeat)-->
             <div ng-show="filterViewMore">
-  
+
                 <!-- Precio -->
-                <div id="Div_Cont_Inmueble" class="criterio_orden"> 
+                <div id="Div_Cont_Inmueble" class="criterio_orden">
                     <span id="etiquetaInm" class="criterio_ordenamiento">Precio</span><br>
                         <div id="Div_Inmueble">
                             <div class="items_ordenamiento_filtro_azul">
@@ -81,9 +81,9 @@
                             </div>
                         </div>
                     </div>
-                
+
                  <!-- Garage -->
-                <div id="Div_Cont_Inmueble" class="criterio_orden"> 
+                <div id="Div_Cont_Inmueble" class="criterio_orden">
                     <span id="etiquetaInm" class="criterio_ordenamiento">Garage</span><br>
                         <div id="Div_Inmueble">
                             <div class="items_ordenamiento_filtro_azul">
@@ -100,9 +100,9 @@
                             </div>
                         </div>
                  </div>
-                
+
                 <!-- Metraje -->
-                 <div id="Div_Cont_Inmueble" class="criterio_orden"> 
+                 <div id="Div_Cont_Inmueble" class="criterio_orden">
                   <span id="etiquetaInm" class="criterio_ordenamiento">Metraje</span><br>
                     <div id="Div_Inmueble">
                         <div class="items_ordenamiento_filtro_azul">
@@ -117,14 +117,14 @@
                             <input type="checkbox" value="1" name="test[]" id="myid1">
                             </a>
                         </div>
-                        
+
                          <div class="items_ordenamiento_filtro_azul">
                             <a class="items_ordenamiento_azul" title="101 a 200 m2">
                             <span class="texto_filtro">101 a 200 m2</span>
                             <input type="checkbox" value="1" name="test[]" id="myid1">
                             </a>
                         </div>
-                        
+
                         <div class="items_ordenamiento_filtro_azul">
                             <a class="items_ordenamiento_azul" title="Más de 200 m2">
                             <span class="texto_filtro">Más de 200 m2</span>
@@ -133,10 +133,10 @@
                         </div>
                     </div>
                 </div>
-                
-                
+
+
                 <!-- Muebles -->
-                <div id="Div_Cont_Inmueble" class="criterio_orden"> 
+                <div id="Div_Cont_Inmueble" class="criterio_orden">
                     <span id="etiquetaInm" class="criterio_ordenamiento">Muebles</span><br>
                     <div id="Div_Inmueble">
                         <div class="items_ordenamiento_filtro_azul">
@@ -153,9 +153,9 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Orientación -->
-                 <div id="Div_Cont_Inmueble" class="criterio_orden"> 
+                 <div id="Div_Cont_Inmueble" class="criterio_orden">
                     <span id="etiquetaInm" class="criterio_ordenamiento">Orientación</span><br>
                     <div id="Div_Inmueble">
                         <div class="items_ordenamiento_filtro_azul">
@@ -170,14 +170,14 @@
                             <input type="checkbox" value="1" name="test[]" id="myid1">
                             </a>
                         </div>
-                        
+
                          <div class="items_ordenamiento_filtro_azul">
                             <a class="items_ordenamiento_azul" title="Interior">
                             <span class="texto_filtro">Interior</span>
                             <input type="checkbox" value="1" name="test[]" id="myid1">
                             </a>
                         </div>
-                        
+
                         <div class="items_ordenamiento_filtro_azul">
                             <a class="items_ordenamiento_azul" title="Lateral">
                             <span class="texto_filtro">Lateral</span>
@@ -186,14 +186,14 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Más opciones -->
                 <div class="clickable" id="clickable12346">
                   <a href="javascript:openclose_req(12346);">+ Más opciones</a>
                 </div>
-                
+
                 <!-- Terraza -->
-                 <div id="Div_Cont_Inmueble" class="criterio_orden"> 
+                 <div id="Div_Cont_Inmueble" class="criterio_orden">
                     <span id="etiquetaInm" class="criterio_ordenamiento">Terraza</span><br>
                     <div id="Div_Inmueble">
                         <div class="items_ordenamiento_filtro_azul">
@@ -210,9 +210,9 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Gastos Comunes -->
-                <div id="Div_Cont_Inmueble" class="criterio_orden"> 
+                <div id="Div_Cont_Inmueble" class="criterio_orden">
                     <span id="etiquetaInm" class="criterio_ordenamiento">Gastos Comunes</span><br>
                     <div id="Div_Inmueble">
                         <div class="items_ordenamiento_filtro_azul">
@@ -222,10 +222,10 @@
                         </a>
                       </div>
                     </div>
-                </div>   
-                
+                </div>
+
                 <!-- Vigilancia -->
-                 <div id="Div_Cont_Inmueble" class="criterio_orden"> 
+                 <div id="Div_Cont_Inmueble" class="criterio_orden">
                     <span id="etiquetaInm" class="criterio_ordenamiento">Vigilancia</span><br>
                     <div id="Div_Inmueble">
                         <div class="items_ordenamiento_filtro_azul">
@@ -241,10 +241,10 @@
                             </a>
                         </div>
                     </div>
-                </div>      
-                
-                <!-- Linea Blanca -->    
-                <div id="Div_Cont_Inmueble" class="criterio_orden"> 
+                </div>
+
+                <!-- Linea Blanca -->
+                <div id="Div_Cont_Inmueble" class="criterio_orden">
                     <span id="etiquetaInm" class="criterio_ordenamiento">Linea blanca</span><br>
                     <div id="Div_Inmueble">
                         <div class="items_ordenamiento_filtro_azul">
@@ -260,10 +260,10 @@
                             </a>
                         </div>
                     </div>
-                </div>                       
-                
-                <!-- Destacada -->    
-                <div id="Div_Cont_Inmueble" class="criterio_orden"> 
+                </div>
+
+                <!-- Destacada -->
+                <div id="Div_Cont_Inmueble" class="criterio_orden">
                     <span id="etiquetaInm" class="criterio_ordenamiento">Destacada</span><br>
                     <div id="Div_Inmueble">
                         <div class="items_ordenamiento_filtro_azul">
@@ -281,9 +281,9 @@
                      </div>
                  </div>
             </div>
-                
-          </div> 
-            
+
+          </div>
+
         </div>
       </div> <!-- End filter container -->
       <!-- <div class="toggle-more" ng-hide="filterViewMore" ng-click="toggleViewMore()">Ver todos los filtros</div>
@@ -308,14 +308,14 @@
                 <img ng-if="currentDetail.imageList.length == 0" ng-src="3DGridEffect/img/1.jpg" alt="img01"/>
             </div>
             <div id="welcome" class="container-detail">
-                
+
             <div class="title">
                 <h2>
                     {{currentDetail.title}}
                 </h2>
-                <h4>    
+                <h4>
                     <span ng-show="currentDetail.salePrice">
-                      Venta {{currentDetail.currency.label}} {{currentDetail.salePrice}} 
+                      Venta {{currentDetail.currency.label}} {{currentDetail.salePrice}}
                     </span>
                     <span ng-show="currentDetail.rentPrice">
                       Alquiler {{currentDetail.currencyRent.label}} {{currentDetail.rentPrice}}
@@ -324,15 +324,25 @@
             </div>
                 <p ng-bind="currentDetail.description"></p>
             </div>
-            
-            <div id="portfolio" class="container-detail"> 
-                    
+
+            <div id="portfolio" class="container-detail">
+
                 <ul class="padding">
-                    <li class="color"><p>OPERACION: Venta</p></li>
+                    <li class="color">
+                      <p>OPERACION:
+                        <span ng-show="currentDetail.sale && currentDetail.salePrice">
+                          Venta
+                        </span>
+                        <span ng-show="currentDetail.sale && currentDetail.salePrice && currentDetail.rent && currentDetail.rentPrice"> / </span>
+                        <span ng-show="currentDetail.rent && currentDetail.rentPrice">
+                          Alquiler
+                        </span>
+                      </p>
+                    </li>
                     <li class="color"><p>INMUEBLE: {{currentDetail.type | labelType}}</p></li>
                     <li class="color">
                         <p>
-                            DORMITORIOS: 
+                            DORMITORIOS:
                             <ng-pluralize count="currentDetail.bedroomLength"
                                 when="{0: 'Sin dormitorio',
                                        1: '1 dormitorio',
@@ -341,7 +351,7 @@
                         </p>
                     </li>
                     <li class="color">
-                        <p>BAÑOS: 
+                        <p>BAÑOS:
                             <ng-pluralize count="currentDetail.bathLength"
                                 when="{0: 'Sin baño',
                                        1: '1 baño',
@@ -351,36 +361,36 @@
                     </li>
                     <li class="color">
                         <p>
-                            PRECIO: 
-                            <span ng-show="currentDetail.salePrice">
-                              Venta {{currentDetail.currency.label}} {{currentDetail.salePrice}} 
+                            PRECIO:
+                            <span ng-show="currentDetail.sale && currentDetail.salePrice">
+                              Venta {{currentDetail.currency.label}} {{currentDetail.salePrice}}
                             </span>
-                            <span ng-show="currentDetail.salePrice && currentDetail.rentPrice"> / </span>
-                            <span ng-show="currentDetail.rentPrice">
+                            <span ng-show="currentDetail.sale && currentDetail.salePrice && currentDetail.rent && currentDetail.rentPrice"> / </span>
+                            <span ng-show="currentDetail.rent && currentDetail.rentPrice">
                               Alquiler {{currentDetail.currencyRent.label}} {{currentDetail.rentPrice}}
                             </span>
                         </p>
-                    </li>        
+                    </li>
                 </ul>
-                
+
                 <ul>
-                    <li class="color"><p>METRAJE: {{currentDetail.yardage}} m2</p></li>            
+                    <li class="color"><p>METRAJE: {{currentDetail.yardage || 0}} m2</p></li>
                     <li class="color"><p>MUEBLES: {{currentDetail.furnished | booleanLabel}}</p></li>
                     <li class="color"><p>ORIENTACIÓN: {{currentDetail.orientation | orientationLabel}}</p></li>
                     <li class="color"><p>VIGILANCIA: {{currentDetail.vigilance | booleanLabel}}</p></li>
                     <li class="color"><p>LINEA BLANCA: {{currentDetail.whiteLine | booleanLabel}}</p></li>
                  </ul>
-                
+
                 <ul>
                     <li class="color"><p>GARAGE: {{currentDetail.garage | booleanLabel}}</p></li>
                     <li class="color"><p>TERRAZA: {{currentDetail.terrace | booleanLabel}}</p></li>
-                    <li class="color"><p>GASTOS COMUNES: ${{currentDetail.commonExpenses}}</p></li>
+                    <li class="color"><p>GASTOS COMUNES: ${{currentDetail.commonExpenses || 0}}</p></li>
                     <li class="color"><p>DESTACADA: {{currentDetail.featured | booleanLabel}}</p></li>
-                    <li class="color"><p>CANTIDAD DE VISITAS: {{currentDetail.views}}</p></li>     
+                    <li class="color"><p>CANTIDAD DE VISITAS: {{currentDetail.views}}</p></li>
                 </ul>
-              
+
             </div>
         </div>
 
-    </real-estate-detail>   
+    </real-estate-detail>
 </div>
