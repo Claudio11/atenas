@@ -1,12 +1,12 @@
-<div class="slider">					     
-		<div class="camera_wrap camera_azure_skin" id="camera_wrap_1">									           
-			<div data-src="images/slider3.jpg">  </div> 
+<div class="slider">
+		<div class="camera_wrap camera_azure_skin" id="camera_wrap_1">
+			<div data-src="images/slider3.jpg">  </div>
 			<div data-src="images/slider2.jpg">  </div>
 			<div data-src="images/slider4.jpg">  </div>
 			<div data-src="images/slider1.jpg">  </div>
 		</div>
-		<div class="clear"> </div>					       
-</div>					
+		<div class="clear"> </div>
+</div>
  <!-- End-image-slider -->
  <!-- start-content -->
  <div class="content">
@@ -26,7 +26,7 @@
 	 		<h6>Misión y Visión</h6>
 	 		<p>" Nuestra misión es ofrecer Servicios Inmobiliarios de calidad, brindando a nuestros clientes asesorías  con  responsabilidad y eficacia en la administración de sus propiedades, en la adquisición o venta de bienes inmuebles y en la promoción de proyectos de constructores en general. Nuestros sólidos principios éticos, fuerte compromiso y responsabilidad, nos han guiado y nos avalan. "</p>
 	 		<p>" Proyectándonos hacia el futuro nos avocamos a desarrollar una empresa líder en el mercado basada en la ética y en la eficacia garantizando satisfacer las necesidades de nuestros clientes; basados en un espíritu fuerte de cooperación, apostando al trabajo en equipo, como forma de garantizar el éxito. "</p>
-	 		
+
  		</div>
  	</div>
 
@@ -46,31 +46,31 @@
                 <img ng-if="currentDetail.imageList.length == 0" ng-src="3DGridEffect/img/1.jpg" alt="img01"/>
             </div>
             <div id="welcome" class="container-detail">
-                
+
             <div class="title">
                 <h2>
                     {{currentDetail.title}}
                 </h2>
-                <h4>    
-                    <span ng-show="currentDetail.salePrice">
-                      Venta {{currentDetail.currency.label}} {{currentDetail.salePrice}} 
+                <h4>
+                    <span ng-show="currentDetail.sale && currentDetail.salePrice">
+                      Venta {{currentDetail.currency.label}} {{currentDetail.salePrice}}
                     </span>
-                    <span ng-show="currentDetail.rentPrice">
+                    <span ng-show="currentDetail.rent && currentDetail.rentPrice">
                       Alquiler {{currentDetail.currencyRent.label}} {{currentDetail.rentPrice}}
                     </span>
                 </h4>
             </div>
                 <p ng-bind="currentDetail.description"></p>
             </div>
-            
-            <div id="portfolio" class="container-detail"> 
-                    
+
+            <div id="portfolio" class="container-detail">
+
                 <ul class="padding">
                     <li class="color"><p>OPERACION: Venta</p></li>
                     <li class="color"><p>INMUEBLE: {{currentDetail.type | labelType}}</p></li>
                     <li class="color">
                         <p>
-                            DORMITORIOS: 
+                            DORMITORIOS:
                             <ng-pluralize count="currentDetail.bedroomLength"
                                 when="{0: 'Sin dormitorio',
                                        1: '1 dormitorio',
@@ -79,7 +79,7 @@
                         </p>
                     </li>
                     <li class="color">
-                        <p>BAÑOS: 
+                        <p>BAÑOS:
                             <ng-pluralize count="currentDetail.bathLength"
                                 when="{0: 'Sin baño',
                                        1: '1 baño',
@@ -89,34 +89,34 @@
                     </li>
                     <li class="color">
                         <p>
-                            PRECIO: 
-                            <span ng-show="currentDetail.salePrice">
-                              Venta {{currentDetail.currency.label}} {{currentDetail.salePrice}} 
+                            PRECIO:
+                            <span ng-show="currentDetail.sale && currentDetail.salePrice">
+                              Venta {{currentDetail.currency.label}} {{currentDetail.salePrice}}
                             </span>
-                            <span ng-show="currentDetail.salePrice && currentDetail.rentPrice"> / </span>
-                            <span ng-show="currentDetail.rentPrice">
+                            <span ng-show="currentDetail.sale && currentDetail.salePrice && currentDetail.rent && currentDetail.rentPrice"> / </span>
+                            <span ng-show="currentDetail.rent && currentDetail.rentPrice">
                               Alquiler {{currentDetail.currencyRent.label}} {{currentDetail.rentPrice}}
                             </span>
                         </p>
-                    </li>        
+                    </li>
                 </ul>
-                
+
                 <ul>
-                    <li class="color"><p>METRAJE: {{currentDetail.yardage}} m2</p></li>            
+                    <li class="color"><p>METRAJE: {{currentDetail.yardage}} m2</p></li>
                     <li class="color"><p>MUEBLES: {{currentDetail.furnished | booleanLabel}}</p></li>
                     <li class="color"><p>ORIENTACIÓN: {{currentDetail.orientation | orientationLabel}}</p></li>
                     <li class="color"><p>VIGILANCIA: {{currentDetail.vigilance | booleanLabel}}</p></li>
                     <li class="color"><p>LINEA BLANCA: {{currentDetail.whiteLine | booleanLabel}}</p></li>
                  </ul>
-                
+
                 <ul>
                     <li class="color"><p>GARAGE: {{currentDetail.garage | booleanLabel}}</p></li>
                     <li class="color"><p>TERRAZA: {{currentDetail.terrace | booleanLabel}}</p></li>
                     <li class="color"><p>GASTOS COMUNES: ${{currentDetail.commonExpenses}}</p></li>
                     <li class="color"><p>DESTACADA: {{currentDetail.featured | booleanLabel}}</p></li>
-                    <li class="color"><p>CANTIDAD DE VISITAS: {{currentDetail.views}}</p></li>     
+                    <li class="color"><p>CANTIDAD DE VISITAS: {{currentDetail.views}}</p></li>
                 </ul>
-              
+
             </div>
         </div>
 

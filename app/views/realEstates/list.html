@@ -314,10 +314,10 @@
                     {{currentDetail.title}}
                 </h2>
                 <h4>
-                    <span ng-show="currentDetail.salePrice">
+                    <span ng-show="currentDetail.sale && currentDetail.salePrice">
                       Venta {{currentDetail.currency.label}} {{currentDetail.salePrice}}
                     </span>
-                    <span ng-show="currentDetail.rentPrice">
+                    <span ng-show="currentDetail.rent && currentDetail.rentPrice">
                       Alquiler {{currentDetail.currencyRent.label}} {{currentDetail.rentPrice}}
                     </span>
                 </h4>
