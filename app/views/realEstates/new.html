@@ -1,119 +1,184 @@
 <div class="crud-container">
 
-		<h3>Nueva propiedad</h3>
+		<h3><span ng-hide="realEstate.id">Nueva </span> Propiedad</h3>
 
 		<form novalidate class="css-form">
-			<strong>
-				Titulo:
-			</strong>
-			<input type="text" ng-model="realEstate.title" required /><br />
-
-			<strong>
-				Description:
-			</strong>
-			<input type="text" ng-model="realEstate.description" required /><br />
-
-			<strong>
-				Tipo:
-			</strong>
-			<input type="radio" ng-model="realEstate.type" value="house" /><span>Casa</span>
-			<input type="radio" ng-model="realEstate.type" value="apartment" /><span>Apartamento</span>
-			<input type="radio" ng-model="realEstate.type" value="terrain" /><span>Terreno</span><br />
-			<input type="radio" ng-model="realEstate.type" value="local" /><span>Local</span><br />
-
-			<strong>
-				Tipo de transaccion
-			</strong>
-			<input type="checkbox" ng-model="realEstate.sale"/><span>Venta</span>
-			<div ng-show="realEstate.sale">
-				<span>Importe de venta</span>
-				<input type="text" ng-model="realEstate.salePrice"/>
-				<input type="radio" ng-model="realEstate.currency.val" value="s" ng-change="realEstate.setCurrency('s', 'sale')"> Pesos <br/>
-				<input type="radio" ng-model="realEstate.currency.val" value="us" ng-change="realEstate.setCurrency('us', 'sale')"> Dolares <br/>
-			</div><br />
-			<input type="checkbox" ng-model="realEstate.rent"/><span>Alquiler</span>
-			<div ng-show="realEstate.rent">
-				<span>Importe de alquiler</span>
-				<input type="text" ng-model="realEstate.rentPrice"/>
-				<input type="radio" ng-model="realEstate.currencyRent.val" value="s" ng-change="realEstate.setCurrency('s', 'rent')"> Pesos <br/>
-				<input type="radio" ng-model="realEstate.currencyRent.val" value="us" ng-change="realEstate.setCurrency('us', 'rent')"> Dolares <br/>
+			<div class="crud-form-attr">
+					<div class="crud-title">
+						Titulo:
+					</div>
+					<div class="crud-content">
+						<input type="text" ng-model="realEstate.title" required /><br />
+					</div>
 			</div>
 
-			<input type="file" ng-file-select="onFileSelect($files)">
-			<ul>
-				<li ng-repeat="picture in realEstate.getImageList()">
-					<img ng-src="{{picture.path}}" height="50" width="100"/>
-					<input type="button" value="Borrar" ng-click="realEstate.deleteImage(picture.id)"/>
-					{{picture.name}}
-				</li>
-			</ul>
-			<br /><br />
+			<div class="crud-form-attr">
+					<div class="crud-title">
+						Description:
+					</div>
+					<div class="crud-content">
+						<input type="text" ng-model="realEstate.description" required /><br />
+					</div>
+			</div>
 
-			<strong>
-				Cantidad de dormitorios:
-			</strong>
-			<input type="radio" ng-model="realEstate.bedroomLength" value="0" /><span>Sin dormitorio</span>
-			<input type="radio" ng-model="realEstate.bedroomLength" value="1" /><span>1 dormitorio</span>
-			<input type="radio" ng-model="realEstate.bedroomLength" value="2" /><span>2 dormitorios</span>
-			<input type="radio" ng-model="realEstate.bedroomLength" value="3" /><span>3 dormitorios</span>
-			<input type="radio" ng-model="realEstate.bedroomLength" value="4" /><span>Mas de 3 dormitorios</span><br />
+			<div class="crud-form-attr">
+					<div class="crud-title">
+						Tipo:
+					</div>
+					<div class="crud-content">
+						<div><input type="radio" ng-model="realEstate.type" value="house" /><span class="crud-label">Casa</span></div>
+						<div><input type="radio" ng-model="realEstate.type" value="apartment" /><span class="crud-label">Apartamento</span></div>
+						<div><input type="radio" ng-model="realEstate.type" value="terrain" /><span class="crud-label">Terreno</span></div>
+						<div><input type="radio" ng-model="realEstate.type" value="local" /><span class="crud-label">Local</span></div>
+					</div>
+			</div>
 
-			<strong>
-				Cantidad de baños:
-			</strong>
-			<input type="radio" ng-model="realEstate.bathLength" value="0" /><span>Sin baño</span>
-			<input type="radio" ng-model="realEstate.bathLength" value="1" /><span>1 baño</span>
-			<input type="radio" ng-model="realEstate.bathLength" value="2" /><span>2 baños</span>
-			<input type="radio" ng-model="realEstate.bathLength" value="3" /><span>Mas de 2 baños</span><br />
+			<div class="crud-form-attr">
+					<div class="crud-title">
+						Tipo de transaccion:
+					</div>
+					<div class="crud-content">
+							<div>
+									<input type="checkbox" ng-model="realEstate.sale"/><span class="crud-label">Venta</span>
+									<div ng-show="realEstate.sale">
+										<span>Importe de venta</span>
+										<input type="text" ng-model="realEstate.salePrice"/>
+										<input type="radio" ng-model="realEstate.currency.val" value="s" ng-change="realEstate.setCurrency('s', 'sale')"> Pesos
+										<input type="radio" ng-model="realEstate.currency.val" value="us" ng-change="realEstate.setCurrency('us', 'sale')"> Dolares
+									</div>
+							</div>
+							<div>
+									<input type="checkbox" ng-model="realEstate.rent"/><span class="crud-label">Alquiler</span>
+									<div ng-show="realEstate.rent">
+										<span>Importe de alquiler</span>
+										<input type="text" ng-model="realEstate.rentPrice"/>
+										<input type="radio" ng-model="realEstate.currencyRent.val" value="s" ng-change="realEstate.setCurrency('s', 'rent')"> Pesos
+										<input type="radio" ng-model="realEstate.currencyRent.val" value="us" ng-change="realEstate.setCurrency('us', 'rent')"> Dolares
+									</div>
+							</div>
+					</div>
+			</div>
 
-			<strong>
-				Garage:
-			</strong>
-			<input type="radio" ng-model="realEstate.garage" ng-value="true" /><span>Si</span>
-			<input type="radio" ng-model="realEstate.garage" ng-value="false" /><span>No</span><br />
+			<div class="crud-form-attr">
+					<div class="crud-title">
+						Imagenes:
+					</div>
+					<div class="crud-content">
+						<input type="file" ng-file-select="onFileSelect($files)" />
+						<ul>
+							<li ng-repeat="picture in realEstate.getImageList()">
+								<img ng-src="{{picture.path}}" height="50" width="100"/>
+								<input type="button" value="Borrar" ng-click="realEstate.deleteImage(picture.id)"/>
+								{{picture.name}}
+							</li>
+						</ul>
+					</div>
+			</div>
 
-			<strong>
-				Metraje:
-			</strong>
-			<input type="text" ng-model="realEstate.yardage"/><br />
+			<div class="crud-form-attr">
+					<div class="crud-title">
+						Cantidad de dormitorios:
+					</div>
+					<div class="crud-content">
+						<div><input type="radio" ng-model="realEstate.bedroomLength" value="0" /><span class="crud-label">Sin dormitorio</span></div>
+						<div><input type="radio" ng-model="realEstate.bedroomLength" value="1" /><span class="crud-label">1 dormitorio</span></div>
+						<div><input type="radio" ng-model="realEstate.bedroomLength" value="2" /><span class="crud-label">2 dormitorios</span></div>
+						<div><input type="radio" ng-model="realEstate.bedroomLength" value="3" /><span class="crud-label">3 dormitorios</span></div>
+						<div><input type="radio" ng-model="realEstate.bedroomLength" value="4" /><span class="crud-label">Mas de 3 dormitorios</span></div>
+					</div>
+			</div>
 
-			<strong>
-				Amueblado:
-			</strong>
-			<input type="radio" ng-model="realEstate.furnished" ng-value="true"/><span>Si</span>
-			<input type="radio" ng-model="realEstate.furnished" ng-value="false"/><span>No</span><br />
+			<div class="crud-form-attr">
+					<div class="crud-title">
+						Cantidad de baños:
+					</div>
+					<div class="crud-content">
+						<div><input type="radio" ng-model="realEstate.bathLength" value="0" /><span class="crud-label">Sin baño</span></div>
+						<div><input type="radio" ng-model="realEstate.bathLength" value="1" /><span class="crud-label">1 baño</span></div>
+						<div><input type="radio" ng-model="realEstate.bathLength" value="2" /><span class="crud-label">2 baños</span></div>
+						<div><input type="radio" ng-model="realEstate.bathLength" value="3" /><span class="crud-label">Mas de 2 baños</span></div>
+					</div>
+			</div>
 
+			<div class="crud-form-attr">
+					<div class="crud-title">
+						Garage:
+					</div>
+					<div class="crud-content">
+						<input type="radio" ng-model="realEstate.garage" ng-value="true" /><span class="crud-label">Si</span>
+						<input type="radio" ng-model="realEstate.garage" ng-value="false" /><span class="crud-label">No</span>
+					</div>
+			</div>
 
-			<strong>
-				Orientacion:
-			</strong>
-			<input type="radio" ng-model="realEstate.orientation" value="front" /><span>Frente</span>
-			<input type="radio" ng-model="realEstate.orientation" value="counterFront" /><span>Contrafrente</span>
-			<input type="radio" ng-model="realEstate.orientation" value="inside" /><span>Interior</span>
-			<input type="radio" ng-model="realEstate.orientation" value="lateral" /><span>Lateral</span><br />
+			<div class="crud-form-attr">
+					<div class="crud-title">
+						Metraje:
+					</div>
+					<div class="crud-content">
+						<input type="text" ng-model="realEstate.yardage"/><br />
+					</div>
+			</div>
 
-			<strong>
-				Terraza:
-			</strong>
-			<input type="radio" ng-model="realEstate.terrace" ng-value="true"/><span>Si</span>
-			<input type="radio" ng-model="realEstate.terrace" ng-value="false"/><span>No</span><br />
+			<div class="crud-form-attr">
+					<div class="crud-title">
+						Amueblado:
+					</div>
+					<div class="crud-content">
+						<input type="radio" ng-model="realEstate.furnished" ng-value="true"/><span class="crud-label">Si</span>
+						<input type="radio" ng-model="realEstate.furnished" ng-value="false"/><span class="crud-label">No</span>
+					</div>
+			</div>
 
-			<strong>
-				Gastos Comunes
-			</strong>
-			$<input type="text" ng-model="realEstate.commonExpenses"/><br />
+			<div class="crud-form-attr">
+					<div class="crud-title">
+						Orientacion:
+					</div>
+					<div class="crud-content">
+						<div><input type="radio" ng-model="realEstate.orientation" value="front" /><span class="crud-label">Frente</span></div>
+						<div><input type="radio" ng-model="realEstate.orientation" value="counterFront" /><span class="crud-label">Contrafrente</span></div>
+						<div><input type="radio" ng-model="realEstate.orientation" value="inside" /><span class="crud-label">Interior</span></div>
+						<div><input type="radio" ng-model="realEstate.orientation" value="lateral" /><span class="crud-label">Lateral</span></div>
+					</div>
+			</div>
 
-			<strong>
-				Vigilancia:
-			</strong>
-			<input type="radio" ng-model="realEstate.vigilance" ng-value="true"/><span>Si</span>
-			<input type="radio" ng-model="realEstate.vigilance" ng-value="false"/><span>No</span><br />
+			<div class="crud-form-attr">
+					<div class="crud-title">
+						Terraza:
+					</div>
+					<div class="crud-content">
+						<input type="radio" ng-model="realEstate.terrace" ng-value="true"/><span class="crud-label">Si</span>
+						<input type="radio" ng-model="realEstate.terrace" ng-value="false"/><span class="crud-label">No</span>
+					</div>
+			</div>
 
-			<strong>
-				Linea blanca:
-			</strong>
-			<input type="radio" ng-model="realEstate.whiteLine" ng-value="true"/><span>Si</span>
-			<input type="radio" ng-model="realEstate.whiteLine" ng-value="false"/><span>No</span><br />
+			<div class="crud-form-attr">
+					<div class="crud-title">
+						Gastos Comunes
+					</div>
+					<div class="crud-content">
+						$<input type="text" ng-model="realEstate.commonExpenses"/>
+					</div>
+			</div>
+
+			<div class="crud-form-attr">
+					<div class="crud-title">
+						Vigilancia:
+					</div>
+					<div class="crud-content">
+						<input type="radio" ng-model="realEstate.vigilance" ng-value="true"/><span class="crud-label">Si</span>
+						<input type="radio" ng-model="realEstate.vigilance" ng-value="false"/><span class="crud-label">No</span>
+					</div>
+			</div>
+
+			<div class="crud-form-attr">
+					<div class="crud-title">
+						Linea blanca:
+					</div>
+					<div class="crud-content">
+						<input type="radio" ng-model="realEstate.whiteLine" ng-value="true"/><span class="crud-label">Si</span>
+						<input type="radio" ng-model="realEstate.whiteLine" ng-value="false"/><span class="crud-label">No</span>
+					</div>
+			</div>
 
 			<button ng-show="realEstate.id" ng-click="update()">Actualizar</button>
 			<button ng-hide="realEstate.id" ng-click="save()">Salvar</button>

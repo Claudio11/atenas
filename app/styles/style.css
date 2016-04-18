@@ -852,6 +852,26 @@ body{
 	padding: 0 12%;
 }
 
+.crud-form-attr {
+	margin-bottom: 20px;
+}
+	.crud-title {
+		width: 20%;
+		display: inline-block;
+		font-weight: bold;
+		vertical-align: top;
+
+	}
+
+	.crud-content {
+		width: 79%;
+		display: inline-block;
+	}
+
+		.crud-label {
+			margin: 0 5px;
+		}
+
 /***** social icons *****/
 
 /* Lista de Propiedades */
