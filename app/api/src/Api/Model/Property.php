@@ -158,6 +158,11 @@ class Property
         return $this->loadListFromQuery('SELECT * FROM properties LIMIT 6;');
     }
 
+    public function getAllProperties()
+    {
+        return $this->loadListFromQuery('SELECT * FROM properties;');
+    }
+
     /**
      *  Obtain the list of properties after the given Id (sorted by created data desc).
      */

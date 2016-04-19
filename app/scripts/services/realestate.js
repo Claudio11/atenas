@@ -3,7 +3,7 @@
 angular.module('atenasApp')
   .factory('RealEstate', ['$http', '$filter', '$q', 'localStorageService', 'Util', 'Picture',
     function ($http, $filter, $q, localStorageService, Util, Picture) {
-  	
+
         function RealEstate(data){
             this.id = data.id;
             this.type = data.type; // See if its worthy to create subclasses (house, apartment, etc).
@@ -52,7 +52,7 @@ angular.module('atenasApp')
             }
             if (filterParams.bedroomLength && filterParams.bedroomLength !== this.bedroomLength.toString()) {
                 if (this.bedroomLength <= 3 || filterParams.bedroomLength !== '4') {
-                    // It can have more than 3 bedrooms (4 means "more than 3 bedrooms").  
+                    // It can have more than 3 bedrooms (4 means "more than 3 bedrooms").
                     matches = false;
                 }
             }
@@ -126,7 +126,7 @@ angular.module('atenasApp')
                 }
             });
             this.imageList.splice(index, 1);
-        };   
+        };
 
         /**
          *  Save {this}.
@@ -175,7 +175,7 @@ angular.module('atenasApp')
         }
 
         /**
-         *  Set {this} as viewed (in order to send the data to the database we check if {this} has 
+         *  Set {this} as viewed (in order to send the data to the database we check if {this} has
          *  not been seen in the last day (TODO)).
          */
         RealEstate.prototype.setAsViewed = function () {
@@ -185,7 +185,7 @@ angular.module('atenasApp')
             var lastMarkedVisitTimestamp = localStorageService.get('visited_' + this.id);
 
             if (lastMarkedVisitTimestamp) {
-                var diffHours = (currentTimestamp - lastMarkedVisitTimestamp) / (1000 * 3600); 
+                var diffHours = (currentTimestamp - lastMarkedVisitTimestamp) / (1000 * 3600);
                 if (diffHours < 3) {
                     shouldUpdateViewCount = false;
                 }
@@ -209,7 +209,7 @@ angular.module('atenasApp')
                     }
                 });
             }
-        } 
+        }
 
 
         // Static methods.
@@ -229,6 +229,29 @@ angular.module('atenasApp')
             $http({
                 method: 'GET',
                 url: url
+            })
+            .then(function(response) {
+                angular.forEach(response.data, function(value, key) {
+                    realEstatesList.push( new RealEstate(value) );
+                });
+                deferred.resolve(realEstatesList);
+            },
+            function() {
+                deferred.reject();
+            });
+
+            return deferred.promise;
+        };
+
+        /**
+         *  Obtain the entire list (only for manager)
+         */
+        RealEstate.getEntireList = function(lastId) {
+            var deferred = $q.defer();
+            var realEstatesList = [];
+            $http({
+                method: 'GET',
+                url: '/api/allProperties'
             })
             .then(function(response) {
                 angular.forEach(response.data, function(value, key) {

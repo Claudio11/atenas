@@ -854,6 +854,9 @@ body{
 
 .crud-form-attr {
 	margin-bottom: 20px;
+	background-color: whitesmoke;
+	border-radius: 3px;
+	padding: 5px 0;
 }
 	.crud-title {
 		width: 20%;

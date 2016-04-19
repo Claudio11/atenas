@@ -25,7 +25,7 @@ angular
     // Add needed interceptor/s.
     $httpProvider.interceptors.push('httpInterceptor');
 
-    // Set prefix for local storage. 
+    // Set prefix for local storage.
     localStorageServiceProvider.setPrefix('atenas');
 
     $routeProvider
@@ -39,7 +39,7 @@ angular
         }
       })
       .when('/list', {
-        
+
         templateUrl: 'views/realEstates/list.html',
         controller: 'RealEstatesCtrl',
         resolve: {
@@ -55,6 +55,15 @@ angular
       .when('/realEstates/upsert/:id?', {
         templateUrl: 'views/realEstates/new.html',
         controller: 'CreateRealEstatesCtrl'
+      })
+      .when('/realEstates/list', {
+        templateUrl: 'views/realEstates/crud-list.html',
+        controller: 'ListRealEstatesCtrl',
+        resolve: {
+          realEstatesList: function (RealEstate) {
+            return RealEstate.getEntireList();
+          }
+        }
       })
       .otherwise({
         redirectTo: '/'

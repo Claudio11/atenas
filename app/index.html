@@ -33,7 +33,7 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <script type="text/javascript">
       jQuery(document).ready(function($) {
-        $(".scroll").click(function(event){   
+        $(".scroll").click(function(event){
           event.preventDefault();
           $('html,body').animate({scrollTop:$(this.hash).offset().top},1200);
         });
@@ -68,7 +68,7 @@
           </div>
           <!-- start-wrap -->
           <div class="wrap">
-            
+
             <!-- start-header -->
         <div class="header"  id="top">
             <!-- start-top-nav -->
@@ -79,7 +79,7 @@
                   <li><a ng-href="#/" ng-class="{'selected-section': isFeatured}">Inicio</a></li>
                   <li><a ng-href="#/list" ng-class="{'selected-section': isList}">Propiedades</a></li>
                   <li><a ng-href="#/contact" ng-class="{'selected-section': isContact}">Contacto</a></li>
-                  
+
                   <div class="clear"> </div>
                 </ul>
               </div>
@@ -92,32 +92,32 @@
             <!-- End-top-nav -->
                   <!-- top-nav responsive -->
                   <div class="column menu-small-container" ng-class="{'is-contact': isContact}">
-          
+
                       <div id="dl-menu" class="dl-menuwrapper">
-                        
+
                             <button ng-click="toggleMenu()" class="dl-trigger">Open Menu</button>
                             <ul class="dl-menu" ng-show="menuOpen" click-outside="toggleMenu()" is-active="menuOpen">
-                            
+
                                 <li>
                                     <a ng-href="#/">Inicio</a>
                                 </li>
-                                                    
+
                                 <li>
                                     <a ng-href="#/list">Propiedades</a>
                                 </li>
                                 <li>
                                     <a ng-href="#/contact">Contacto</a>
                                 </li>
-                                                              
+
                       </ul>
-                                            
+
                     </div>
-                                        
+
                   </div>
-                  
-                <!-- top-nav responsive -->  
-                  
-                  
+
+                <!-- top-nav responsive -->
+
+
           </div>
 
             </div>
@@ -141,7 +141,7 @@
       <div class="footer-grid">
         <h3>Quienes somos</h3>
         <p>Atenas Inmobiliaria es una empresa establecida en Montevideo,Uruguay desde 1998. El éxito de la compañía a lo largo de los años está basado, ante todo, en la reputación que ha logrado por su calidad e integridad, dos principios en los que se fundamenta su forma de trabajar.</p>
-        
+
       </div>
       <div class="footer-grid center-grid">
         <h3>Asociaciones</h3>
@@ -149,7 +149,7 @@
           <li><a href="http://www.inmuebles.com.uy" target="_blank">inmuebles.com.uy</a></li>
           <li><a href="http://www.adiu.com.uy" target="_blank">adiu.com.uy</a></li>
                     <li><a href="mailto:atenasinmob@gmail.com">Contáctenos</a>
-          
+
         </ul>
       </div>
       <div class="footer-grid twitts">
@@ -232,6 +232,7 @@
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/realestatescontroller.js"></script>
+        <script src="scripts/controllers/listrealestates.js"></script>
         <script src="scripts/services/realestate.js"></script>
         <script src="scripts/filters/mainrealestate.js"></script>
         <script src="scripts/controllers/createrealestates.js"></script>
@@ -253,7 +254,7 @@
         <script src="scripts/filters/ellipsis.js"></script>
         <script src="scripts/directives/clickoutside.js"></script>
 
-        
+
         <script src="styles/3DGridEffect/js/classie.js"></script>
         <script src="styles/3DGridEffect/js/helper.js"></script>
         <script src="styles/3DGridEffect/js/grid3d.js"></script>

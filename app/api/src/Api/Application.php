@@ -74,6 +74,13 @@ class Application extends Slim
             $this->response->setBody(json_encode($properties->getProperties()));
         });
 
+        $this->get('/api/allProperties', function () {
+            //$handler->debug('called from handler debug', 'asdasdasd2');
+            $properties = new Property();
+            $this->response->headers->set('Content-Type', 'application/json');
+            $this->response->setBody(json_encode($properties->getAllProperties()));
+        });
+
         // Properties
         $this->get('/api/properties/:id', function ($id) {
             $properties = new Property();
@@ -97,7 +104,7 @@ class Application extends Slim
             $result = $properties->save($postArray);
 
             $pictureList = $postArray['data']->imageList;
-            
+
             if ($result){
                 // If there is any uploaded picture, relate pictures with the property.
                 $assets = new Assets();
@@ -119,7 +126,7 @@ class Application extends Slim
             $result = $properties->update($postArray);
 
             $pictureList = $postArray['data']->imageList;
-            
+
             if ($result){
                 // If there is any uploaded picture, relate pictures with the property.
                 $assets = new Assets();
@@ -140,7 +147,7 @@ class Application extends Slim
             $post = json_decode($this->request()->getBody());
             $postArray = get_object_vars($post);
             $result = $properties->addView($postArray);
-            
+
             $this->response->setBody(json_encode(array("status" => $result)));
         });
 
@@ -175,7 +182,7 @@ class Application extends Slim
                     throw new RuntimeException('Unknown errors.');
                 }
 
-                // You should also check filesize here. 
+                // You should also check filesize here.
                 if ($uploadedFile['size'] > 1000000) {
                     throw new RuntimeException('Exceeded filesize limit.');
                 }
@@ -200,7 +207,7 @@ class Application extends Slim
                 $this->response->headers->set('Content-Type', 'application/json');
                 $assetData = array("path" => $path, "name" => $uploadedFile['name'], "size" => $uploadedFile['size'], "type" => $uploadedFile['type']);
                 $result = $asset->save($assetData);
-                
+
                 if ($result){
                     $response = array("status" => true, "id" => $result, 'path' => $path);
                 }
