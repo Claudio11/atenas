@@ -883,6 +883,32 @@ body{
 			margin: 0 5px;
 		}
 
+.list-crud-container {
+		padding: 5% 15%;
+}
+	.re-container {
+		margin-bottom: 15px;
+    background: whitesmoke;
+    color: grey;
+    padding: 8px;
+		border-radius: 3px;
+	}
+
+	.re-container:hover {
+		background: #aabbcc;
+		color: white;
+	}
+
+	.new-property-anchor > div {
+		color: white !important;
+		padding: 8px;
+		background: #aabbcc;
+		width: 140px;
+		margin-top: 60px;
+		text-align: center;
+	}
+
+
 /***** social icons *****/
 
 /* Lista de Propiedades */

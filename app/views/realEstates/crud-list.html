@@ -1,6 +1,6 @@
 <div class="list-crud-container">
     <ul>
-      <li ng-repeat="re in realEstates" ng-click="">
+      <li ng-repeat="re in realEstates">
           <a ng-href="#/realEstates/upsert/{{re.id}}">
             <div class="re-container">
                 {{re.title}}
@@ -8,4 +8,10 @@
           </a>
       </li>
     </ul>
+
+    <a href="#/realEstates/upsert" class="new-property-anchor">
+      <div>
+          Nueva propiedad
+      </div>
+    </a>
 </div>
