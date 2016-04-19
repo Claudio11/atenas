@@ -42,7 +42,7 @@
 									<input type="checkbox" ng-model="realEstate.sale"/><span class="crud-label">Venta</span>
 									<div ng-show="realEstate.sale">
 										<span>Importe de venta</span>
-										<input type="text" ng-model="realEstate.salePrice"/>
+										<input type="text" ng-model="realEstate.salePrice" class="small-input-text"/>
 										<input type="radio" ng-model="realEstate.currency.val" value="s" ng-change="realEstate.setCurrency('s', 'sale')"> Pesos
 										<input type="radio" ng-model="realEstate.currency.val" value="us" ng-change="realEstate.setCurrency('us', 'sale')"> Dolares
 									</div>
@@ -51,7 +51,7 @@
 									<input type="checkbox" ng-model="realEstate.rent"/><span class="crud-label">Alquiler</span>
 									<div ng-show="realEstate.rent">
 										<span>Importe de alquiler</span>
-										<input type="text" ng-model="realEstate.rentPrice"/>
+										<input type="text" ng-model="realEstate.rentPrice" class="small-input-text"/>
 										<input type="radio" ng-model="realEstate.currencyRent.val" value="s" ng-change="realEstate.setCurrency('s', 'rent')"> Pesos
 										<input type="radio" ng-model="realEstate.currencyRent.val" value="us" ng-change="realEstate.setCurrency('us', 'rent')"> Dolares
 									</div>
@@ -115,7 +115,7 @@
 						Metraje:
 					</div>
 					<div class="crud-content">
-						<input type="text" ng-model="realEstate.yardage"/><br />
+						<input type="text" ng-model="realEstate.yardage" class="small-input-text"/><br />
 					</div>
 			</div>
 
@@ -156,7 +156,7 @@
 						Gastos Comunes
 					</div>
 					<div class="crud-content">
-						$<input type="text" ng-model="realEstate.commonExpenses"/>
+						$<input type="text" ng-model="realEstate.commonExpenses" class="small-input-text"/>
 					</div>
 			</div>
 

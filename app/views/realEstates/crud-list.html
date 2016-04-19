@@ -1,7 +1,11 @@
 <div class="list-crud-container">
     <ul>
-      <li ng-repeat="re in realEstates">
-          {{re.title}}
+      <li ng-repeat="re in realEstates" ng-click="">
+          <a ng-href="#/realEstates/upsert/{{re.id}}">
+            <div class="re-container">
+                {{re.title}}
+            </div>
+          </a>
       </li>
     </ul>
 </div>

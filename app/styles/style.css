@@ -871,6 +871,14 @@ body{
 		display: inline-block;
 	}
 
+		.crud-content input[type=text] {
+			width: 90%;
+		}
+
+		.crud-content .small-input-text {
+			width: 10% !important;
+		}
+
 		.crud-label {
 			margin: 0 5px;
 		}
