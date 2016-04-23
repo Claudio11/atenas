@@ -846,6 +846,11 @@ body{
 	background: none;
 }
 
+/* Contact content */
+	.contact-content {
+		  margin: 2% 10%;
+	}
+
 /* CRUD */
 
 .crud-container {
