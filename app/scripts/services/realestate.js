@@ -211,6 +211,24 @@ angular.module('atenasApp')
             }
         }
 
+        RealEstate.prototype.delete = function() {
+            var deferred = $q.defer();
+
+            // TODO add web security checks.
+            $http({
+                method: 'DELETE',
+                url: 'api/properties/' + this.id
+            })
+            .then(function(response) {
+                deferred.resolve(response);
+            },
+            function() {
+                deferred.reject();
+            });
+
+            return deferred.promise;
+        };
+
 
         // Static methods.
 

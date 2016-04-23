@@ -151,6 +151,13 @@ class Application extends Slim
             $this->response->setBody(json_encode(array("status" => $result)));
         });
 
+        // Properties
+        $this->delete('/api/properties/:id', function ($id) {
+            $properties = new Property();
+            $this->response->headers->set('Content-Type', 'application/json');
+            $this->response->setBody(json_encode($properties->deleteProperty($id)));
+        });
+
         // File upload
         // TODO Refactor and add dile type validation (and other checks).
         $this->post('/api/uploadImage', function () {

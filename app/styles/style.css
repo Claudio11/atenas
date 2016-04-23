@@ -886,18 +886,42 @@ body{
 .list-crud-container {
 		padding: 5% 15%;
 }
-	.re-container {
+
+	.list-crud-container > ul > li {
 		margin-bottom: 15px;
     background: whitesmoke;
     color: grey;
-    padding: 8px;
 		border-radius: 3px;
 	}
+		.list-crud-container > ul > li:hover {
+			background: #aabbcc;
+		}
 
-	.re-container:hover {
-		background: #aabbcc;
-		color: white;
+		.delete-real-estate-button {
+			display: inline-block;
+			border: 1px solid grey;
+			padding: 4px;
+			border-radius: 3px;
+			background: #aa4444;
+			color: white;
+			float: right;
+			margin-top: 3px;
+			margin-right: 10px;
+		}
+			.delete-real-estate-button:hover {
+				background: red;
+				cursor: pointer;
+			}
+
+	.re-container {
+		padding: 8px;
+		display: inline-block;
 	}
+
+		.re-container:hover {
+			cursor: pointer;
+			color: white;
+		}
 
 	.new-property-anchor > div {
 		color: white !important;

@@ -148,6 +148,27 @@ class Property
         }
     }
 
+    public function deleteProperty($propertyId) {
+        $this->db = connect_db();
+        if (!$this->db) {
+            return null;
+        }
+        else{
+            if ($stmt = $this->db->prepare("DELETE FROM properties WHERE id = ?")) {
+                $stmt->bind_param('i', $propertyId);
+
+                $stmt->execute();
+                $affc_rows = $stmt->affected_rows;
+                $stmt->close();
+                return $affc_rows > 0;
+            }
+            else {
+                /* Error */
+                return printf("Error: %s\n", $mysqli->error);
+            }
+        }
+    }
+
     public function __construct()
     {
 
