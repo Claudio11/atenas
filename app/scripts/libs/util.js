@@ -11,7 +11,7 @@ angular.module('atenasApp')
             currencyObject = {label: 'u$', usRatio: 1, val: 'us'};
             break;
           case 's':
-            currencyObject = {label: '$', usRatio: 23.5, val: 's'};
+            currencyObject = {label: '$', usRatio: 28.5, val: 's'};
             break;
           default:
             currencyObject = {label: 'u$', usRatio: 1, val: 'us'};
