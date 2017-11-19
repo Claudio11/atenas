@@ -101,7 +101,7 @@ module.exports = function (grunt) {
       proxies: [
         {
           context: '/api',
-          host: 'localhost',
+          host: '127.0.0.1',
           port: '<%= php.options.port %>'
         }
       ],
