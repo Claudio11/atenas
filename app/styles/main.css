@@ -310,7 +310,7 @@ div.mounted{
 
 .no-scroll {
   overflow: hidden;
-}  
+}
 
 #loaderDiv {
   position: fixed;
@@ -417,6 +417,11 @@ ul[rn-carousel] {
 
 .contact-container {
   padding: 0 5%;
+}
+
+.contact-container .result {
+  padding: 0 5%;
+  color: #aa2222;
 }
 
 /* Media queries */

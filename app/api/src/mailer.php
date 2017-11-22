@@ -1,5 +1,5 @@
 <?php
-require_once '../vendor/phpmailer/PHPMailerAutoload.php';
+require_once '../vendor/phpmailer/phpmailer/PHPMailerAutoload.php';
 
 if (isset($_POST['inputName']) && isset($_POST['inputEmail']) && isset($_POST['inputSubject']) && isset($_POST['inputMessage'])) {
 
@@ -15,7 +15,7 @@ if (isset($_POST['inputName']) && isset($_POST['inputEmail']) && isset($_POST['i
 
     $mail->From = $_POST['inputEmail'];
     $mail->FromName = $_POST['inputName'];
-    $mail->AddAddress('claudiospuy@gmail.com'); //recipient 
+    $mail->AddAddress('atenasinmob@gmail.com'); //recipient
     $mail->Subject = $_POST['inputSubject'];
     $mail->Body = "Name: " . $_POST['inputName'] . "\r\n\r\nMessage: " . stripslashes($_POST['inputMessage']);
 
@@ -29,7 +29,7 @@ if (isset($_POST['inputName']) && isset($_POST['inputEmail']) && isset($_POST['i
         exit;
     }
 
-    $data = array('success' => true, 'message' => 'Gracias! Hemos recibido su mensaje.');
+    $data = array('success' => true, 'message' => 'Gracias! Su mensaje ha sido enviado.');
     echo json_encode($data);
 
 } else {

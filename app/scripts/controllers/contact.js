@@ -7,7 +7,7 @@ angular.module('atenasApp')
         $scope.formData; //formData is an object holding the name, email, subject, and message
         $scope.submitButtonDisabled = false;
         $scope.submitted = false; //used so that form errors are shown only after the form has been submitted
-        
+
         $scope.submit = function(contactform) {
             $scope.submitted = true;
             $scope.submitButtonDisabled = true;
@@ -31,7 +31,7 @@ angular.module('atenasApp')
                 });
             } else {
                 $scope.submitButtonDisabled = false;
-                $scope.resultMessage = 'Failed <img src="http://www.chaosm.net/blog/wp-includes/images/smilies/icon_sad.gif" alt=":(" class="wp-smiley">  Please fill out all the fields.';
+                $scope.resultMessage = 'Failed <img src="http://www.chaosm.net/blog/wp-includes/images/smilies/icon_sad.gif" alt=":(" class="wp-smiley">  Por favor complete todos los campos.';
                 $scope.result='bg-danger';
             }
         }

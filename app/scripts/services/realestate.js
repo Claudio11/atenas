@@ -269,7 +269,7 @@ angular.module('atenasApp')
             var realEstatesList = [];
             $http({
                 method: 'GET',
-                url: '/api/allProperties'
+                url: 'api/allProperties'
             })
             .then(function(response) {
                 angular.forEach(response.data, function(value, key) {

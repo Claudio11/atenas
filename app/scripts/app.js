@@ -52,19 +52,19 @@ angular
         templateUrl: 'views/contact.html',
         controller: 'ContactCtrl'
       })
-      .when('/realEstates/upsert/:id?', {
-        templateUrl: 'views/realEstates/new.html',
-        controller: 'CreateRealEstatesCtrl'
-      })
-      .when('/realEstates/list', {
-        templateUrl: 'views/realEstates/crud-list.html',
-        controller: 'ListRealEstatesCtrl',
-        resolve: {
-          realEstatesList: function (RealEstate) {
-            return RealEstate.getEntireList();
-          }
-        }
-      })
+      // .when('/realEstates/upsert/:id?', {
+      //   templateUrl: 'views/realEstates/new.html',
+      //   controller: 'CreateRealEstatesCtrl'
+      // })
+      // .when('/realEstates/list', {
+      //   templateUrl: 'views/realEstates/crud-list.html',
+      //   controller: 'ListRealEstatesCtrl',
+      //   resolve: {
+      //     realEstatesList: function (RealEstate) {
+      //       return RealEstate.getEntireList();
+      //     }
+      //   }
+      // })
       .otherwise({
         redirectTo: '/'
       });
