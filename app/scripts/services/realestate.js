@@ -241,8 +241,9 @@ angular.module('atenasApp')
             var deferred = $q.defer();
             var realEstatesList = [];
 
-            var url = (Util.isEmpty(lastId)) ? 'api/properties' : 'api/propertiesAfterId/' + lastId;
+            //var url = (Util.isEmpty(lastId)) ? 'api/properties' : 'api/propertiesAfterId/' + lastId;
 
+            var url = 'api/allProperties';
             // TODO add web security checks.
             $http({
                 method: 'GET',

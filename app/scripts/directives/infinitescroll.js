@@ -12,8 +12,8 @@ angular.module('atenasApp')
             },
             link: function(scope, element, attrs) {
                 // Check when the element scroll is near bottom, then we retrieve the elements after the id (sorted by date) and append it to the existing list.
-                var isAbleToRequest = true; // Boolean that indicates if is ok to send a request (while is retrieving we should not allow to request even if the scroll is at the bottom). 
-                
+                var isAbleToRequest = true; // Boolean that indicates if is ok to send a request (while is retrieving we should not allow to request even if the scroll is at the bottom).
+
                 // Added grid element (TODO: see if we have time to remove this gallery).
                 //new grid3D( document.getElementById( 'grid3d' ) );
 
@@ -31,40 +31,40 @@ angular.module('atenasApp')
                 scope.lastId = getLastId();
 
                 var doc = angular.element($document);
-                doc.on('scroll', function() {
-                    if (isAbleToRequest) {
-                        var offsetHeight = $document[0].body.offsetHeight;
-                        var scrollPosition = doc.scrollTop();
+                // doc.on('scroll', function() {
+                //     if (isAbleToRequest) {
+                //         var offsetHeight = $document[0].body.offsetHeight;
+                //         var scrollPosition = doc.scrollTop();
 
-                        if (offsetHeight - scrollPosition < 900) {
-                            // Near the bottom of the list so we retrieve the new data...
-                            isAbleToRequest = false;
-                            RealEstate.getList(scope.lastId).then(function(realEstateList){
-                                if (realEstateList.length > 0) {
-                                    scope.list = scope.list.concat(realEstateList);
-                                    scope.lastId = getLastId();
-                                    isAbleToRequest = true;
-                                }
-                                else {
-                                    // End of the list, no more elements to display...
-                                    isAbleToRequest = false;
-                                }
-                            });
-                        }
-                    }
-                });
+                //         if (offsetHeight - scrollPosition < 900) {
+                //             // Near the bottom of the list so we retrieve the new data...
+                //             isAbleToRequest = false;
+                //             RealEstate.getList(scope.lastId).then(function(realEstateList){
+                //                 if (realEstateList.length > 0) {
+                //                     scope.list = scope.list.concat(realEstateList);
+                //                     scope.lastId = getLastId();
+                //                     isAbleToRequest = true;
+                //                 }
+                //                 else {
+                //                     // End of the list, no more elements to display...
+                //                     isAbleToRequest = false;
+                //                 }
+                //             });
+                //         }
+                //     }
+                // });
 
-                // When filtered list length is lesser than 5, call for more properties TODO: (maybe keep asking until filtered list is bigger than 5(?)). 
-                scope.$watch('filteredList', function (newV, oldV) {
-                    if (isAbleToRequest && newV.length < 5) {
-                        RealEstate.getList(scope.lastId).then(function(realEstateList){
-                            if (realEstateList.length > 0) {
-                                scope.list = scope.list.concat(realEstateList);
-                                scope.lastId = getLastId();
-                            }
-                        });
-                    }
-                });
+                // When filtered list length is lesser than 5, call for more properties TODO: (maybe keep asking until filtered list is bigger than 5(?)).
+                // scope.$watch('filteredList', function (newV, oldV) {
+                //     if (isAbleToRequest && newV.length < 5) {
+                //         RealEstate.getList(scope.lastId).then(function(realEstateList){
+                //             if (realEstateList.length > 0) {
+                //                 scope.list = scope.list.concat(realEstateList);
+                //                 scope.lastId = getLastId();
+                //             }
+                //         });
+                //     }
+                // });
             }
         };
     }]);
